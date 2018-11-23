@@ -1,0 +1,150 @@
+\section{Линейные ДУ n-го порядка}
+
+\begin{Def}
+    Пусть сущ. функции $p_1(x),\, \dots,\, p_n(x),\, f(x) \in C_{(a;\,b)}$. Тогда ДУ вида
+    \[
+        y^{(n)} + p_1(x)\,y^{(n-1)} + \dots + p_n(x)\,y = f(x)
+    \]
+    называется лининейным ДУ n-го порядка с коэфициентами $p_1(x),\; \dots,\; p_n(x)$ и правой частью $f(x)$
+\end{Def}
+
+\begin{Th}[Cущ. и ед. задачи Коши для ЛДУ n-го порядка]
+    Пусть $p_1(x),\, \dots,\, p_n(x), \,f(x) \in C_{(a;\;b)}$.\\ 
+    Тогда $\forall x_0 \in (a;\,b)$, $\forall y_0,\, y_0',\, \dots,\, y_0^{(n-1)} \in \bb{R}$ задача Коши
+    \[
+        \begin{cases}
+            y^{(n)}+p_1(x)y^{(n-1)}+\dots+p_n(x)y=f(x)\\
+            y|_{x=x_0}=y_0, \dots , y^{(n-1)}|_{x=x_0}=y_0^{(n-1)}
+        \end{cases}
+    \]
+    имеет единственное решение $y=y(x)$, $x\in (a,\,b)$ определённое на всём интервале $(a;\,b)$.
+\end{Th}
+
+\begin{Proof}
+    Принимаем без доказательств
+    
+\end{Proof}
+
+Для более компактной записи введём следующее определение
+\begin{Def}[Линейный диференциальный оператор]
+    Перед тем как непосредственно вводить определение рассмотрим два случая.
+    \begin{enumerate}
+        \item Рассмотрим оператор диференцирования: $\frac{d}{dx}$, тогда его действие будет выглядеть так 
+        \[
+            \frac{d}{dx}\,f(x)=\frac{df(x)}{dx}=f'(x)
+        \]
+        Данный оператор линейный, так как
+        \begin{enumerate}
+            \item $(v+u)'=v'+u'$
+            \item $(cu)'=c\,u'$
+        \end{enumerate}
+        (Примечание. признак линейности см. во 2м сем.)
+        
+        \item Для другого оператора $\frac{d^k}{dx^k}$ действие будет выглядеть \[
+            \frac{d^k}{dx^k}f(x)=\frac{d^kf(x)}{dx^k}=f^(k)(x)
+        \]
+        Сам оператор также является линейным
+    \end{enumerate}
+    Таким образом, очевидно, что в общем случае можно определить оператор
+    \[
+        L=\frac{d^n}{dx^n}+p_1(x)\frac{d^{n-1}}{dx^{n-1}}+\dots +p_{n-1}(x)\frac{d}{dx}+p_n(x)E
+    \] 
+    это линейный диференциальный оператор $n$-го порядка, где
+    \[
+        Ef(x)=f(x) \text{ E --- единичный оператор}
+    \]
+    
+    Его действие на n раз диф. ф-ю $f(x)$
+    \begin{align*}
+        L&=\frac{d^nf(x)}{dx^n} + p_1(x)\,\frac{d^{n-1}f(x)}{dx^{n-1}}+ \dots +p_{n-1}(x)\,\frac{df(x)}{dx}+p_n(x)\,f(x)\\
+        L(y)&=y^{(n)}+p_1(x)\,y^{(n-1)}+p_{n-1}\,(x)y'+p_n(x)\,y    
+    \end{align*}
+\end{Def}
+
+
+
+\begin{Note}
+    Теперь ЛДУ n-го порядка можно описать так 
+    \[
+        L(y)=f(x)
+    \]
+\end{Note}
+
+\begin{Note}[Линейность оператора $L$].\\
+    Пусть 
+    \[
+        L=\frac{d^n}{dx^n}+p_1(x)\,\frac{d^{n-1}}{dx^{n-1}}+ \dots +p_{n-1}(x)\,\frac{d}{dx}+p_n(x)\,E
+    \]
+    Тогда
+    \begin{enumerate}
+        \item $L(\varphi_1(x)+\varphi_2(x))=L(\varphi_1(x))+L(\varphi_2(x))$
+        \item $L(C\,\varphi(x))=C\,L(\varphi(x))$
+        \item $L(C_1 \, \varphi_1(x)+C_2 \, \varphi_2(x) + \dots + C_n\varphi_n(x))=C_1\, L(\varphi_1(x))+C_2 \, L(\varphi_2(x)) + \dots + C_n \, L(\varphi_n(x))$
+    \end{enumerate}
+ \end{Note}
+
+\begin{Proof}
+     \begin{enumerate}
+        \item Рассмотрим следующие тривиальные выражения
+        \begin{align*}
+        \varphi_1(x)+\varphi_2(x) &=\varphi_1(x)+\varphi_2(x)\\
+        (\varphi_1(x)+\varphi_2(x))' &=\varphi'_1(x)+\varphi'_2(x)\\
+        (\varphi_1(x)+\varphi_2(x))'' &=\varphi''_1(x)+\varphi''_2(x)\\
+        &\dots\\
+        (\varphi_1(x)+\varphi_2(x))^{(n)} &=\varphi^{(n)}_1(x)+\varphi^{(n)}_2(x)
+        \end{align*}
+        Каждую из строк соответственно умножим на $p_n,\; p_{n-1},\; \dots, \; p_1,\; 1$.
+        Затем сложим все уравнения. И нетрудно заметить, что таким образом получаем
+        \[
+            L(\varphi_1(x)+\varphi_2(x))=L(\varphi_1(x))+L(\varphi_2(x))
+        \]
+        
+        \item аналогично доказывается (рассмотрим выражения $c\,\varphi, (c\,\varphi)^{(n)}$)
+        
+        \item аналогично (или методом мат. индукции по $k$)
+    \end{enumerate}
+\end{Proof}
+
+\begin{Def}
+    \begin{align}
+        L(y)&=y^{(n)}+p_1(x)\,y^{(n-1)}+p_{n-1}(x)\,y'+\dots+p_n(x)\,y=f(x)\\
+        L(y)&=y^{(n)}+p_1(x)\,y^{(n-1)}+p_{n-1}(x)\,y'+\dots+p_n(x)\,y=0
+    \end{align}
+    ДУ (2) называют линейным однородным ДУ, а (1) лин. неоднородным ДУ\\
+    В краткой форме соответствует
+    \begin{align*}
+        L(y)&=f(x)\\
+        L(y)&=0
+    \end{align*}
+\end{Def}
+
+\begin{Note}.\\
+    ЛОДУ --- линейное однородное диференциальное уравнение\\
+    ЛНДУ --- линейное неоднородное диференциальное уравнение
+\end{Note}
+
+\begin{Th}[О линейности мн-ва решений ЛОДУ]
+    Пусть функции $p_1(x),\, \dots,\, p_n(x),\, f(x) \in C_{(a;\,b)}$ и $L(y)=y^{(n)}+p_1(x)\,y^{(n-1)}+p_{n-1}\,(x)y'+ \dots + p_n(x)\,y$.
+    Тогда ЛОДУ $L(y) = 0$ имеет множество решений удвлетворяющие следующему свойству линейности.\\
+    Если $\varphi_1(x),\, \dots,\, \varphi_k(x)$ решение $L(y)=0$, то\\
+    $\forall C_1,\, \dots,\, C_k \in \bb{R}$ функция 
+    \[
+        y = C_1\,\varphi_1(x) + \dots + C_k\,\varphi_k(x)  
+    \]
+    является решением $L(y)=0$\\
+    
+    \textcolor{cyan}{Замечание}. Количество решений произвольно и не обязательно равно $n$.
+\end{Th}
+
+\begin{Proof}.\\
+    Дано 
+    \[
+        L(\varphi_1(x))\equiv 0,\; \dots,\; L(\varphi_k(x))\equiv 0
+    \]
+    Тогда для $\forall C_1,\, \dots,\, C_k$ и свойствам из замечания 2 получаем
+    \[
+        L(C_1\varphi_1(x) + \dots + C_n\,\varphi_n(x)) = C_1\,L(\phi_1(x)) + \dots + C_n\,L(\varphi_n(x))\equiv 0
+    \]
+    Следовательно $y=C_1\,\varphi_1(x)+ \dots + C_k\,\varphi_k(x)$ является решением $L(y)=0$
+    
+\end{Proof}

@@ -1,0 +1,305 @@
+\section{Фундаментальная система решений ЛОДУ}
+
+\begin{Def}[Линейно зависимая система функций]
+    Система функций $\{\varphi_1(x),\; \dots, \;\varphi_k(x)\}$ определённая на $(a;\,b)$ называется линейно зависимой
+    \begin{align*}
+        \Leftrightarrow\\
+        &\exists \alpha_1, \dots, \alpha_k \in \bb{R}& &\alpha^2_1 + \dots + \alpha^2_k \neq 0\\
+        &\forall x \in(a;\,b)& &\alpha_1\,\varphi_1(x)+\dots+\alpha_k\,\varphi_k(x)=0    
+    \end{align*}
+    \textcolor{cyan}{Примечание.} Говорят: лин. зав. на интервале $(a;\,b)$. Важно отметить, что мы рассматриваем систему на интервале.
+\end{Def}
+
+\begin{Example}
+    Дана линейно зависимая система на $\bb{R}$ 
+    \[
+        \{x,\; x+1,\; x-1\}
+    \]
+    Требуется найти набор коэфициентов.\\ 
+    Решение
+    \begin{align*}
+        \alpha\,x+ \beta\,(x+1)+\gamma\,(x-1) &\equiv 0\\
+        (\alpha + \beta +\gamma )\,x + \beta - \gamma &\equiv 0
+    \end{align*}
+    Очевидно, что решение будет тогда, когда выполнена следующая система
+    \[
+    \begin{cases}
+        \alpha + \beta+\gamma=0\\
+        \beta - \gamma = 0
+    \end{cases}
+    \]
+    Таким образом, решение
+    \[    
+    \begin{cases}
+        \alpha=-2\beta\\
+        \beta=\beta\\
+        \gamma = \beta
+    \end{cases}
+    \]
+    Ответом может быть, например, частный случай при $\beta =1$ тогда $\alpha=-2,\; \beta =1, \; \gamma=1$\\
+    $-2x+(x+1)+(x-1)\equiv 0$ --- система линейно зависима на $\bb{R}$
+\end{Example}
+
+\begin{Def}[Линейно независимая система функций]
+    Система функций  $\{\varphi_1(x),\; \dots,\; \varphi_k(x)\}$ опр-на на $(a;b)$ называется линейно независимой на $(a;b)$\\
+    Или
+    \[
+        \{ \phi_1(x),\dots,\phi_k(x)\} \text{ не явл. лин. зав. на } (a;b)
+    \]
+    Или
+    \begin{align*}
+        &\forall x \in(a;\,b) \quad \alpha_1\,\phi_1(x) + \dots + \alpha_k\,\phi_k(x)=0\\
+        &\text{Где }ы \alpha_1 = \dots = \alpha_k = 0\\
+    \end{align*}
+\end{Def}
+
+\begin{Def}[Фундаментальная система решений ЛОДУ].\\
+    Пусть 
+    \[
+        p_1(x),\dots,p_n(x)\in C_{(a;b)}
+    \]
+    ЛОДУ 
+    \[
+        L(y)=y^{(n)} + p_1(x)\,y^{(n-1)} + p_{n-1}(x)\,y' + \dots + p_n(x)\,y=0
+    \]
+    Система функций  $\{ \varphi_1(x),\, \dots,\, \varphi_k(x)\}$ определена на $(a;\,b)$ 
+    называется фундаментальной системой решений ЛОДУ $L(y)=0$\\
+    $\Leftrightarrow$
+    \begin{enumerate}
+        \item $L(\varphi_1(x))\equiv 0$,\dots,$L(\varphi_n(x))\equiv 0$\\
+        Где $x \in (a;\,b) $ и $ \varphi_1,\, \dots,\, \varphi_n$ --- решения ЛОДУ
+        
+        \item число функций равно $n = \{\text{порядок ЛОДУ}\}$
+        
+        \item $\{ \varphi_1(x),\, \dots,\, \varphi_n(x)\}$ - лин. незав. система на $(a;\,b)$
+    \end{enumerate}
+\end{Def}
+
+\begin{Def}
+    Пусть функции $ \varphi_1(x),\, \dots,\, \varphi_n(x)$ n раз дифф-мая функция на $(a;\,b)$\\
+    Тогда функциональный определитель
+    \[
+        W(x)=W(\varphi_1,\;\dots,\;\varphi_n) = 
+        \begin{vmatrix} 
+            \varphi_1 &\dots & \varphi_n\\ 
+            \vdots& \dots &\vdots\\
+            \varphi_1^{(n-1)} & \dots &\varphi_n^{(n-1)} 
+        \end{vmatrix}
+    \]
+    называется определителем Вронского или Вронскиан для системы функций $\{\varphi_1(x),\;\dots,\;\varphi_n(x)\}$
+\end{Def}
+
+\begin{Th}
+    В условиях определения 4, если система функций
+    \[
+        \{\varphi_1(x),\; \dots,\; \varphi_n(x)\} \quad \text{линейно зависима на } (a;\;b)
+    \]
+    то
+    \[
+        \forall \alpha \in (a;\;b), \quad W(x) = W(\varphi_1,\;\dots,\;\varphi_n)=0
+    \]
+    
+    
+\end{Th}
+
+\begin{Proof}
+    $\exists \; \alpha_1,\;\dots,\;\alpha_n$, причём $\alpha_1^2 + \dots + \alpha^2_n \neq 0$ а также
+    \[
+        \forall x \in(a;\,b) \quad \alpha_1\,\phi_1(x)+\dots+\alpha_k\,\phi_k(x)=0
+    \]
+    Зафиксируем один из коэфициентов и будем считать, что $\alpha_1 \neq 0$ (в случаее, если другой коэфициент не равен нулю, то его можно поменять местами с $\alpha_1$)
+    \begin{gather*}
+        W = 
+        \begin{pmatrix} 
+            \varphi_1 & \dots &\varphi_n \\ 
+            \vdots & \dots & \vdots\\ 
+            \varphi_1^{(n-1)} & \dots & \varphi_n^{(n-1)} 
+        \end{pmatrix}
+        = \frac{1}{\alpha_1}
+        \begin{pmatrix}
+            \alpha_1\,\varphi_1 & \dots & \varphi_n \\ 
+            \dots & \dots & \dots\\ 
+            \alpha_1\,\varphi_1^{(n-1)} & \dots & \varphi_n^{(n-1)} 
+        \end{pmatrix} 
+        =\\
+        = [\text{ Добавляем к первому столбцу столбцы умноженные на }\alpha_2,\; \dots,\; \alpha_n \;] =\\
+        =\frac{1}{\alpha_1}
+        \begin{pmatrix} 
+            \alpha_1\,\phi_1 + \dots + \alpha_n\,\phi_n & \varphi_2 & \dots &\varphi_n \\ 
+            \dots & \dots & \dots & \dots\\
+            \alpha_1\,\phi_1^{(n-1)}+\dots+\alpha_n\,\phi_n^{(n-1)} & \varphi_2^{(n - 1)} &\dots &\phi_n^{(n-1)} 
+        \end{pmatrix} 
+        =\\
+        =\frac{1}{\alpha_1}
+        \begin{pmatrix} 
+            \alpha_1\,\phi_1 + \dots + \alpha_n\,\phi_n & \varphi_2 & \dots &\varphi_n \\ 
+            \dots & \dots & \dots & \dots\\
+            (\alpha_1\,\phi_1 + \dots + \alpha_n\,\phi_n)^{(n-1)} & \varphi_2^{(n - 1)} &\dots &\phi_n^{(n-1)} 
+        \end{pmatrix} 
+        =\\
+        =\frac{1}{\alpha_1}
+        \begin{pmatrix} 
+            0 & \varphi_2 & \dots & \varphi_n \\
+            0 & \varphi'_2 & \dots & \varphi'_n \\ 
+            \dots & \dots & \dots & \dots \\ 
+            0 & \phi_2^{(n-1)} & \dots & \varphi_n^{(n-1)} 
+        \end{pmatrix}
+        = 0 \qquad \forall x \in (a;\,b)
+    \end{gather*}
+\end{Proof}
+
+\begin{Note}
+    Пусть $\{\varphi_1(x),\; \dots,\; \varphi_n(x)\}$ $n$ раз диференцируемая система функций на $(a;\;b)$, $W(x) = W(\varphi_1(x),\; \dots,\; \varphi_n(x))$ --- вронскиан системы $\{\varphi_1(x),\; \dots,\; \varphi_n(x)\}$\\
+    
+    Тогда если $\exists x_0 \in (a;\;b) \; W(x_0) \neq 0$ то система $\{\varphi_1(x),\; \dots,\; \varphi_n(x)\}$ линейна независима на $(a;\;b)$
+\end{Note}
+
+\begin{Proof}
+    Доказательство от противного.\\
+    Пусть $W(x_0) \neq 0$ и система линейно зависима на промежутке. Следовательно теореме выше получаем, что вронскиан равен нулю $\forall x\in(a\;b)$, следовательно, в частности, $W(x_0) = 0$, что противоречит первоначальному условию $W(x_0) \neq 0$. Таким образом, получаем противоречие и следовательно система линейно независима на интервале. 
+\end{Proof}\\
+
+Вспомним теорему 1 из предыдущего параграфа (она нужна для доказательства следующей теоремы)
+\begin{Th}
+    Пусть $p_1(x),\, \dots,\, p_n(x), \,f(x) \in C_{(a;\;b)}$.\\ 
+    Тогда $\forall x_0 \in (a;\,b)$, $\forall y_0,\, y_0',\, \dots,\, y_0^{(n-1)} \in \bb{R}$ задача Коши
+    \[
+        \begin{cases}
+            L(y) = y^{(n)}+p_1(x)\,y^{(n-1)}+\dots+p_n(x)\,y=f(x)\\
+            y|_{x=x_0}=y_0, \dots , y^{(n-1)}|_{x=x_0}=y_0^{(n-1)}
+        \end{cases}
+    \]
+    имеет единственное решение $y=y(x)$, $x\in (a,\,b)$ определённое на всём интервале $(a;\,b)$.
+\end{Th}
+
+\begin{Th}
+    Пусть в условиях теоремы выше функции $\{\varphi_1(x),\; \dots,\; \varphi_n(x)\}$ является решением ЛОДУ $L(y) = 0$ и $\exists x_0 \in (a;\, b),\; W(x_0) = 0$.\\
+    
+    Тогда $\{\varphi_1(x),\; \dots,\; \varphi_n(x)\}$ линейно зависима на всём промежутке и (по т. 1) $\forall x \in (a,\;b)\; W(x) = 0$
+\end{Th}
+
+\begin{Proof}
+    Рассмотрим алгебраическую систему уравнений относительно $C_1, \dots, C_n$, получим
+    \[
+        \begin{cases}   
+            C_1\,\varphi_1(x_0) + \dots + C_n\,\varphi_n(x_0) = 0\\
+            C_1\,\varphi_1'(x_0) + \dots + C_n\,\varphi_n'(x_0) = 0\\
+            \vdots\\
+            C_1\,\varphi_1^{(n - 1)}(x_0) + \dots + C_n\,\varphi_n^{(n - 1)}(x_0) = 0
+        \end{cases}
+    \]
+    $n$ уравнений относительно $n$ переменных $C_1,\dots,C_n$ и $\Delta = W(x_0) = 0$. Значит ранг матрицы меньше $n$, следовательно существует бесконечное множество решений (см. 2 сем.), то есть
+    \[
+        \exists (C_1^*,\; \dots,\; C_n^*) \neq (0,\; \dots,\; 0)
+    \]
+    Рассмотрим
+    \[
+       \varphi^*(x) = C_1^*\,\varphi_1(x_0) + \dots + C_n^*\,\varphi_n(x_0)
+    \]
+    $\varphi^*(x)$ --- является решением задачи Коши
+    \[
+        \begin{cases}
+            L(y) = 0\\
+            y|_{x=x_0}=0, \dots , y^{(n-1)}|_{x=x_0}=0
+        \end{cases}
+    \]
+    То есть
+    \[
+        \varphi^*(x_0) = 0,\; (\varphi^*)'(x_0) = 0,\; \dots,\; (\varphi^*)^{(n-1)}(x_0) = 0
+    \]
+    Очевидно, что для $y \equiv 0$, также является решением тойже задачи Коши на интервале. Примечание $ L(y) = y^{(n)}+p_1(x)\,y^{(n-1)}+\dots+p_n(x)\,y$. Из всего этого следует
+    \[
+        \varphi^*(x_0) \equiv 0 \quad \Rightarrow \quad \forall x \in (a;\;b) \quad C_1^*\,\varphi_1(x) + \dots + C_n^*\,\varphi_n(x) = 0
+    \]
+    где $(C_1^*,\; \dots,\; C_n^*) \neq (0,\; \dots,\; 0)$.\\
+    Значит по определению линейно зависимой системы, получаем что система $\{\varphi_1(x),\; \dots,\; \varphi_n(x)\}$ линейно зависима на $(a;\;b)$
+\end{Proof}
+
+\begin{Th}[О существовании ФСР ЛОДУ $n$-го порядка]
+    Пусть функции $p_1(x),\; \dots,\; p_n(x) \in C_{(a;\;b)}$, тогда существует набор функций $\{\varphi_1(x),\; \dots,\; \varphi_n(x)\}$ являющийся ФСР для
+    \[
+        L(y) = y^{(n)} + p_1(x)\,y^{(n - 1)} + \dots + p_1(x)\,y = 0
+    \]
+\end{Th}
+
+\begin{Proof}
+    Возьмём $x_0 \in (a;\;b)$ и рассмотрим $n$ задач Коши вида:
+    \begin{align*}
+        &L(y) = 0 && L(y) = 0 && \dots &&  L(y) = 0\\
+        &y|_{x=x_0} = 1 && y|_{x=x_0} = 0 && \dots &&  y|_{x=x_0} = 0\\
+        &y'|_{x=x_0} = 0 && y'|_{x=x_0} = 1 && \dots && \vdots \\
+        &\vdots && \vdots && \dots && y^{n-2}|_{x=x_0} = 0\\
+        &y^{n-1}|_{x=x_0} = 0 && y^{n-1}|_{x=x_0} = 0 && \dots && y^{n-1}|_{x=x_0} = 1\\
+        & y = \varphi_1(x) && y = \varphi_2(x) && \dots && y = \varphi_n(x)\\
+        & x \in(a;\,b) && x \in(a;\,b) && \dots  && x \in(a;\,b)
+    \end{align*}
+    \textcolor{red}{Вопросы!}\\
+    Таким образом имеем следующий вронскиан
+    \[
+        W(x_0) = \begin{bmatrix}
+            1 & 0 & \dots & 0\\
+            0 & 1 & \dots & \vdots\\
+            \vdots & \vdots & \ddots & 0\\
+            0 & 0 & \dots & 1\\
+        \end{bmatrix} = 1 \neq 0
+    \]
+    Из того, что определитель не равен нулю следует
+    \begin{enumerate}
+        \item $\varphi_1,\; \dots,\; \varphi_n$ --- решения $L(y) = 0$ на $x \in(a;\,b)$
+        \item Количество решений равно порядку ДУ ($L(y) = 0$), которое равно $n$ 
+        \item $\{\varphi_1,\; \dots,\; \varphi_n\}$ --- линейно независимы на $(a;\,b)$ (по следствию к теореме 1)
+    \end{enumerate}
+    Из этого по определению 3 следует, что $\{\varphi_1,\; \dots,\; \varphi_n\}$ --- ФСР $L(y) = 0$\\
+\end{Proof}
+
+\begin{Th}[Формула Лиувилля]
+    Пусть $p_1(x),\; \dots,\; p_n(x) \in C_{(a;\;b)}$ и $\{\varphi_1(x),\; \dots,\; \varphi_n(x)\}$ --- ФСР ЛОДУ $L(y) = 0$.\\
+    
+    Возьмём $x_0 \in (a;\;b)$ и обозначим через $W_0 = W(x_0) \neq 0$. Тогда справедлива формула Лиувилля
+    \[
+        W(x) = W_0\,e^{- \int_{x_0}^x p_1(t)\,dt}
+    \]
+\end{Th}
+
+\begin{Proof}
+    Для наглядности рассмотрим случай $n = 2$, тогда
+    \[
+        L(y) = y'' + p_1(x)\,y' + p_2(x)\,y = 0
+    \]
+    Пусть $\{\varphi_1(x),\; \varphi_2(x)\}$ --- ФСР, то есть
+    \[
+        \begin{cases}
+            \varphi_1'' + p_1\,\varphi_1' + p_2\,\varphi_1 = 0\\
+            \varphi_2'' + p_1\,\varphi_2' + p_2\,\varphi_2 = 0
+        \end{cases}
+    \]
+    Рассмотрим вронскиан и его производную.
+    \begin{align*}
+        W(x) &= \begin{cases}
+           \varphi_1 & \varphi_2\\
+           \varphi_1' & \varphi_2'
+        \end{cases} = \varphi_1\,\varphi_2' - \varphi_2\,\varphi_1'\\
+        W'(x) &= \cancel{\varphi_1'\,\varphi_2'} + \varphi_1\,\varphi_2'' - \varphi_1''\,\varphi_2 - \cancel{\varphi_1'\,\varphi_2'}
+    \end{align*}
+    Воспользуемся системой выше для замены $\varphi_1''$ и $\varphi_2''$. Получим.
+    \begin{gather*}
+        \begin{cases}
+            \varphi_1'' = - p_1\,\varphi_1' - p_2\,\varphi_1\\
+            \varphi_2'' = - p_1\,\varphi_2' - p_2\,\varphi_2
+        \end{cases}\\
+         W'(x) = \varphi_1\, (- p_1\,\varphi_2' - p_2\,\varphi_2) + \varphi_2(p_1\,\varphi_1' + p_2\,\varphi_1)\\
+         W'(x) = - p_1\,(\varphi_1\,\varphi_2' - \varphi_1'\,\varphi_2) = - p_1\,W
+    \end{gather*}
+    Решаем тривиальное ДУ
+    \[
+        \frac{dW}{dx} = -p_1(x)\,W
+    \]
+    Очевидно
+    \[
+        \int_{x_0}^x ln(W) = - \int_{x_0}^x p_1(t)\,dt
+    \]
+    Ответ
+    \[
+        W(x) = W(x_0)^{- \int_{x_0}^x p_1(t)\,dt}
+    \]
+\end{Proof}

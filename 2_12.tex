@@ -1,0 +1,271 @@
+\section{Лин. диф. ур-я n-го порядка с постоянными коэфициентами}
+
+\begin{Def}
+    ДУ вида
+    \[
+        L(y)=y^{(n)}+a_1(x)\,y^{(n-1)}+a_{n-1}(x)\,y'+\dots+a_n(x)\,y=f(x)
+    \]
+    где $a_1,\, \dots,\, a_n \in \bb{R}$ (постояные), $f(x)\in C_{(a;\,b)}$ называются линейные ДУ $n$-го порядка с постояными коэфициентами (т.е. не зависящих от $x$)
+\end{Def}
+
+\begin{Note} [Основа метода реш. ДУ $L(y)=0$]
+    Ищем решения вида
+    \begin{align*}
+        a_n\;| \quad &y=e^{\alpha x} \\
+        a_{n-1}\;| \quad &y'=\alpha e^{\alpha x} \\
+         &\vdots\\
+        a_1\;| \quad &y^{(n-1)}=\alpha^{n-1} e^{\alpha x} \\
+        1\;| \quad &y^{(n)}=\alpha^{n} e^{\alpha x} \\ 
+    \end{align*}
+    Складываем, получаем
+    \[
+        L(y)=e^{\alpha x}\,P(\alpha), \quad \text{где} \quad P(\alpha)=\alpha^n+a_1\,\alpha^{n-1}+\dots+a_n
+    \]
+    По условию $e^{\alpha x}$ решение $L(y)=0$. Это равносильно следующему утверждению. $P(\alpha) = 0$, то есть $\alpha$ - корень многочлена $P(\lambda)$, где $\lambda$ - переменая
+\end{Note}
+
+\begin{Def}
+    Пусть
+    \[
+        L(y)=y^{(n)}+a_1(x)\,y^{(n-1)}+a_{n-1}(x)\,y'+\dots+a_n(x)\,y=0
+    \] 
+    --- ЛОДУ с постоянными коэффициентами $a_1,\; \dots,\; a_n$\\
+    Тогда многочлен 
+    \[
+        P(\lambda) = \lambda^n+a_1\,\lambda^{n-1}+\dots+a_n
+    \] 
+    называется характеристическим многочленом ЛОДУ $L(y)=0$\\
+\end{Def}
+
+\begin{Th}[ФСР, случай простых корней $P(\lambda)$]
+    Пусть
+    \[
+        P(\lambda) = \lambda^n+a_1\,\lambda^{n-1}+\dots+a_n
+    \]
+    --- характерестический многочлен ЛОДУ $L(y)=0$ с постоянными коэффициентами\\
+    Тогда если все корни $P(\lambda)$ вещественны и различны, то есть $\{\alpha_1,\; \dots,\; \alpha_n\}$ корни $P(\lambda)$ причём $\alpha_i \neq \alpha_j (i \neq j)$ то ФСР $L(y)=0$ выглядит так
+    \[
+        \{e^{\alpha_1\,x},\; e^{\alpha_2\,x},\; \dots,\; e^{\alpha_n\,x}\}
+    \]
+\end{Th}
+
+\begin{Proof}
+    Для начала напомним определение ФСР
+    \begin{enumerate}
+        \item $L(e^{\alpha_i\,x})=0 \qquad i=1,\; \dots,\; n$
+        
+        \item ф-и n-штук равно порядку ДУ $L(y)=0$
+        
+        \item $\{e^{\alpha_1\,x},\; e^{\alpha_2\,x},\; \dots,\; e^{\alpha_n\,x}\}$ - линейно не зависима
+    \end{enumerate}
+    Справедливость пункта 1 следует из замечания 1, соблюдение 2 -- из условия. Значит требуется доказать корректность пункта 3. \\
+    Последнее будем доказывать от противного. Пусть система линейно зависима и тогда один из коэфициетов $C_1 \neq 0$. Рассмотрим
+    \begin{gather*}
+        C_1\,e^{\alpha_1\,x} + \dots +c_n\,e^{\alpha_1\,x} \equiv 0 \quad | \; \div e^{\alpha_1\,x}\\
+        C_1\,e^{(\alpha_1-\alpha_n)\,x} + \dots + C_{n-1} e^{(\alpha_{n-1}-\alpha_n)\,x} \equiv 0 \quad |\; \text{Диференцируем}\\
+        C_1\,(\alpha_1-\alpha_n)\,e^{(\alpha_1-\alpha_n)\,x} + \dots + C_{n-1}\,(\alpha_{n-1}-\alpha_n)\,e^{(\alpha_{n-1}-\alpha_n)\,x} \equiv 0
+    \end{gather*}
+    Опять делим и диференцируем, и так до тех пор пока не получим
+    \[
+        C_1\,\underbrace{(\alpha_1-\alpha_n)}_{\neq 0}\,\underbrace{(\alpha_1-\alpha_{n-1})}_{\neq 0}\,\dots\,\underbrace{(\alpha_1-\alpha_2)}_{\neq 0}\,e^{(\alpha_1-\alpha_n)\,x}\equiv 0
+    \]
+    Разности не равны нулю, так как все корни различны. Тогда остаётся только $C_1 = 0$, но в самом начале мы сказали, что $С_1 \neq 0$, получаем противоречие.\\
+    Значит $C_1=\dots=C_n=0$, следовательно система линено не зависима, и она ФСР
+\end{Proof}
+
+\begin{Example}
+    Дано
+    \[
+        y'''-3y''+2y'=0
+    \]
+    Решение
+    \[
+        P(\lambda)=\lambda^3-3\,\lambda^2+2\,\lambda=\lambda\,(\lambda-1)\,(\lambda-2)
+    \]
+    Таким образом, корни $P(\lambda)$
+    \[
+        \lambda_1=1 \quad \lambda_2=0 \quad \lambda_3=2  
+    \]
+    Значит ФСР и общее решение выглядят следующим образом
+    \[
+        \{1, e^x, e^{2x}\} \qquad y=c_1+c_2\,e^x+ c_3\,e^{2x}
+    \]
+\end{Example}
+
+\begin{Note}[Напоминание] Характерестический многочлен
+    \[
+        P(\lambda)=(\lambda-\alpha_1)^{k_1}\,\dots\,(\lambda-\alpha_s)^{k_s}\,(\lambda^2+p_1 \lambda+q_1)^{m_1}\dots(\lambda^2+p_t\, \lambda+q_t)^{m_t}
+    \]
+    разложенный на линейные и квадратиные корни, где
+    \begin{enumerate}
+        \item $\alpha_1,\; \dots,\; \alpha_s$ все попарно различные вещественные корни соответствующей кратности $k_1,\; \dots,\; k_s \quad s \geqslant 0 \quad s \in \{N \cup \{0\}\}$
+        
+        \item Комплексные корни 
+        \begin{gather*}
+            \lambda^2+p\,\lambda+q=(\lambda-z_j)\,(\lambda-\bar{z_j})\\
+            z_j = \alpha_{s + j} + i\,\beta_j \quad \bar{z_j} = \alpha_{s + j} - i\,\beta_j \quad \beta_j \geqslant 0
+        \end{gather*}
+        а $(z_j\; \bar{z_j})$ --- попарно различные пары комплексно сопряжённых корней кратности $m_j \quad j=1,\; \dots,\; t \quad t \geqslant 0 \quad t \in \{N \cup \{0\}\}$
+    \end{enumerate}
+\end{Note}
+
+\begin{Note}
+    Помним про критерий кратности из 2-го семестра\\
+    (Потребуется позже) 
+\end{Note}
+
+\begin{Lem}[о действии линейного ДУ оператора на произведение]
+    Пусть 
+    \[
+        L(y)=y^{(n)}+a_1\,y^{(n-1)}+a_{n-1}\,y'+\dots+a_n\,y \qquad y^{(n)} \mapsto \lambda^k \quad y \mapsto 1
+    \]
+    Характеристический многочлен
+    \[
+        P(\lambda)= \lambda^n + a_1\,\lambda^{n-1} + \dots + a_n
+    \]
+    Тогда $\forall \alpha \in \bb{R}$ и $\forall u(x)$ -- n раз диференцируемой справедлива формула 
+    \begin{multline*}
+        L(u(x)\,e^{\alpha x})=e^{\alpha\,x}\, (u(x)\,P(\alpha)+\frac{1}{1!}\,u'(x)\,P'(\alpha))+\\ +\frac{1}{2!}\,u''(x)\,P''(\alpha)+ \dots +\frac{1}{n!}\,u^{(n)}(x)\,P^{(n)}(\alpha)
+    \end{multline*}
+\end{Lem}
+
+\begin{Proof}
+    Докажем случай для n=2\\
+    Тогда.
+    \begin{align*}
+        a_2\; &| \quad y=u\,e^{\alpha x}\\
+        a_1\; &| \quad y=u'\,e^{\alpha x}+u\,\alpha e^{\alpha x}\\
+        1\; &| \quad y''=u''\,e^{\alpha x}+2\,u'\,\alpha\,e^{\alpha x}+u\,\alpha^2\,e^{\alpha x} 
+    \end{align*}
+    Складываем всё и получаем
+    \begin{align*}
+        a_2\,y + a_1\,y' + y'' &= e^{\alpha\,x}\,(a_2\,u + a_1\,u' + a_1\,u\,\alpha + u'' + 2\,u'\,\alpha + u\,\alpha^2)\\
+        L(y) &= e^{\alpha\,x}\,(a_2\,u + u\,\alpha^2 + a_1\,u\,\alpha + a_1\,u' + 2\,u'\,\alpha + u'')\\
+        L(y) &= e^{\alpha\,x}\,(u\,(\alpha^2 + a_1\,\alpha + a_2) + u'\,(2\,\alpha + a_1) + u'')\\
+    \end{align*}
+    Очевидно, что производные характеристического многочлена выглядят так
+    \begin{align*}
+        P_n(\lambda) &= \lambda^n + a_1\,\lambda^{n - 1} + \dots + a_n\\
+        P_n'(\lambda) &= n\,\lambda^{n-1} + a_1\,\,(n - 1)\lambda^{n - 1} + \dots + a_{n-1}\\
+        P_n''(\lambda) &= n\,(n-1)\,\lambda^{n - 2} + a_1\,(n-1)\,(n-2)\,\lambda^{n - 1} + \dots + 2!\,a_{n-2}\\
+        &\vdots\\
+        P_n^{(n)}(\lambda) &= n!
+    \end{align*}
+    Значит
+    \[
+        L(y)=e^{\alpha x}\,(u\,P(\alpha)+u'\,P'(\alpha)+\frac{1}{2}\,u^n P''(\alpha))
+    \]
+\end{Proof}
+
+\begin{Th}
+    Пусть $\alpha$ корень кратности $k \geqslant 1$ характеристического многочлена $P(\lambda)$ ЛОДУ
+    \[
+        L(y)=y^{(n)}+a_1\,y^{(n-1)}+a_{n-1}\,y'+\dots+a_n\,y=0
+    \]
+    с постоянными коэффициентами $\alpha_1,\; \dots,\; \alpha_n$\\
+    Тогда функции 
+    \[
+        \underbrace{\{e^{\alpha\,x},\; x\,e^{\alpha\,x},\; \dots,\; x^{k-1}\,e^{\alpha\,x}\}}_{k \text{ штук}}
+    \]
+    образуют линейно зависимую систему решений $L(y)=0$
+\end{Th}
+
+\begin{Proof}
+    Пусть решение
+    \[
+        y=x^l\,e^{\alpha\,x} \qquad 0 \geqslant l \geqslant k-1
+    \]
+    Рассмотрим
+    \begin{align*}
+        \begin{cases}
+            u=x^l,\quad u'=l\,x^{l-1},\quad \dots,\quad u^{(l)}=l!,\quad u^{(l+1)}=0,\quad \dots,\quad u^{(n)}=0\\
+            P(\alpha)=0,\quad \dots,\quad P^{(l)}(\alpha)=0,\quad P^{(l+1)}(\alpha)=something,\quad \dots,\quad P^{(n)}(\alpha)=something
+        \end{cases}
+    \end{align*}
+    Умножим по столбцам и сложим, получим.\\
+    \textcolor{red}{Требуется боле подробный переход}
+    \[
+        L(y)= e^{\alpha x}\,(x^l\cdot 0+\frac{l\,x^{l-1}\cdot0}{1!}+\dots+\frac{0\cdot l!}{l!}+\frac{0\cdot p^{(l+1)}(\alpha)}{(l+1)!}+ \dots + \frac{0\cdot p^{(n)}(\alpha)}{n!})=e^{\alpha x}\cdot 0=0
+    \]
+    Получатеся что $e^{\alpha\,x}\,x^l$ решение $L(y)=0$\\
+    Так как $0 \geqslant l \geqslant k-1$ получаем
+    \[
+        C_1\,e^{\alpha\,x}+C_2\,x\,e^{\alpha\,x}+\dots+C_k\,x^{k-1}\,e^{\alpha\,x}=0
+    \]
+    так как $e^{\alpha\,x}$ общий множитель и он не равен нулю, тогда
+    \[
+        \forall x \in \bb{R} \qquad C_1+C_2\,x+\dots+C_n\,x^{n-1}=0
+    \]
+    Очевидно, что сумма будет всегда равна тогда и только тогда, когда
+    \[
+        C_1=C_2=\dots=C_n=0
+    \]
+    Значит система
+    \[
+        \{e^{\alpha\,x},\; x\,e^{\alpha\,x},\; \dots,\; x^{k-1}\,e^{\alpha\,x}\}
+    \] 
+    --- ЛНЗ система
+\end{Proof}
+
+\begin{Th}[Вклад в ФСР вещественных корней]
+    Если в условиях теоремы 2 $\alpha_1,\; \dots,\; \alpha_s$ вещественные корни характеристического многочлена $P(\lambda)$ кратности $k_1,\; \dots,\; k_s$ то набор функций
+    \[
+        \{e^{\alpha_1\,x},\; x\,e^{\alpha_1\,x},\; \dots,\; x^{k_1-1}\,e^{\alpha_1\,x},\; \dots,\; e^{\alpha_s\,x},\; x\,e^{\alpha_s\,x},\; \dots,\; x^{k_s-1}\,e^{\alpha_s\,x}\}
+    \]
+    образуют ЛНЗ систему решений ДУ $L(y)=0$
+\end{Th}
+
+\begin{Proof}
+    Данные функции являются решениями $L(y)=0$ (по теореме 2). Таким образом, остаётся доказать их ЛНЗ на $\bb{R}$.\\
+    
+    Предположим, что линейная комбинация этих функций равна нулю
+    \[
+        \forall x \in \bb{R} \qquad P_1(x)\,e^{\alpha_1\,x} + \dots + P_s(x)\,e^{\alpha_s\,x}=0
+    \]
+    Доказывать ЛНЗ системы будем от противного.
+    \[
+        P_1(x)=C_0\,x^k+\dots, \qquad C_0 \neq 0 \qquad k \leqslant k_1-1
+    \]
+    Разделим линейную комбинацию на $e^{\alpha_s\,x}$, получим 
+    \[
+        P_1(x)\,e^{(\alpha_1-\alpha_s)\,x}+\dots+P_s(x) \equiv 0 \qquad \deg P_s \leqslant k_s-1
+    \]
+    $k_s$ раз диференцируем, получаем
+    \[
+        Q_1(x)\,e^{(\alpha_1-\alpha_s)\,x} + \dots + Q_{s-1}(x)\,e^{(\alpha_{s-1} - \alpha_s)\, x} \equiv 0
+    \]
+    старший коэффициент $Q_1$ равен
+    \[ 
+        С_0\,(\alpha_1-\alpha_s)^{k_s} \neq 0
+    \]
+    аналогично для последующих страших кофициентов.\\
+    \textcolor{red}{Непонятно что происходит дальше}\\
+    и т.д. $k_1(x)e^{(\alpha_1-\alpha_s) x}\equiv 0$ ст.коэф. => $R_1\equiv 0$\\
+    $R_1=c_0(\alpha_1-\alpha_s)^{k_s}(\alpha_1-\alpha_{s-1})^{k_{s-1}}...(\alpha_1-\alpha_2)^{k_2}\neq 0, deg R=k$=>$R\neq 0$\\
+    Противоречие\\
+    => $P_1\equiv 0,...,P_s\equiv 0$ => ф. дан. сис. ЛНЗ
+\end{Proof}
+
+\begin{Example}
+    Дано
+    \[
+        y^{(5)}+2\,y^{(4)}+y^{(3)}=0
+    \]
+    Решение.\\
+    Характеристический многочлен для этого уравнения следующий
+    \[
+        P(\lambda)=\lambda^5+2\,\lambda^4+\lambda^3=\lambda^3(\lambda+1)^2
+    \]
+    Получаем для него корни $\alpha$ с кратностями $k$
+    \[
+        \alpha_1=0,\; k_1=3 \qquad \alpha_2=-1,\; k_2=2
+    \]
+    Значит ФСР
+    \[
+        \{1,\; x,\; x^2,\; e^{-x},\; x\,e^{-x}\}
+    \]
+    А общее решение ЛОДУ
+    \[
+        y= C_1 + C_2\,x + C_3\,x^2 + (C_4 + C_5\,x)\,e^{-x}
+    \]
+\end{Example}

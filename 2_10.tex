@@ -1,0 +1,120 @@
+\author{Tkachuk Andrey}
+
+\section{Общее решение линейного ДУ n-го порядка}
+
+\begin{Th}[Об общем решении ЛОДУ n-го порядка]
+    Пусть
+    \[
+        p_1(x),\; \dots,\; p_n(x)\; \in C_{(a;\;b)} \text{ и } \{\varphi_1(x),\; \dots,\; \varphi_n(x)\}
+    \]
+    ФСР ЛОДУ
+    \[
+        L(y) = y^{(n)} + p_1(x)\,y^{(n-1)} + \dots + p_1\,y = 0
+    \]
+    Тогда функция 
+    \[
+        y = C_1\,\varphi_1(x) + \dots + C_n\,\varphi_n(x)
+    \]
+    описывает множетсво всех решений ЛОДУ $L(y) = 0$, то есть
+    \begin{enumerate}
+        \item $\forall\;C_1,\; \dots,\; C_n\;\in \bb{R} \qquad y = C_1\,\varphi_1 + \dots + C_n\,\varphi_n$ --- решение $L(y) = 0$ 
+        \item $\forall y = \varphi^*(x)$ --- решение $L(y) = 0$. Тогда
+        \begin{gather*}
+            \exists \; C_1^*,\; \dots,\; C_n^*\; \in \bb{R} \quad x\in(a;\;b)\\
+            \varphi^*(x) = C_1^*\,\varphi_1 + \dots + C_n^*\,\varphi_n
+        \end{gather*}
+    \end{enumerate}
+\end{Th}
+
+\begin{Proof}
+    \begin{enumerate}
+        \item Дано $L(\varphi_1) = 0,\; \dots,\; L(\varphi_n) = 0$
+        \begin{gather*}
+            \forall C_1,\; \dots,\; C_n \quad L(C_1\,\varphi_1 + \dots + C_n\,\varphi_n) = C_1\,\underbrace{L(\varphi_1)}_{ = 0} + \dots + C_n\,\underbrace{L(\varphi_n)}_{ = 0}\\
+            \Rightarrow \; y = C_1\,\varphi_1(x) + \dots + C_n\,\varphi_n(x) \quad \text{--- решение } L(y) = 0, x \in (a;\, b)
+        \end{gather*}
+            
+        \item Пусть $y = \varphi^*(x)$ --- решение $L(y) = 0 \quad x \in (a;\,b)$\\
+        Возьмём точку $x_0 \in (a;\,b)$ и скажем, что
+        \[
+            y_0 = \varphi_1^*(x_0),\; \dots,\; y_0^{(n-1)} = (\varphi_n^*)^{(n-1)}(x_0)
+        \]
+        Тогда $y = \varphi^*(x)$ является решением задачи Коши
+        \[
+            \begin{cases}
+                L(y) = y^{(n)}+p_1(x)\,y^{(n-1)}+\dots+p_n(x)\,y=f(x)\\
+                y|_{x=x_0}=y_0, \dots , y^{(n-1)}|_{x=x_0}=y_0^{(n-1)}
+            \end{cases}
+        \]
+        С другой строны будем искать решение этой задачи Коши в виде $y = C_1\,\varphi_1(x) + \dots + C_n\,\varphi_n(x)$\\
+        тогда решение имеет вид
+        \[
+            \begin{cases}
+                C_1\,\varphi_1(x_0) + \dots + C_n\,\varphi_n(x_0) = y_0\\
+                C_1\,\varphi_1'(x_0) + \dots + C_n\,\varphi_n'(x_0) = y_0'\\
+                \vdots\\
+                C_1\,\varphi_1^{(n-1)}(x_0) + \dots + C_n\,\varphi_n^{(n-1)}(x_0) = y_0^{(n-1)}
+            \end{cases}
+        \]
+        Это система $n$ алгебраических уравнений относительно $n$ переменных $C_1,\; \dots,\; C_n$, определитель которой $\Delta = W(x_0) \neq 0$, так как мы рассматриваем ФРС (система уравнений ленейно независима по определению).\\
+        
+        По т. Крамера следует, что существует решение и притом единственное, то есть
+        \[
+            \exists (C_1^*,\; \dots,\; C_n^*)
+        \]
+        Следовательно $y = C_1^*\,\varphi_1(x) + \dots + C_n^*\,\varphi_n(x)$ --- решение задачи Коши для $\varphi^*(x)$ по теореме о существовании и единственности задачи Коши.
+    \end{enumerate}
+\end{Proof}
+
+\begin{Th}[Об общем реешении ЛНДУ n-го порядка]
+    Пусть $p_1(x),\; \dots,\; p_n(x),\; f(x) \in (a;\, b)$ и $\{\varphi_1(x),\; \dots,\; \varphi_n(x)\}$ --- ФСР ЛОДУ
+    \[
+        L(y) = y^{(n)} + p_1(x)\,y^{(n - 1)} + \dots + p_n(x)\,y = 0 \qquad x\in (a;\,b)    
+    \]
+    
+    Обозначим через $\psi(x)$ некоторое решение ЛНДУ $L(y) = f(x)$. Тогда общее решение ЛНДУ имеет вид
+    \[
+        y = \psi(x) + C_1\,\varphi_1(x) + \dots + C_n\,\varphi_n(x)
+    \]
+    То есть
+    \begin{enumerate}
+        \item $\forall \; C_1,\; \dots,\; C_n \; \in \bb{R} \quad y = \psi + C_1\,\varphi_1 + \dots + C_n\,\varphi_n$ является решением $L(y) = f(x)$
+            
+        \item Для любого решения $\psi^*(x)$ ЛНДУ $L(y) = f(x)$\\
+        $\exists \; C_1,\; \dots,\; C_n \quad x\in(a;\,b) \quad \psi^* = \psi + C_1^*\,\varphi_1 + \dots + C_n^*\,\varphi_n$
+            
+    \end{enumerate}
+\end{Th}
+
+\begin{Proof}
+    
+    $\forall x_0 \in (a;\,b),\; \exists y_0, y_0', \dots, y_0^{(n-1)},\; \psi(x)$ --- решение здачи Коши
+    \[
+        \begin{cases}
+            L(y) = f(x)\\
+            y|_{x = x_0} = y_0,\; y'|_{x = x_0} = y_0',\; \dots,\; y^{(n-1)}|_{x = x_0} = y^{(n-1)}_0,
+        \end{cases}
+    \]
+    По теореме о существовании и единственности задачи Коши
+    \begin{enumerate}
+        \item Аналогично доказательству выше имеем
+        \begin{align*}
+            &\forall \; C_1,\; \dots,\; C_n\\
+            &L(\psi + C_1\,\varphi_1 + \dots + C_n\,\varphi_n) = \underbrace{L(\psi)}_{= f(x)} + C_1\,\underbrace{L(\varphi_1)}_{= 0} + \dots + C_n\,\underbrace{L(\varphi_n)}_{= 0} = f(x)
+        \end{align*}
+        
+        \item $y = \psi^*(x)$ решение $L(\psi^*) = f(x)$, с другой стороны $L(\psi) = f(x)$ тоже решение (по усл.)\\
+        Тогда рассмотрим следующее выражение
+        \[
+            L(\psi^* - \psi) = [\text{по св-ву лин. оп.}] = L(\psi^*) - L(\psi) = f(x) - f(x) = 0
+        \]
+        Значит $L(\psi^* - \psi)$ --- ЛОДУ. Следовательно по теореме 1 для ЛОДУ справедливо
+        \[
+            \exists \; C_1^*,\; \dots,\; C_n^* \quad \forall x\in(a;\,b)  \varphi^* = \psi^* - \psi = C_1^*\,\varphi_1 + \dots + C_n^*\,\varphi_n 
+        \]
+        Нетрудно заметить и вывести
+        \[
+            \psi^* = \psi + C_1^*\,\varphi_1 + \dots + C_n^*\,\varphi_n
+        \]
+    \end{enumerate}
+\end{Proof}

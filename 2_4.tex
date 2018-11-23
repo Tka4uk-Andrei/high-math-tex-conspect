@@ -1,0 +1,228 @@
+\section{Линейные дифференциальные уравнения. ДУ Бернулли}
+
+\begin{Def}[Линейное ДУ]
+    ДУ вида 
+    \[
+        a(x)\,y' + b(x)\,y + c(x) = 0
+    \] 
+    называется линейным диференциальным уравнением, а\\
+    \[
+        y'+p(x)\,y=q(x)
+    \]
+    является приведённой формой линейного ДУ первого порядка, где
+    \[
+        p(x)\in C_{(a;\;b)}, \qquad q(x) \in C_{(a;\;b)}
+    \]
+\end{Def}
+
+\begin{Def}
+    Пусть 
+    \begin{align}
+        y'+p(x)\,y&=q(x)\\
+        y'+p(x)\,y&=0
+    \end{align}
+    ДУ $(2)$ - линейное однородное ДУ, соответствующее линейному ДУ $(1)$\\
+\end{Def}
+
+\begin{Note}
+Метод Лагранжа для решения линейных неоднородных ДУ первого порядка, в вариации произвольной постоянной\\
+Дано
+\[
+    y'+p(x)\,y=q(x)
+\]
+Решение
+    \begin{enumerate}
+        \item Ищем решение для однородного уравнения
+        \begin{align*}
+            y'+p(x)\,y&=0\\
+            \frac{dy}{y}&=-p(x)\,dx\\
+            \ln(y)&=-\int p(x)\,dx+\ln(C)\\
+            y&= C\,v(x)
+        \end{align*}
+        Замечание. $v(x)=e^{-\int p(x)\,dx}$\\
+        Таким образом, получили \textbf{частное} (из-за деления на $y$) решение для однородного ДУ.
+    
+        \item ищем решение первоначального ДУ в виде $y=C(x)\,v(x)$, где\\ $C(x)$ --- постоянная, зависящая от $x$ (произвольная постоянная)
+        \begin{align*}
+            y = C(x)\,v(x)\\
+            y'=C'\,v + C\,v'
+        \end{align*}
+        Подставим в уравнение из условия
+        \begin{align*}  
+            C'\,v+C\,v'+p\,C\,v&=q\\ 
+            C'\,v+C\,(v'+p\,v)&=q
+        \end{align*}
+        Так как на шаге 1 $v'+p\,v = 0$, то получаем
+        \begin{align*}
+            C\,(v'+p\,v)&=0\\
+            C'\,v(x) &= q(x)\\
+            C'&=\frac{q(x)}{v(x)}\\
+            C(x)&=\int \frac{q(x)}{v(x)}\,dx+const
+        \end{align*}
+        Подставим значение $v(x)$ из шага 1, получим
+        \[
+            C(x) = \int q(x)\,e^{\int p(x)\,dx}\,dx+const \qquad x \in (a;\,b)
+        \]
+        Или
+        \[
+            C(x) = u(x) + const
+        \]
+        \item полное решение ДУ имеет вид\\
+        \textcolor{red}{Пункт <<б>> является обощением <<а>>?}
+        \begin{enumerate}
+            \item $y=(u(x) + C)\,v(x)=u(x)\,v(x)+C\,v(x)$
+            \item $y=y_{(\text{частное решение неоднородного})} + C\,y_{(\text{частное решение однородного})}$
+        \end{enumerate}
+    \end{enumerate}
+\end{Note}
+
+\begin{Note}[По поводу решения задач Коши]
+    Пусть 
+    \[
+        p(x),\; q(x)\in C_{(a;\,b)}, \quad x_0 \in (a;\,b), \quad y_0 \in \bb{R}
+    \]
+    Тогда задача Коши\\
+    \[
+        X = \begin{cases}
+            y'+p(x)y=q(x) \\
+            y'|_{x=x_0}=y_0
+        \end{cases}
+    \]
+    имеет единственное решение, определённое на $(a;\;b)$ вида\\
+    \[
+        y=\underbrace{e^{-\int_{x_0}^{x} p(t)dt}}_{v(x)}\,\left(\underbrace{y_0}_{c}+\underbrace{\int_{x_0}^{x}\underbrace{g(s)e^{\int_{x_0}^{s} p(t)dt}ds}_{\frac{g(s)}{v(s)}}}_{u(x)}\right)
+    \]
+\end{Note}
+
+\begin{Example}
+    Дано
+    \[
+        xy'+y=3x^3
+    \]
+    Решение.\\
+    Делим на $x$ получим
+    \[
+        y'+\frac{y}{x}=3x^2
+    \]
+    \begin{enumerate}
+        \item Решаем однородное уравнение. Находим решение для $\mathring{y} = v(x)$
+        \begin{align*}
+            v'+\frac{v}{x}&=0\\
+            \frac{dv}{v}&=-\frac{dx}{x}\\
+            \ln(v)&=-\ln(x)+\ln(C)\\
+            v&=\frac{C}{x} \text{ --- общее решение}\\
+            \text{При } C=1 \quad v(x)&=\frac{1}{x} \text{ --- частное решение}
+        \end{align*}
+        
+        \item Решаем общее уравнение. где $y = v(x)\,u(x)$ 
+        \[
+            \text{Так как } y=\frac{u}{x} \text{, то } y'=\frac{u'}{x} - \frac{u}{x^2}
+        \]
+        Подставляем в первоначальное уравнение. Получаем
+        \begin{align*}
+            \frac{u'}{x} - \frac{u}{x^2}+\frac{u}{x^2}&=3x^2\\
+            u'&=3x^3\\
+            u(x)&=\frac{3}{4}x^4+c
+        \end{align*}
+
+        \item Совмещаем результаты шагов 1 и 2. Получаем ответ
+        \[
+            y=\frac{3}{4}\,x^4+\frac{c}{x} \qquad x\in \bb{R}
+        \]
+    \end{enumerate}
+\end{Example}
+
+\begin{Def}
+    ДУ вида 
+    \[
+        y'+p(x)\,y=q(x)\,y^\alpha \qquad \alpha \in \bb{R} \setminus \{0;\,1\}
+    \]
+    называется ДУ Бернулли
+\end{Def}
+
+\begin{Note}[Решение ДУ Бернулли]
+    ДУ Бернулли интегрируется методом Лагранжа в вариации произвольной постоянной
+    \begin{enumerate}
+        \item Ищем $v = v(x)$ частное решение соответствующее линейному однородному ДУ
+        \begin{align*}
+            v'+p(x)\,v &=0\\
+            v(x) &=e^{-\int p(x)\,dx}
+        \end{align*}
+        
+        \item Ищем общее решение ДУ для $u =u (x)$, где $y=u(x)\,v(x)$
+        \begin{gather*}
+            u'\,v+\underbrace{u(v'+pv)}_{=0 (\text{см. зам. 2})}=qu^{\alpha}v^{\alpha}\\
+            u'\,v(x)=q(x)u^{\alpha}v^{\alpha}(x)
+        \end{gather*}
+        Замечание. Нам известно то, что с аргументом.\\
+        Далее разделим на $u^{\alpha}\,v(x)$
+        \begin{align*}
+            \frac{du}{u^\alpha}&=q(x) \, v^{\alpha-1}(x)\,dx\\
+            \int \frac{du}{u^\alpha}&=\int q(x)\, v^{\alpha-1}(x)\, dx\\
+            \frac{u^{1-\alpha}}{1-\alpha} &=\int q(x)\,v^{\alpha-1}(x)\,dx + C\\
+            u = u(x,\;C) &= \left((1-\alpha)\left(\int q(x)\, v^{\alpha-1}(x)\,dx+C\right)\right)^{\frac{1}{1-\alpha}}
+        \end{align*}
+        \item Таким образом, ответ
+        \[
+            y=u(x,\;C)\,v(x)
+        \]
+    \end{enumerate}
+\end{Note}
+
+\begin{Example}
+    Дано
+    \[
+        x\,y'-y=x\,y^2
+    \]
+    Решение.\\
+    Для соответсвия ДУ Бернулли разделим на $x$. Получим
+    \[
+        y'-\frac{y}{x}=y^2
+    \]
+    Видим, что
+    \[
+        p(x)=-\frac{1}{x}, \quad q(x)=1, \quad \alpha=2
+    \]
+    \begin{enumerate}
+        \item Ищем частное решение однородного ДУ 
+        \begin{gather*}
+            v'-\frac{v}{x}=0\\
+            \frac{dv}{v}=\frac{dx}{x}\\
+            \ln|v|= - \ln|x|+ \ln(C)\\
+            v=C\,x
+        \end{gather*}
+        Если $C=1$, то получаем частное решение $v(x)= x$
+        
+        \item Рассмотрим $y=u(x)\,v(x)=u\,x$\\
+        Подставим в уравнение из условия, получим
+        \begin{gather*}
+            u'\,x+u-u=u^2\,x^2\\
+            u'=u^2\,x\\
+            \frac{du}{u^2}=x\,dx\\
+            -\frac{1}{u}=\frac{x^2}{2} - C\\
+            u = \cfrac{1}{C-\cfrac{x^2}{2}}
+        \end{gather*}
+        
+        \item Ответ
+            \begin{align*}
+                y &= \cfrac{x}{C-\cfrac{x^2}{2}}\\
+                y &= \frac{2\,x}{2\,C-x^2}
+            \end{align*}
+    \end{enumerate}
+\end{Example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

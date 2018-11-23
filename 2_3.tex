@@ -1,0 +1,190 @@
+\author{Tkachuk Andrei}
+
+\section{Однородные ДУ первого порядка}
+
+\begin{Def}
+    Пусть функция $f(t)$ определена и непрерывна на некотором интервале и $f(t)\; \cancel{\equiv}\; t$. Тогда ДУ 
+    \[
+        y' = f\left(\frac{y}{x}\right)
+    \]
+    называются однородными ДУ первого порядка.
+\end{Def}
+
+\begin{Note}
+    $F(x_1, \dots, x_n)$ называются однородными функциями веса $k$, если \[
+        \forall t \in \bb{R} \; F(t\,x_1, t\,x_2, \dots, t\,x_n) = t^k\,F(x_1, x_2, \dots, x_n)
+    \]
+    
+    Пример. $f(\frac{t\,y}{t\,x}) = f(\frac{y}{x})$ --- однородное ДУ веса $k = 0$
+\end{Note}
+\begin{Note} [Как решить однородное ДУ]
+    Дано 
+    \[
+        y' = f\left(\frac{x}{y}\right)
+    \]
+    Введём 
+    \[
+        t(x) = t = \frac{y}{x}
+    \]
+    Тогда
+    \[
+        y = t\,x, \quad y' = t'\,x + x = f(t)
+    \]
+    Таким образом получаем ДУ с разделяюмися переменными
+    \[
+        t' = \frac{f(t) - t}{x}
+    \]
+    Решаем
+    \[
+        \frac{dt}{dx} = \frac{f(t) - t}{x}
+    \]
+    Так как мы будем делить на $f(t) - t$, то потребуется рассмотреть два случая
+    \begin{align*}
+        &1) f(t) - t \neq 0& &2) f(t) - t = 0&\\
+        &\int\frac{dt}{f(t) - t} = \int \frac{dx}{x}& &\exists\alpha \in \bb{R} \quad f(\alpha) = \alpha, \quad y = \alpha\,x&\\
+        &ln(|x|) = \int \frac{dt}{f(t) - t} + ln(C)& &y'=\alpha= f(\alpha) = f\left(\frac{x}{y}\right)&\\
+        &\begin{cases}
+            x = Ce^{\int \frac{dt}{f(t) - t}}\\
+            y = t\,x
+        \end{cases}&
+    \end{align*}
+\end{Note}
+
+\begin{Example}
+    Дано
+    \[
+        y' = \frac{x\,y + y^2}{x^2}
+    \]
+    Решение.
+    \[
+        y' = \frac{x\,y + y^2}{x^2} = \frac{y}{x} + \left(\frac{y}{x}\right)^2\\
+    \]
+    Делаем замену
+    \begin{gather*}
+            t = \frac{y}{x}, \quad y = t\,x\\ 
+            dy = x\,dt + t\,dx \quad \Rightarrow \quad \frac{dy}{dx} = y' = \frac{x\,dt}{dx} + t = t'\,x + t
+    \end{gather*}
+    Подставляем и получаем
+    \begin{gather*}    
+        t'\,x + \cancel{t} = \cancel{t} + t^2\\
+        \frac{dt}{t^2} = \frac{dx}{x}\\
+        -\frac{1}{t} = ln|x| - ln(C) = - \frac{x}{y}\\
+        \frac{x}{y} = ln\left(\frac{C}{x}\right) \qquad C \neq 0\\
+        y = \cfrac{x}{ln\left(\cfrac{C}{x}\right)} \qquad C \neq 0
+    \end{gather*}
+    \textcolor{red}{Правильно найден случай?}\\
+    Также требуется рассмотреть частный случай, когда $t = 0$, тогда $y = 0$
+\end{Example}
+
+\begin{Note}
+    Дано:
+    \[
+        y' = f\left(\frac{a_1\,x + b_1\,y + c_1}{a_2\,x + b_2\,y + c_2}\right)
+    \]
+    где 
+    \[
+        \begin{vmatrix} a_1 & b_1 \\ a_2 & b_2\end{vmatrix} \neq 0, \; c_1^2 + c_2^2 \neq 0
+    \]
+    Вопрос. Как превести эту дробь к однородному ДУ 1-го порядка? $f\left(\frac{y}{x}\right)$\\
+    Ответ:
+    \[
+        \begin{cases}
+            a_1\,x + b_1\,y + c_1 = 0\\
+            a_2\,x + b_2\,y + c_2 = 0
+        \end{cases} \Delta = \begin{vmatrix} a_1 & b_1 \\ a_2 & b_2\end{vmatrix} \neq 0\\
+    \]
+    Тогда по теореме Крамера получим, что существует единственное решение $(\alpha;\; \beta)$ этой системы линейных алгебраических уравнений.\\
+    Сделаем замену
+    \[
+    \begin{cases}
+        x = x_1 + \alpha\\
+        y = y_1 + \beta
+    \end{cases}
+    \]
+    Получим
+    \begin{align*}
+        a_1\,x + b_1\,y + c_1 &= a_1(x_1 + \alpha) + b_1(y_1 + \beta) + c_1 = \\
+        &=a_1\,x_1 + b_1\,y_1 + \underbrace{a_1\,\alpha + b_1\,\beta + c_1}_{0 \text{ (как корни ур-я)}} = \\
+        &=a_1\,x_1 + b_1\,y_1
+    \end{align*}
+    Помимо этого, если взять диференциалы от заменённых функций, получим
+    \[
+        \begin{cases}
+            dx = dx_1\\
+            dy = dy_1
+        \end{cases}
+    \]
+    Таким образом мы можем перейти к отношению линейных функций. Из первоначального уравнения получаем.
+    \begin{multline*}
+        y' = \frac{dy}{dx} = \frac{dy_1}{dx_1} = f\left(\frac{a_1\,x + b_1\,y + c_1}{a_2\,x +  b_2\,y + c_2}\right) = f\left(\frac{a_1\,x_1 +  b_1\,y_1}{a_2\,x_1 + b_2\,y_1}\right) =\\
+        = f\left(\frac{a_1 +  b_1\,\frac{y_1}{x_1}}{a_2\,x_1 + b_2\,\frac{y_1}{x_1}}\right) = g\left(\frac{y_1}{x_1}\right)
+    \end{multline*}
+    Таким образом
+    \[
+        \frac{dy_1}{dx_1} = g\left(\frac{y_1}{x_2}\right)
+    \]
+    получили однородное ДУ 1-го порядка, где 
+    \[
+        \begin{cases}
+            x_1 = x - \alpha\\
+            y_1 = y - \beta
+        \end{cases}
+    \]
+\end{Note}
+
+\begin{Example}
+    Дано
+    \[
+        y' = \frac{x + y + 1}{x - y}
+    \]
+    Решение.
+    \begin{enumerate}
+        \item Найдём коэфициенты $\alpha$ и $\beta$. Для этого рассмотрим систему.
+        \[
+            \begin{cases}
+                \alpha + \beta + 1 = 0\\
+                \alpha - \beta = 0
+            \end{cases} \qquad \text{Получаем } \alpha = \beta = -\frac{1}{2}
+        \]
+        
+        \item Зная $\alpha$ и $\beta$ Делаем замену $x$ и $y$ на
+        \[
+            x = x_1 - \frac{1}{2}\\            
+            y = y_1 - \frac{1}{2}
+        \]
+        Получаем
+        \begin{align*}
+            y' = \frac{x + y + 1}{x - y} &= \frac{x_1 + y_1}{x_1 - y_1}\\
+            \frac{dy_1}{dx_1} &= \frac{x_1 + y_1}{x_1 - y_1}
+        \end{align*}
+        
+        \item Пусть $t = \frac{y_1}{x_1}$, следоватнльно $y_1 = t\,x_1$. Тогда 
+        \[
+            dy_1 = x_1\,dt + t\,dx_1 \quad \Rightarrow \quad \frac{dy_1}{dx_1} = \frac{dt}{dx_1}\,x_1 + t
+        \]
+        А после замены $y_1$ справа получаем
+        \[
+            \frac{x_1 + t\,x_1}{x_1 - t\,x_1} = \frac{x_1 + t\,x_1}{x_1 - t\,x_1} = \frac{1 + t}{1 - t}
+        \]
+        Таким образом
+        \begin{align*}
+            \frac{dt}{dx_1}\,x_1 + t &= \frac{1 + t}{1 - t}\\
+            \frac{dt}{dx_1}\,x_1 &= \frac{1 + t - t + t^2}{1 - t}\\
+            \frac{1 - t}{1 + t^2}\,dt &= \frac{dx_1}{x_1}\\
+            \int \frac{1 - t}{1 + t^2}\,dt &= ln|x_1|
+        \end{align*}
+        После интегрирования получаем
+        \[
+            ln|x_1| + C_1 = arctg(t) - \frac{1}{2}\,ln|1 + t^2|\\
+        \]
+        Заменяем $t = \frac{y_1}{x_1}$ и получаем
+        \begin{gather*}
+            ln|x_1| + C_1 = arctg\left(\frac{y_1}{x_1}\right) - \frac{1}{2}\,ln\left|1 + \left(\frac{y_1}{x_1}\right)^2\right|\\
+            \cancel{ln|x_1|} + C_1 = arctg\left(\frac{y_1}{x_1}\right) - \frac{1}{2}\,ln|x_1^2 + y_1^2| + \cancel{ln|x_1^2|}\\
+        \end{gather*}
+        Ответ
+        \[
+            arctg\left(\frac{y_1}{x_1}\right) - \frac{1}{2}\,ln|x_1^2 + y_1^2| = C
+        \]
+    \end{enumerate}
+\end{Example}

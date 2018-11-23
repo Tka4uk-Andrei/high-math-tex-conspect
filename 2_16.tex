@@ -1,0 +1,133 @@
+\author{Tkachuk Andrei}
+
+\section{Система линейных ДУ}
+
+\begin{Def}
+    Пусть для функций справедливо 
+    \[
+    P_{i\;j}(x)\in C_{(a;\,b)} \qquad f_1(x),\; \dots,\; f_n(x) \in C_{(a;\,b)}
+    \]
+    Тогда система ДУ вида
+    \[
+    \begin{cases}   
+    y'_1 = P_{1\;1}(x)\,y_1 + \dots + P_{1\;n}(x)\,y_n + f_1(x)\\
+    \dots\\
+    y'_1 = P_{n\;1}(x)\,y_1 + \dots + P_{n\;n}(x)\,y_n + f_n(x)\\
+    
+    \end{cases}
+    \]
+    называется линейной системой относительно $n$ неизвестных функций $(y_1(x),\; \dots,\; y_n(x))$
+\end{Def}
+
+\begin{Note}
+    Для краткости записи введём
+    \[
+        \vec{y} = \begin{pmatrix}y_1\\ \vdots\\ y_n \end{pmatrix} \quad 
+        \vec{y'} = \begin{pmatrix}y'_1\\ \vdots\\ y'_n \end{pmatrix} \quad 
+        \vec{f} = \begin{pmatrix}f_1\\ \vdots\\ f_n \end{pmatrix} \quad 
+        P(x) = 
+        \begin{pmatrix}
+            P_{1\;1}(x) & \dots & P_{1\;n}(x)\\
+            \vdots & \ddots & \vdots\\
+            P_{n\;1}(x) & \dots & P_{n\;n}(x)\\
+        \end{pmatrix}
+    \]
+    где $\vec{f(x)}$ --- столбец правых частей, а $P(x)$ --- матрица коэфициентов.\\
+    Таким образом система ДУ из определения 1 имеет вид
+    \[
+        \vec{y'} = P(x)\,\vec{y} + \vec{f}(x)
+    \]
+\end{Note}
+
+\begin{Th}
+    В условиях определения 1
+    \[
+        \forall x_0 \in (a;\, b) \quad \forall \vec{y_0} = \begin{pmatrix}y^0_1\\ \vdots\\ y^0_n \end{pmatrix}
+    \]
+    существует единственное решение 
+    \[
+        \vec{y} = \vec{y}(x) \quad x \in (a;\, b)
+    \]
+    задачи Коши
+    \[
+        \begin{cases}   
+            \vec{y'} = P(x)\,\vec{y} + \vec{f}(x)\\
+            \vec{y}|_{x=x_0} = \vec{y_0}
+        \end{cases}
+    \]   
+\end{Th}
+
+\begin{Proof}
+    Без доказательств
+\end{Proof}
+
+\begin{Def}
+    Пусть
+    \[
+        \{\vec{y_1}(x)\,\; \dots,\; \vec{y_k}(x)\}
+    \]
+    система функций в $R^{n}$ причём 
+    \[
+        \vec{y_i}(x) = 
+        \begin{pmatrix}
+            y_{i\;1}\\
+            \vdots\\
+            y_{i\;n}\\
+        \end{pmatrix} \qquad x \in (a;\, b)  
+    \]
+    Тогда 
+    \begin{enumerate}
+        \item[\textbullet] система линейно зависима на интервале $(a;\, b)$\\
+        Другими словами
+        \[
+            \exists \alpha_1,\; \dots,\; \alpha_n \quad \sum_{i=1}^{n}\alpha_i^2 \neq 0 \qquad \forall x \in(a;\,b) \quad \alpha_1\,\vec{y_1} + \dots + \alpha_k\,\vec{y_k} = 0
+        \]
+        
+        \item[\textbullet] Во всех остальных случаях система линейно не зависима на интервале
+    \end{enumerate}
+\end{Def}
+
+\begin{Def}
+    Пусть 
+    \[
+        \vec{y'} = P(x)\,\vec{y}
+    \]
+    --- однородная система линейных ДУ, где $P(x)$ --- матрица коэфициентов, каждый из которых $\in C_(a;\,b)$.\\
+    
+    Тогда 
+    \[
+        \{\vec{y_1}(x),\; \dots,\; \vec{y_n}(x)\}
+    \]
+    --- ФСР для  $\vec{y'} = P(x)\,\vec{y}$, если
+    \begin{enumerate}
+        \item $\forall i \in (1,\; \dots,\; n) \quad \vec{y'_i} = P(x)\,\vec{y_i} \qquad (\forall x \in (a;\,b))$ 
+        
+        \item Количество векторов системы решений соответствует порядку матрицы $P(x)$
+        
+        \item Система лиенейно независима на $(a;\,b)$
+    \end{enumerate}
+\end{Def}
+
+\begin{Th}
+    Пусть
+    \[
+        \vec{y'} = P(x)\,\vec{y} + \vec{f}(x)
+    \]
+    --- система линейных ДУ (как в определении 1)\\
+    
+    Тогда существует ФСР $\{\vec{y_1}(x),\; \dots,\; \vec{y_n}(x)\}$ соответствующая линейному однородному ДУ $\vec{y'} = P(x)\,\vec{y}$ и решения $\vec{\psi}(x)$, такие что 
+    \[
+        \vec{y} = \vec{\psi}(x) + C_1\,\vec{y_1}(x) + \dots + C_n\,\vec{y_n}(x)
+    \]
+    описывает множество всех решений данной системы линейных ДУ, где $C_1,\; \dots,\; C_n$ --- произволные постоянные
+\end{Th}
+
+\begin{Proof}
+    Без доказательств
+\end{Proof}
+
+
+
+
+
+
