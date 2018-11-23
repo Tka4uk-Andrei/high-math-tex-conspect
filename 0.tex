@@ -31,7 +31,7 @@
 	\newtheorem{Axiom}{Аксиома}[section]
 	\newtheorem{Note}{Замечание}[section]
     \newtheorem{Example}{Пример}[section]
-	
+
 	 % Оформление докозательства
 	\newenvironment{Proof} % имя окружения
 	{\par\noindent{\bf Доказательство.}} % команды для \begin
@@ -45,16 +45,18 @@
 	\newcommand\Vectr[1]{\overrightarrow{#1}}
     % 'фи' равно красивой 'фи'
     \renewcommand{\phi}{\varphi}
-	
     % Определение русской действительной части вместо \Re
     \renewcommand{\Re}{\mathop{\text{Re}}} 
+    % Определение стандартного ряда
+    \newcommand{\baserow}[1]{\sum\limits_{n = 1}^{+\infty}{#1}}
+    
     
 	\tableofcontents
     %File:         %No  %Status:
-    \include{1_1}  %1   %OK? R
-    \include{1_2}  %2   %OK? R
-    \include{1_3}  %3   %ReWriting
-    \include{1_4}  %4   %OK? Q? R
+    \include{1_1}  %1   %OK  R
+    \include{1_2}  %2   %OK  R
+    \include{1_3}  %3   %OK  R
+    \include{1_4}  %4   %OK  R
     
     \include{2_1}  %5   %OK? Q? R
 	\include{2_2}  %6   %OK? Q? R
