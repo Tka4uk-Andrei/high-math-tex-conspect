@@ -1,0 +1,271 @@
+\author{Tkachuk Andrei}
+
+\section{Диференциальные уравнения высшего порядка уравнения высшего порядка, доспукающие понижения порядка}
+
+\begin{Def}
+    ДУ $n$-го порядка это уравнение вида 
+    \[
+        F(x, y, y', y'', \dots, y^{(n)}) = 0
+    \]
+    решение которого является функцией $y = y(x), \; x \in I$, которая $n$ раз диференцируема на $I$ и справедливо
+    \[
+        F(x, y, y'(x), y''(x), \dots, y^{(n)}(x)) = 0
+    \]
+\end{Def}
+
+\begin{Def}
+    Если 
+    \[
+        y^{(n)} = F(x, y, y', y'', \dots, y^{(n - 1)})
+    \] 
+    то оно называется диферециалное уравнение $n$-го порядка рзрешённого относительно старшей производной
+\end{Def}
+
+\begin{Example}[Как можно описать множество решений]
+    Дано
+    \[
+        y^{(n)} = f(x), \; f(x) \in C(I), \text{ где I --- интервал}
+    \]
+    Для краткости запишем через эквивалентность
+    \begin{align*}
+        y^{(n)}(x) &\equiv f(x)\\
+        (y^{(n-1)}(x))' & \equiv f(x) &\Leftrightarrow& &y^{(n-1)}(x) &= F_1(x) + C_1\\
+        (y^{(n-2)}(x))'' & \equiv f(x) &\Leftrightarrow& &y^{(n-2)}(x) &= F_2(x) + C_1 \, x + C_2
+    \end{align*}
+    Из этого следует
+    \begin{align*} 
+        y^{(n-3)} &= F_3(x) + \frac{C_1}{2} \, x^2 + C_2 \, x + C_3\\
+        &\dots\\
+        y &= F_n(x) + \frac{C_1}{(n+1)!}\,x^{n - 1} + \dots + C_{n - 1}\,x + C_n\\
+        y &= F_n(x) + C'_1 \, x^{n - 1} + \dots + C'_{n - 1}\,x + C'_n
+    \end{align*}
+    где
+    \[
+        F_n(x) = \underbrace{\int dx \int dx \dots \int f(x)dx}_{n \text{ раз}}
+    \]
+    Замечание. В последней строке сделана замена вида: $C'_1 = \frac{C_1}{(n+1)!} \; \dots \; C'_n = C_n$.\\
+\end{Example}
+
+\begin{Def}[Общее решение]
+    Пусть $y^{(n)} = f(x, y, y', \dots, y^{n-1})$ --- ДУ $n$-го порядка.\\
+    Тогда функция 
+    \[
+        y = \varphi(x, C_1, \dots, C_n)
+    \]
+    называется общим решением этого ДУ если
+    \begin{enumerate}
+        \item $\forall C_1, \dots, C_n \; y = \varphi(x, C_1, \dots, C_n)$ является решением как функция от $x$
+        \item Для любого решения $y = \varphi^*(x)$ найдётся такой набор $C^*_1, \dots, C^*_n \in \bb{R},\; \forall x \in I$, что $\varphi^*(x) = \varphi(x, C^*_1, \dots, C^*_n)$. То есть общее решение учитывает все наборы констант (все варианты решения)
+    \end{enumerate}
+\end{Def}
+
+\begin{Def}[Общий интеграл]
+    Если общее решение задано неявной функцией
+    \[
+        \varPhi(x, y, C_1, \dots, C_n) = 0
+    \]
+    то это общий интеграл
+\end{Def}
+
+\begin{Def}[Задача Коши для ДУ $n$-го порядка]
+    Она описывается следующим образом
+    \[
+        \begin{cases}
+            y^{(n)} = f(x, y, y', \dots, y^{(n-1)})\\
+            y|_{x = x_0} = y_0, \; y'|_{x = x_0} = y'_0, \; \dots, \; y^{(n-1)}|_{x = x_0} = y^{n-1}_0
+        \end{cases}
+    \]
+    где функция $f(x, y, y', \dots, y^{(n-1)})$ определена в области $D \subset \bb{R}^{n+1}$,\\
+    а $M_0(x_0, y_0, y'_0, \dots, y^{n-1}_0)$ --- внутренняя точка области $D$
+\end{Def}
+
+\begin{Th}[Сущ. и ед. задачи Коши для ДУ n-го порядка]
+    Пусть функция $f(x, y, y', \dots, y^{(n - 1)})$ определена в области $D \in \bb{R}^{n+1}$ и
+    \[
+        f(M), \; \frac{\delta f(M)}{\delta y}, \; \frac{\delta f(M)}{\delta y'}, \; \dots, \; \frac{\delta f(M)}{\delta y^{(n-1)}}
+    \]
+    непреывны в некоторой окрестности $U(M_0) \subset D$, где $M_0(x_0,\; y_0,\; \dots,\; y_0^{(n-1)})$\\
+    
+    Тогда $\exists \delta > 0$ и существует единственная функция $y = y(x), \; x \in U_\delta(x_0)$, которая является решением задачи Коши
+    \[
+        \begin{cases}
+            y^{(n)} = f(x, y, y', \dots, y^{(n-1)})\\
+            y|_{x = x_0} = y_0, \; y'|_{x = x_0} = y'_0, \; \dots, \;   y^{(n-1)}|_{x = x_0} = y^{n-1}_0
+        \end{cases}
+    \] 
+\end{Th}
+
+\begin{Proof}
+    Принимаем без доказательств.\\
+    \textcolor{cyan}{Примечание.} Доказательсво аналогично случаю для одной переменной.
+\end{Proof}
+
+\begin{Note}[О ДУ допускающих понижение порядка]
+    Рассмотрим ДУ вида $F(x, y', \dots, y^{(n)}) = 0$, т.е. не содержащих в явном виде $y$.\\
+    Для них спаведлива следующая замена:
+    \[
+        z = z(x) = y'(x), \; z'(x) = y''(x),\; \dots, \; z^{(n - 1)}(x) = y^{(n)}(x)
+    \]
+    Тогда
+    \begin{align*}
+        \begin{cases}   
+            F(x, z, \dots, z^{(n-1)}) = 0\\
+            z = y'
+        \end{cases}\\
+        \text{Таким образом, общее решение}\\
+        y' = z = z(x, C_1, \dots, C_{n-1})\\
+    \end{align*}
+    Ответ
+    \[
+        y = \int z(x, C_1, \dots, C_{n-1})\,dx + C_n
+    \]
+\end{Note}
+
+\begin{Example}
+    Дано
+    \[
+        x^2\,y'' - (y')^2 = 0
+    \]
+    Решение.\\
+    Заменияем $z = y', \; z' = y''$. Получаем
+    \begin{gather*}
+        x^2 \, z' - z^2 = 0\\
+        \frac{dz}{z^2} = \frac{dx}{x^2}\\
+        \int \frac{dz}{z^2} = \int \frac{dx}{x^2}\\
+        - \frac{1}{z} = - \frac{1}{x} - C_1\\
+        z = \frac{x}{C_1 \, x + 1}\\
+        y' = \frac{x}{C_1 \, x + 1}\\
+        y = \int \frac{x}{C_1 \, x + 1}
+    \end{gather*}
+    Таким образом получаем
+    \begin{enumerate}
+        \item $C_1 = 0 \Rightarrow y = \frac{x^2}{C_2}$
+        \item Для $C_1 \neq 0$ получим
+        \begin{align*}
+            y &= \frac{1}{C_1} \, \int \frac{(C_1\,x + 1) - 1}{C_1\,x + 1} \, dx + C_2\\
+            y &= \frac{x}{C_1} - \frac{1}{C_1^2}\,ln(|C_1\,x + 1|)  + C_2
+        \end{align*}
+        \item Частный случай $z = 0, \; y' = 0 \Rightarrow y = C_2$
+    \end{enumerate}
+\end{Example}
+
+\begin{Note}
+    Рассмотрим ДУ вида $F(x, y^{(k)}, \dots, y^{(n)}) = 0$, т.е. не содержащие в явном виде $y, y', \dots, y^{(k - 1)}, \; k \geqslant 2$s.\\
+    В данном случае всё аналогично предыдущему замечанию
+    \begin{gather*}
+        z = y^{(k)}, z' = y^{(k + 1)}, \dots, z^{(n-k)} = y^{(n)}\\
+        \begin{cases}   
+            F(x,z, \dots, z^{(n-k)}) = 0\\
+            z = y^{(k)}
+        \end{cases}\\
+        \text{Таким образом, общее решение для } z\\
+        z = z(x, C_1, \dots, C_{n-k})\\
+        F_k^{(k)} = z(x, C_1, \dots, C_{n-k})\\
+        y^{(k)} = F_k^{(k)}\\
+        y = F_k(x, C_1, \dots, C_{n-k}) + C_{n-k+1}\,x^{k-1} + \dots + C_n
+    \end{gather*}
+\end{Note}
+
+\begin{Example}
+    Дано
+    \[
+        x \, y''' - y'' = 0 \Rightarrow k = 2
+    \]
+    Решение
+    \begin{gather*}
+        \text{Пусть } z = y'', \; z' = y''' \text{ тогда}\\
+        x \, z' - z = 0\\
+        \int \frac{dz}{z} = \int \frac{dx}{x} + ln|C_1|\\
+        z = C_1\,x
+        \text{Делаем обратную замену}\\
+        y'' = C_1\,x\\
+        y' = \frac{C_1 \, x^2}{2} + C_2\\
+        y = \underbrace{\frac{C_1 \, x^3}{6}}_{F_2(x, C_1)} + \underbrace{C_2\,x + C_3}_{\text{многочлен ст. } k - 1}
+    \end{gather*}
+    По факту мы рассмотрели следующее уравнение в поле
+    \[
+        y''' = \frac{y''}{x}, \; D \in \bb{R}^4 \setminus \{x=0\}
+    \]
+    Замечание. Частный случай ($z = 0$) входит в общее решение. Таким образом, решение выше полное.
+\end{Example}
+
+\begin{Note}
+    Рассмотрим ДУ вида $F(y, y', \dots, y^{(n)}) = 0$ т.е. не содержащее $x$ в явном виде.\\
+    Аналогично делаем замену
+    \begin{align*}
+        y' &= p(y)\\
+        \text{Отметим } y'_x(x) &= p(y(x)) \text{ --- сложная функция. Значит}\\
+        y''&=  p'\,p\\
+        y''' &= (p'' \, p + (p')^2)\,p = f_2(p, p', p'')\\
+        &\dots\\
+        y^{(k + 1)} &= f_k(p, p', \dots, p^{(k)})
+    \end{align*}
+    Таким образом получаем следующую систему
+    \[
+        \begin{cases}
+            F(y,\; p,\; p'\,p,\; f_2(p,\; p',\; p''),\; \dots,\; f_k(p,\; p',\; \dots,\; p^{(k)})) = 0\\
+            y' = p
+        \end{cases}
+    \]
+    Следователно общее решение относительно $p$
+    \[
+        p = p(y, C_1, \dots, C_{n-1})
+    \]
+    Зная, что $y' = p$ получаем
+    \[
+        \frac{dy}{p(y, C_1, \dots, C_{n-1})} = dx
+    \]
+    Таким образом решение относительно $x$ следующее
+    \[
+        x = \int \frac{dy}{p(y, C_1, \dots, C_{n-1})} + C_n
+    \]
+\end{Note}
+
+\begin{Example}
+    Дано
+    \[
+        y'' = 2\,y\,y'
+    \]
+    Решение
+    \begin{align*}
+        y' &= p(y)\\
+        y'' &= p'\,p\\
+        p'\,p &= 2\,y\,p\\
+        p(p' - 2\,y) &= 0
+    \end{align*}
+    Получаем два случая\\
+    Первый:
+    \[
+        p = 0 \Rightarrow \; y' = 0, \; y = C_1 
+    \]
+    Второй:
+    \begin{align*}
+        p'- 2\,y &= 0\\
+        p' &= 2\,y\\
+        dp &= 2\,y\,dy\\
+        \int dp &= \int 2\,y\,dy\\
+        p = y' &= y^2 + C_1\\
+        \frac{dy}{dx} &= y^2 + C_1\\
+        \int dx  &= \int \frac{dy}{y^2 + C_1}\\
+        x + C_2 &= \int \frac{dy}{y^2 + C_1}\\
+    \end{align*}
+    При вычислении интеграла рассмотрим три случая
+    \begin{enumerate}
+    \item $C_1 = 0$  
+    \begin{align*}
+        -\frac{1}{y} &= x + C_2\\
+        y &= -\frac{1}{x + C_2}
+    \end{align*} 
+                  
+     \item $C_1 > 0$
+     \begin{align*}
+        x + C_2 &= \frac{1}{\sqrt{C_1}}\, arctg\left(\frac{y}{\sqrt{C_1}}\right)\\
+        y &= \sqrt{C_1} \, tg((x + C_2)\, \sqrt{C_1})
+     \end{align*}   
+                
+     \item $C_1 < 0, \; C_1 = -|C_1|$
+     \begin{align*} 
+        x + C_2 &= \frac{1}{2\,\sqrt{|C_1|}}\, ln\left|\frac{y-\sqrt{|C_1|}}{y+\sqrt{|C_1|}}\right|
+     \end{align*}
+    \end{enumerate}
+\end{Example}

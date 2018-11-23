@@ -1,0 +1,156 @@
+\author{Tkachuk Andrei}
+
+\section{Случай комплексных корней характеристического многочлена. Общий случай построения ФСР}
+
+\begin{Def}[Комплексное число]
+    \[
+        \alpha,\; \beta \in \bb{R} \quad \alpha + \beta\,i \in \bb{C}, \quad x\in\bb{R}
+    \]
+    Представление комплексного числа 
+    \[
+        e^{(\alpha + \beta\,i)\,x} = e^{\alpha\,x}\,(\cos(\beta\,x) + i\,\sin(\beta\,x))
+    \]
+    Замечание
+    \[
+        e^{z_1 + z_2} = e^z_1 + e^z_2
+    \]
+\end{Def}
+
+\begin{Def}
+    Пусть
+    $u = u(x), \quad v = v(x)$ --- \textcolor{red}{функции вещественных переменных} $x$, тогда
+    \[
+        z = u(x) + i\,v(x) \qquad x\in\bb{R}
+    \]
+    --- комплексная функция от вещественных аргументов.\\
+    А также
+    \[
+        (u + i\,v)'_x = u'_x + i\,v'_x
+    \] 
+\end{Def}
+
+\begin{Note}
+    \[
+        L(u + i\,v) = L(u) + i\,L(v)
+    \]  
+\end{Note}
+
+\begin{Note}
+    \[
+        (e^{(\alpha + i\,\beta)\,x})'_x = (\alpha + i\,\beta)\,e^{(\alpha + i\,\beta)\,x}
+    \]    
+\end{Note}
+
+\begin{Proof}
+    \begin{gather*}
+        (e^{(\alpha + i\,\beta)\,x})'_x = [\text{опр. 1}] = (e^{\alpha\,x}\,\cos(\beta\,x) + i\,e^{\alpha\,x}\,\sin(\beta\,x))'_x = \\
+        = (e^{\alpha\,x}\,\cos(\beta\,x))'_x + i\,(e^{\alpha\,x}\,\sin(\beta\,x))'_x =\\
+        = e^{\alpha\,x}\,(\alpha\,\cos(\beta\,x) - \beta\,\sin(\beta\,x)) + i\,e^{\alpha\,x}\,(\alpha\,\sin(\beta\,x) + \beta\,\cos(\beta\,x))
+    \end{gather*}
+    С другой стороны
+    \begin{gather*}
+        (\alpha + i\,\beta)\,e^{(\alpha + i\,\beta)\,x} = [\text{опр. 1}] = (\alpha + i\,\beta)\,e^{\alpha\,x}\,(\cos(\beta\,x) + i\,\sin(\beta\,x)) =\\
+        = e^{\alpha\,x}\,(\alpha\,\cos(\beta\,x) - \beta\,\sin(\beta\,x)) + i\,e^{\alpha\,x}\,(\alpha\,\sin(\beta\,x) + \beta\,\cos(\beta\,x)) 
+    \end{gather*}
+\end{Proof}
+
+\begin{Th}
+    Пусть $\alpha \pm i\,\beta$  --- пара комплексно сопряжённых корней характеристического многочлена $P(\lambda)$, \textcolor{red}{($\beta > 0$)} кратности $m \geqslant 1$ ЛОДУ $L(y) = 0$ с постоянными коэффициентами (как в \S 12).\\
+    Тогда функции 
+    \begin{multline*}
+        \{e^{\alpha\,x}\,\cos(\beta\,x),\; x\,e^{\alpha\,x},\cos(\beta\,x),\; \dots,\; x^{m-1}\,e^{\alpha\,x},\cos(\beta\,x),\\ e^{\alpha\,x}\,\sin(\beta\,x),\; x\,e^{\alpha\,x},\sin(\beta\,x),\; \dots,\; x^{m-1}\,e^{\alpha\,x},\sin(\beta\,x)\}
+    \end{multline*}
+    Образуют систему $2\,m$ линейно независимых решений ЛОДУ $L(y) = 0$
+\end{Th}
+
+\begin{Proof}
+    Доказательство аналогично доказательству теоремы 2 из предыдушего параграфа.\\
+    По условию
+    \[
+        L(x^l\,e^{(\alpha + i\,\beta)\,x}) = 0 \qquad 0 \leqslant l \leqslant m - 1
+    \]
+    Тогда корень
+    \[
+        y = x^l\,e^{(\alpha + i\,\beta)\,x} = x^l\,e^{\alpha\,x}\,(\cos(\alpha) + i\,\sin(\beta\,x))
+    \]
+    В более общем виде (по определению 2) корень
+    \[
+        y = u + i\,v
+    \]
+    Тогда по свойству линейного оператора для комплексного числа получаем
+    \[
+        L(u + i\,v) = L(u) + i\,L(v)
+    \]
+    Так как $L(y) = 0$, то тогда и слагаемые, его состовляющие также равны нулю. Значит
+    \[
+        u = x^l\,e^{\alpha\,x}\,\cos(\alpha) \qquad v = x^l\,e^{\alpha\,x}\,\sin(\beta\,x)
+    \]
+    Являются решениями ДУ $L(y) = 0$.\\
+    Данные функции ЛНЗ над областью $\bb{C}$. Значит тем более функции ЛНЗ над $\bb{R} \subset \bb{C}$.
+\end{Proof}
+
+\begin{Th}[Построение ФСР ЛОДУ $n$-го порядка с $const$ коэф]
+    Пусть 
+    \[
+        P(\lambda) = (\lambda + \alpha_1)^{k_1}\,\dots\,(\lambda + \alpha_s)^{k_s}\,(\lambda^2 + p_1\,\lambda + q_1)^{m_1}\,\dots\,(\lambda^2 + p_t\,\lambda + q_t)^{m_t}
+    \]
+    характеристический многочлен ЛОДУ $n$-го порядка с потоянными коэфициентами
+    \[
+        P(\lambda) = \lambda^n + a_1\,\lambda^{n-1} + \dots + a_n, \quad L(y) = y^n + a_1\,y^{n-1} + \dots + a_n
+    \]
+    $\alpha_1\,\; \dots,\; \alpha_s$ --- попарно различные вещественные корни $P(\lambda)$ кратности $k_1,\; \dots,\; k_s$ соответственно ($s \geqslant 0$).\\
+    $(\lambda^2 + p\,\lambda + q)^m = (\lambda - z)\,(\lambda - \bar{z})$ пары $(z_1, \bar{z_1})\dots(z_t, \bar{z_t})$ --- все попарно различные корни кратности $m_1,\; \dots,\; m_t$ соответственно ($t \geqslant 0$)\\
+    
+    Замечание.
+    \[
+        z_j = \alpha_{s + j} + i\,\beta_{j} \quad \beta_{j} > 0 \quad \bar{z_j} = \alpha_{s + j} - i\,\beta_{j}
+    \]
+    Тогда
+    \begin{enumerate}
+        \item Если $\alpha \in \bb{R}$, корнень кратности $k$, для $P{\lambda}$, тогда
+        \[
+        \{e^{\alpha\,x},\; x\,e^{\alpha\,x},\; \dots,\; x^{k-1}\,e^{\alpha\,x}\}
+        \]
+        
+        \item Если $\alpha \pm i\,\beta$, пара комплексно сопряжённых корней кратности $m \geqslant 1$, тогда
+        \begin{gather*}
+        \{e^{\alpha\, x}\,\cos(\beta\,x),\; x\,e^{\alpha\, x}\,\cos(\beta\,x),\; \dots,\; x^{m-1}\,e^{\alpha\, x}\,\cos(\beta\,x),\;\\
+        e^{\alpha\, x}\,\sin(\beta\,x),\; x\,e^{\alpha\, x}\,\sin(\beta\,x),\; \dots,\; x^{m-1}\,e^{\alpha\, x}\,\sin(\beta\,x)\}
+        \end{gather*}
+    \end{enumerate} 
+    Всего будет $k_1 + \dots + k_s + 2\,m_1 + \dots + 2\,m_t = n$ решений. Все они образуют ФСР $L(y) = 0$    
+\end{Th}
+
+\begin{Proof}
+    Все эти $n$ функций являются решением $L(y) = 0$. Их количество равно порядку ДУ $L(y) = 0$. Эти функции образуют ЛНЗ систему, так как функции
+    \[
+        e^{\alpha_1\,x},\; \dots,\; x^{k_1 - 1}\,e^{\alpha_1\,x},\; \dots,\; e^{(\alpha_{s+1} \pm i\,\beta_1)\,x},\; \dots,\; e^{(\alpha_{s+t} \pm i\,\beta_t)}\,x^{m_t-1}
+    \]
+    ЛНЗ на $\bb{C}$, следовательно они ЛНЗ на $\bb{R}$. Таким образом они образуют ФСР.
+\end{Proof}
+
+\begin{Example}
+    Дано
+    \[
+        P(\lambda) = \lambda^2\,(\lambda - 2)^3\,(\lambda + 1)^4\,(\lambda^2 + 2\,\lambda + 2)^2 
+    \]
+    Решение.\\
+    Видим, что корни характеристического многочлена имеют соответствующие кратности
+    \begin{align*}
+        &\alpha_1 = 0& &\alpha_2 = 2& &\alpha_3 = -1& &\alpha \pm i\,\beta = -2 \pm i\\
+        &k_1 = 2& &k_2 = 3& &k_3 = 4& &m_1 = 2
+    \end{align*}
+    Тогда ФСР
+    \begin{multline*}
+        \{1,\; x,\; e^{2\,x},\; x\,e^{2\,x},\; x^2\,e^{2\,x},\; e^{-x},\; x\,e^{-x},\; x^2\,e^{-x},\; x^3\,e^{-x},\;\\
+        e^{-2\,x}\,\cos(x),\; e^{-2\,x}\,\sin(x),\;  x\,e^{-2\,x}\,\cos(x),\; x\,e^{-2\,x}\,\sin(x)\}
+    \end{multline*}
+    \[
+        n = 2 + 3 + 4 + 2\cdot2 = 13
+    \]
+    Тогда общее решение выглядит так
+    \begin{align*}
+        y = &C_1 + C_2\,x + (C_3 + C_4\,x + C_5\,x^2)\,e^{2\,x} + (C_6 + C_7\,x + C_8\,x^2 + C_9\,x^3)\,e^{-x} + \\
+        + &(C_{10} + C_{11}\,x)\,e^{-2\,x}\,\cos(x) + (C_{12} + C_{13}\,x)\,e^{-2\,x}\,\sin(x)
+    \end{align*}
+\end{Example}

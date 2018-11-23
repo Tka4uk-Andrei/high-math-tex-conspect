@@ -1,0 +1,195 @@
+\part{Числовые ряды}
+\section{Основные определения}
+
+\begin{Note}[\textcolor{red}{Некоторые случаи рядов}]
+    Вещественное число можно представить в следующем виде
+    \[
+        x \in \bb{R},\; x = A,a_1\,a_2\,\dots\,a_n\,\dots
+    \]
+    где
+    \[
+         a_i \in \{0, 1, \dots, 9\}, \quad A \in \bb{Z}
+    \]
+    Также запись выше эквивалентна следующему выражению
+    \[
+        x = A + \frac{a_1}{10} + \frac{a_2}{10^2} + \dots + \frac{a_n}{10^n} + \dots 
+    \]
+    Из этого можно выделить рациональное число  
+    \[
+        x_n = A,a_1\,a_2\,\dots\,a_n \in \bb{Q}
+    \]
+    Связь рационального и действительного числа
+    \[
+        \exists \lim_{n \rightarrow +\infty}x_n = x
+    \]
+    Рассмотрим следующий случай (вывод убывающей геом. прогрессии). Пусть 
+    \[
+        b_n = b_1\,q^{n-1} \qquad |q| < 1
+    \]
+    тогда
+    \begin{align*}
+         S_n &= b_1 + \dots + b_n\\
+         S_n &= b_1 + q\,(b_1 + b_1\,q + \dots + b_1\,q^{n-2})\\
+         S_n &= b_1 + q\,(b_1 + b_1\,q + \dots + b_1\,q^{n-2} + b_1\,q^{n - 1}) - b_1\,q^{n}\\
+         S_n &= b_1 + q\,S_n - b_1\,q^{n}\\
+         S_n\,(1 - q) &= b_1\,(1 - q^{n})\\
+         S_n &= b_1\,\frac{1-q^n}{1-q}
+    \end{align*}
+    Зная что $|q| < 1$, получаем
+    \[
+        b_1\,\frac{1-q^n}{1-q} \rightarrow \frac{b_1}{1-q} \quad (n \rightarrow + \infty)
+    \]
+    Значит
+    \[
+        S_n = \sum^{\infty}_{n = 1}b_1\,q^{n-1} = \frac{b_1}{1-q}
+    \]
+\end{Note}
+
+\begin{Def}[Числовой ряд]
+	Пусть $\{a_n\}$ --- последовательность чисел, $a_n \in \bb{R}$. Тогда формальное выражение 
+    \[
+        \sum^{+\infty}_{n = 1}\,a_n
+    \] 
+    называется числовым рядом, где 
+    \[
+        a_1,\; a_2,\; \dots,\; a_n
+    \]
+    --- члены ряда, а функция $n \mapsto a_n$ называется общим членом ряда.
+\end{Def}
+
+\begin{Def}
+	Пусть $a_n$ - числовой ряд. Тогда:
+	\begin{enumerate}
+        \item n-ная частичная сумма ряда имеет вид
+        \[
+            S_n = \sum^n_{k = 1}a_k = a_1 + a_2 + \dots + a_n
+        \]
+         
+        \item Если 
+        \[
+            \exists \lim_{n \rightarrow +\infty} a_n = S
+        \]
+        то ряд называется сходящимся и $S$ --- его сумма. Пишем 
+        \[
+            \sum^{\infty}_{n = 1}a_n = S
+        \]
+         
+        \item Если $\nexists\,\lim S_n$, в частности предел равен $\infty$, то ряд расходящийся и такой ряд не имеет суммы.
+    \end{enumerate}
+\end{Def}
+
+\begin{Def}
+	Пусть $\sum^{+\infty}_{n = 1}a_n$ --- числовой ряд. Тогда $\forall n \in \bb{N}$ ряд $\sum^{+\infty}_{k = n + 1}a_k$
+    нызывается $n$-ым остатком ряда $\sum^{+\infty}_{n = 1}a_n$
+\end{Def}
+
+\pagebreak
+
+\begin{Note}.\\
+    \begin{enumerate}
+        \item[\textbullet] Если ряд $\sum^{+\infty}_{n = 1}a_n$
+        сходится и его сумма равна $S$, то $\forall n \in \bb{N}$ его $n$-ый остаток сходится и его сумма $S_k = S - S_n$.
+        
+        \item[\textbullet] Если ряд $\sum^{+\infty}_{n = 1}a_n$ расходится, то $\forall n \in N$ его остаток тоже расходится.
+    \end{enumerate}
+    
+\end{Note}
+
+\begin{Note}
+    Свойства сходящихся рядов
+    \begin{enumerate}
+        \item Сумма сходящихся рядов равна сходящимуся ряду  
+        \[
+            \sum^{+\infty}_{n=1}a_n = S^{(A)} \quad \sum^{+\infty}_{n=1}b_n = S^{(B)}\; \Rightarrow\; \sum^{+\infty}_{n=1}(a_n + b_n) = S^{(A)} + S^{(B)}
+        \]
+         
+        \item При домножении сходящегося ряда на константу ряд остаётся сходящимся
+        \[
+            \sum^{+\infty}_{n=1}a_n = S^{(A)} \quad \Rightarrow \quad \forall a \in \bb{R} \quad \sum^{+\infty}_{n=1}\alpha\,a_n = \alpha\,S^{(A)}
+        \]
+    \end{enumerate}
+\end{Note}
+
+\begin{Proof} (Пункт 1)
+    \begin{gather*}
+        S^{(A+B)}_n = S^{(A)}_n + S^{(B)}_n \rightarrow S^{(A)} + S^{(B)}\\
+        S^{(A+B)}_n \rightarrow S^{(A+B)}
+    \end{gather*}
+\end{Proof}
+
+\begin{Proof} (Пункт 2)
+    \begin{gather*}
+        S^{(\alpha\,A)}_n = \sum^{+\infty}_{n=1}\alpha\,a_n = \alpha\,S^{(A)}_n \rightarrow \alpha\,S^{(A)}\\ S^{(\alpha\,A)} \rightarrow \alpha\,S^{(A)}
+    \end{gather*}
+\end{Proof}
+
+\begin{Th}[Необходимое условие сходимости]
+	Если ряд\\ $\sum^{+\infty}_{n=1}a_n = S$, то $\exists\, \lim_{n \rightarrow +\infty}a_n = 0$
+\end{Th}
+
+\begin{Proof}
+    Из определения частичной суммы ряда следует
+	\[
+        a_n = S_n - S_{n - 1} = (a_1 + a_2 + \dots + a_{n-1} + a_n) - (a_1 + a_2 + \dots + a_{n-1})
+    \]
+    Тогда 
+    \[
+        \exists \lim_{n \rightarrow +\infty}a_n = \lim_{n \rightarrow +\infty}(S_n - S_{n-1}) = \lim_{n \rightarrow +\infty}S_n - \lim_{n \rightarrow +\infty}S_{n - 1} = S - S = 0
+    \]
+\end{Proof}
+
+\begin{Note}
+	Если $a_n \nrightarrow 0 \quad (n \rightarrow \infty)$, то ряд расходится.
+\end{Note}
+
+\textcolor{red}{Не очень понятен пример}
+\begin{Example}
+    Дано
+	\[
+        \sum^{+\infty}_{n=1}ln(1 + \frac{1}{n})
+    \]
+    С одной стороны (через формулы эквивалентности у пределов (1 сем.))
+    \begin{gather*}
+        a_n = ln(1 + \frac{1}{n}) \sim \frac{1}{n}\\
+        a_n \rightarrow 0 \qquad (n \rightarrow \infty)
+    \end{gather*}
+    С другой
+    \begin{align*}
+        S_n &= \sum^{n}_{k=1}\ln\left(1 + \frac{1}{k}\right) = \ln\left(\frac{2}{1}\right) + \ln\left(\frac{3}{2}\right) + \dots + \ln\left(\frac{n + 1}{\cancel{n}}\right) =\\
+        &= \ln\left(\frac{\cancel{2}}{1} \cdot \frac{\cancel{3}}{\cancel{2}} \dots \frac{n + 1}{\cancel{n}}\right) = \ln(n + 1)
+    \end{align*}
+    Таким образом
+    \[
+        S_n = \ln(n + 1) \rightarrow +\infty 
+    \]
+    значит ряд расходится и тогда 
+    \[
+        a_n \rightarrow 0 \quad (n \rightarrow +\infty)
+    \]
+\end{Example}
+
+\begin{Th}[Критерий Коши сходимости числового ряда].\\
+	Если ряд $\sum^{+\infty}_{n=1}a_n$ сходится, то
+    \[
+        \forall \epsilon > 0 \exists N \in N \forall n \geq N \forall p \in N |a_{n+1} + \dots + a_{n+p} < \epsilon|
+    \]
+    Обратное утверждение также верно
+\end{Th}
+
+\begin{Proof}
+	$\sum^{+\infty}_{n=1}a_n$ сходится $\Leftrightarrow \exists lim_{n \rightarrow +\infty}S_n = S \in R \Leftrightarrow \forall \epsilon > 0 \exists N \in N \forall n \geq N \forall p \in N |S_{n+p} - S_n| < \epsilon$\\
+	$|S_{n+p}-S_n| = |a_{n+1} + ... + a_{n+p}| < \epsilon$\\
+\end{Proof}
+
+\begin{Th}[Признак абсолютной сходимости]
+	Если ряд $\sum^{+\infty}_{n=1}|a_n|$ сходится, то и ряд $\sum^{+\infty}_{n=1}a_n$ сходится.
+\end{Th}
+
+\begin{Proof}
+	$\sum^{+\infty}_{n=1}|a_n|$ сходится $\Rightarrow \forall \epsilon > 0 \exists N \in N \forall n \geq N \forall p \geq 1 |a_{n+1}| + ... + |a_{n+p}| < \epsilon \Rightarrow |a_{n+1} + ... + a_{n+p}| \leq |a_{n+1}| + ... + |a_{n+p}| < \epsilon$\\
+	По критерию Коши ряд сходится.\\
+\end{Proof}
+
+\begin{Def}
+	Если ряд $\sum^{+\infty}_{n=1}|a_n|$ сходится, ряд $\sum a_n$ называется абсолютно сходящимся.
+\end{Def}

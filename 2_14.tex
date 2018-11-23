@@ -1,0 +1,317 @@
+\section{Метод неопределённых коэф. для отыскания частного решения ЛОДУ n-го порядка с пост. коэф.}
+
+В параграфе рассмотрим уравнения вида
+\[
+    L(y)=P_m(x) e^{\alpha x} \quad
+    L(y)=P_m(x) e^{\alpha x}\cos \beta x \quad
+    L(y)=Q_m(x) e^{\alpha x}\sin x
+\]
+
+\begin{Th}[О суперпозиции частных решений]
+    Пусть $y_1(x),\; \dots,\; y_k(x)$ - это частные решения соответствующих (1 к 1) ЛНДУ вида $L(y)=f_1(x),\; \dots,\; L(y)=f_k(x)$\\
+    
+    Тогда для ЛНДУ вида
+    \[
+        L(y)=A_1\,f_1(x)+\dots+A_k\,f_k(x) \qquad A_1,\; \dots,\; A_k \in \bb{R}
+    \]
+    имеет частное решение вида 
+    \[
+        y=A_1\,y_1(x)+\dots+A_k\,y_k(x)
+    \]
+\end{Th}
+
+\begin{Proof}
+    Дано:
+    \[
+        L(y)=f_1(x),\; \dots,\; L(y)=f_k(x)
+    \]
+    Тогда свойству линейного оператора
+    \[
+       L(A_1\,y_1(x)+ \dots + A_k\,y_k(x)) = A_1\,L(y_1)+\dots+A_k\,L(y_k) = A_1\,f_1(x) + \dots + A_k\,f_k(x) 
+    \]
+\end{Proof}
+
+\begin{Lem}[Алгебраическая]
+    Пусть 
+    \[
+        Q_m(x) = C_0\,x^m+C_1\,x^{m-1}+\dots+C_m \qquad C_0 \neq 0
+    \]
+    многочлен степени $m \geqslant 0$.\\
+    
+    Тогда для любых чисел $\delta_0 \neq 0,\delta_1,\; \dots,\; \delta_n$ существует многочлен 
+    \[
+        u(x)=u_m(x)=A_0\,x^m+\dots+A_n
+    \] 
+    степени $m$ для которого\\
+    \[
+        \delta_0\,u+\delta_1\,u'+\dots+\delta_n\,u^{(n)}=Q_m(x) \qquad \forall x \in \bb{R}
+    \]
+    То есть
+    \[
+        C_0\,x^m+C_1\,x^{m-1}+\dots+C_m \equiv \delta_0\,u+\delta_1\,u'+\dots+\delta_n\,u^{(n)}
+    \]
+\end{Lem}
+
+\begin{Proof}
+    Для доказательства достаточно рассмотреть случай $m = n$ так как
+    \begin{enumerate}
+        \item если $n < m$, то возьмём набор (так как числа любые по условию)
+        \[
+            \delta_{n+1} = \dots = \delta_{m} = 0    
+        \]
+        тогда многочлен $u_m(x)$ содержит $n$ слагаемых
+        
+        \item если $n > m$, то 
+        \[
+            u^{(m+1)} = 0,\; \dots,\; u^{(n)} = 0
+        \]
+        так как многочлен $Q(x)$ степни $m$ (по условию). Это всё значит, что
+        \[
+            \delta_0\,u+\delta_1\,u'+\dots+\delta_n\,u^{(n)} \equiv Q_m(x)
+        \]
+    \end{enumerate}
+    два случая выше сводятся к $m = n$.\\
+    Для начала выразим коэфициенты $C_m,\; \dots,\; C_1$ из $Q_m(x)$, получим
+    \[
+        C_m=Q_m(x),\quad 1!\,C_{m-1}=Q'_m(x),\quad \dots,\quad m!\,C_{0} = Q^{(m)}(x)
+    \]
+    \textcolor{cyan}{Примечание}. Последние не нулевые слагаемые у производных дают коэфициент в виде на постоянной $С_i$ умноженной на факториал (из-за взятия производной у $x^i$)\\
+     
+    Также по условию для $Q(x)$ и его производных существуют такие равенства
+    \begin{align*}
+        Q_m(x) &= \delta_0\,u(x) + \delta_1\,u'(x) + \dots + \delta_m\,u^{(m)}(x)\\
+        Q'_m(x) &= \delta_0\,u'(x) + \delta_1\,u''(x) + \dots + \delta_{m-1}\,u^{(m)}(x) + 0\\
+        &\vdots\\
+        Q_m^{(m)}(x) &= \delta_0\,u^{(m)}(x)
+    \end{align*}
+    Если мы подставим в качестве аргумента ноль в функцию $u(x)$ и аналогично способу выше выразим $A_m,\; \dots,\; A_0$, то получим
+    \[
+        A_m=u(0),\quad 1!\,A_{m-1}=u'(0),\quad \dots,\quad m!\,A_0=u^{(m!)}(0)
+    \]
+    Теперь объединим всё таким образом, чтобы остались только $C_i,\; \delta_i,\; A_i$, получим систему
+    \[
+        \begin{cases}
+            C_m=\delta_0\,A_m + \delta_1\,A_{m-1} + \dots + m!\,\delta_m\,A_0\\
+            1!\,C_{m-1} = 1!\,\delta_0\,A_{m-1} + \delta_1\,A_{m-1} + \dots + m!\,\delta_{m-1}\,A_0\\
+            \vdots\\
+            m!\,C_0=m!\,\delta_0\,A_0
+        \end{cases}
+    \]
+    это алгебраическая система из $(m+1)$ уравнений относительно $(m+1)$ переменных $A_0,\; A_1,\; \dots,\; A_m$ и определитель\\
+    \[
+        \Delta= 
+        \begin{vmatrix} 
+            \delta_0& *& *& *\\  
+            0& 1!\,\delta_0& *& *\\ 
+            \vdots& \vdots& \ddots& \vdots\\
+            0&0&0&m!\,\delta_m
+        \end{vmatrix} = [\text{по свойству треугольной матрицы}] = \delta_0^{(m+1)}\,1!\,2!\, \dots\,m!
+    \]
+    Так как $\delta_0 \neq 0$ (по условию), то $\Delta \neq 0$. Тогда по теореме Крамера существует единственное решение в виде $A_0,\; A_1,\; \dots,\; A_m$ и 
+    \[
+        \exists u(x) \quad \forall x \in \bb{R} \quad \delta_0\,u + \delta_1\,u' + \dots + \delta_n\,us^{(n)} = Q_m(x)
+    \]\\
+\end{Proof}
+
+\begin{Th}
+    Пусть 
+    \[
+        L(y) = y^{(n)} + \alpha_1\,y^{(n-1)} + \dots + \alpha_n\,y = Q_m(x)\,e^{\alpha\,x}
+    \]
+    ЛНДУ n-го порядка с постоянными коэфициентами $a_1,\; \dots,\; a_n$ и правой частью специального вида $Q_m(x)\,e^{\alpha\,x}$, где 
+    \[
+        Q_m(x)=C_0\,x^m + C_1\,x^{m-1} + \dots + C_m \qquad C_0 \neq 0, \quad \alpha \in \bb{R}
+    \] 
+    --- многочлен степени $m \geqslant 0$.\\
+    
+    Обозначим через $P(\lambda)$ характеристический многочлен этого ДУ и положим $k=0$, если $P(\alpha)\neq 0$ и k - кратность корня характеристического многочлена $P(\lambda)$, если $P(\alpha)=0$\\
+    
+    Тогда существует многочлен $u(x) = A_0\,x^m + \dots + A_m$ степени $m$ для которого\\
+    $y = x^k\,e^{\alpha x}\,u(x)$ является часть решения ЛНДУ $L(y) = Q_m(x)\,e^{\alpha\,x}$\\
+\end{Th}
+
+\begin{Proof}
+    Так как $k$ описывает кратность корня характеристического многочлена, то чевидно, что по критерию кратности корня следует
+    \begin{enumerate}
+        \item[\textbullet] Если $k=0$, то $P(\alpha) \neq 0$
+        
+        \item[\textbullet] Если $k \geqslant 1$, то $P(\alpha)=0,\; \dots,\; P^{(k-1)}(\alpha)=0,\; P^{(k)} \neq 0$
+    \end{enumerate}
+    \textcolor{red}{Как получили равентсво ниже? (Похоже на пар.12 т.2)}
+    \begin{multline*}
+        L(V(x)\,e^{\alpha\,x}) = e^{\alpha\, x}\,(V(x)\,P(\alpha) +\dots + \frac{1}{(k-1)!}\,V^{(k-1)}(x)\,P^{(k-1)}(\alpha) +\\
+        + \frac{1}{k!}\,V^{(k)}(x)\,P^{(k)}(\alpha) + \dots + \frac{1}{n}\,V^{(n)}(x)\,P^{(n)}(\alpha))
+    \end{multline*}
+    Обозначим
+    \begin{equation*}
+        \delta_0=\frac{1}{k!}\,P^{(k)}(\alpha) \neq 0, \quad \delta_1=\frac{1}{(k+1)!}\,P^{(k+1)}(\alpha) \neq 0,\quad \dots,\quad \delta_{n-k}=\frac{1}{n!}\,P^{(n)}(\alpha)
+    \end{equation*}
+    тогда по лемме выше получаем 
+    \begin{multline*}
+        \exists \omega(x) = B_0\,x^m + \dots + B_m\\ \forall x \subset R \quad \delta_0\,\omega(x) + \delta_1\,\omega'(x) + \dots + \delta_{n-k}\,\omega^{(n-k)}(x) = Q_m(x)
+    \end{multline*}
+    Или последнее равенство в другом виде
+    \begin{equation*}
+        L(V(x)\,e^{\alpha\,x}) = e^{\alpha\, x}\,(\delta_0\,\omega + \delta_1\,\omega' + \dots + \delta_{n-k}\,\omega^{(n-k)})
+    \end{equation*}
+    Тогда нетрудно заметить, что $V^{(k)}(x) = \omega(x)$.
+    Также знаем, что \textcolor{red}{(Откуда?)} 
+    \[
+        V|_{x=x_0} = 0,\quad \dots,\quad V^{(k-1)}|_{x=x_0}=0
+    \]
+    Тогда
+    \[
+        V(x) = A_0\,x^{m+k}+\dots+A_m\,x^k = x^k\,u(x) \qquad u(x)=A_1\,x^m+ \dots + A_m
+    \]
+    Таким обазом
+    \begin{multline*}
+        L(x^k\,u(x)\,e^{\alpha\,x}) = e^{\alpha\,x}(\delta_0\,\omega(x) + \delta_1\,\omega'(x) + \dots + \delta_{n-k}\,\omega^{(n-k)}(x)) = e^{\alpha\,x}\,Q_m(x) \\ (\forall x \in \bb{R})
+    \end{multline*}
+    Значит $y=x^k\,u(x)\,e^{\alpha\,x}$ --- частное решение $L(y)=Q_m\,e^{\alpha\,x}$\\    
+\end{Proof}
+
+\begin{Example}
+	Дано: 
+    \[
+        y'' - 2\,y' + y = 12\,x\,e^x
+    \]
+	Решение:
+    \begin{gather*}
+        L(y) = Q_1(x)\,e^x\\
+        Q_1(x) = 12\,x,\quad \alpha=1,\quad m = 1 
+    \end{gather*} 
+    \begin{enumerate}
+        \item Решаем однородное
+        \begin{gather*}
+            P(\lambda) = \lambda^2 - 2\,\lambda + 1 = (\lambda - 	1)^2\\
+            \lambda_1 = 1,\quad k_1 = 2\\
+            \lambda = \lambda_1 \quad \Rightarrow \quad k = 2\\
+            y_{\text{о.о}} = C_1\,e^x + C_2\,x\,e^x
+        \end{gather*}
+        
+        \item Из шага 1 знаем, что $k = 2$, также из условия $m=1,\quad \alpha=1$. По теореме 2 получаем следующее решение
+        \begin{gather*}
+            \psi(x)=x^2\,(A\,x+B)\,e^x\\
+            \begin{align*}
+                & V = A\,x^3 + B\,x^2 && p=(\lambda-1)^2 && =0\\
+                & V' = 3\,A\,x^2 + 2B\,x && \frac{p'}{1!} = 2\,(\lambda-1) && =0\\
+                & V'' = 6\,A\,x + 2\,B && \frac{p''}{2!}=1 && = 1\\
+                & && && \text{столбец при } \lambda = 1
+            \end{align*}\\
+            L(Ve^x) = e^x\,(0\cdot 0 + V' \cdot 0 + (6\,A\,x + 2\,B) \cdot 1) = 12\,x\,e^x\\
+            6\,A\,x + 2\,B = 12\,x \quad \Rightarrow \quad A = 2,\; B = 0
+        \end{gather*}
+        Значит частное неоднородное решение
+        \[
+            \psi(x) = 2\,x^3\,e^x = y_{\text{ч.н}}
+        \]
+        
+        \item Таким образом общее решение
+        \[
+            y=(2\,x^3+ C_1 + C_2\,x)e^x
+        \]
+    \end{enumerate}
+\end{Example}
+
+\begin{Th}
+    Пусть 
+    \[
+        L(y)=y^{(n)} + \alpha_1\,y^{(n-1)} + \dots +\alpha_n\,y=Q_m(x)\,\cos(\beta\,x) + R_m(x)\,e^{\beta\,x}
+    \] 
+    где $Q_m(x),\; R_m(x)$ - многочлены степени $\leqslant m$, 
+    \[
+        \alpha + \beta\,i \in \bb{C},\quad \beta \neq 0
+    \]
+    
+    Если 
+    \[
+        P(\lambda) = \lambda^n + \alpha_1\,\lambda^{n-1} + \dots + \alpha_n
+    \] 
+    --- характеристичекий многочлен то
+    \begin{enumerate}
+        \item[\textbullet] если $k=0$, то
+        \[
+            P(\alpha + \beta i) \neq 0
+        \] 
+                
+        \item[\textbullet] $k$ --- кратность корня $\alpha + \beta i$, если $P(\alpha + \beta i) = 0$
+    \end{enumerate}
+	То тогда 
+    \[
+        \exists \quad u(x)= A_0\,x^m + \dots + A_m, \quad v(x) = B_0\,x^m + \dots + B_m 
+    \]
+    --- многочлены степени $\leqslant m$ для которых 
+    \[
+        \psi(x) = x^k\,e^{\alpha\,x}(u(x)\,\cos(\beta\,x) + V\,\sin(\beta\,x))
+    \]
+    является решением ЛНДУ 
+    \[
+        L(y) = e^{\alpha\,x}\,(Q_m(x)\,\cos(\beta\,x) + R_m(x)\,\sin(\beta\,x))
+    \]
+\end{Th}
+
+\begin{Proof}
+    Рассмотрим вспомогательное ДУ 
+    \begin{gather*}
+        L(y) = (Q_m - i\,R_m)\,e^{(\alpha + i\,\beta)\,x}\\
+        \Re (Q_m - i\,R_m)\,e^{(\alpha + \beta\,i)\,x} = e^{\alpha\,x}(Q_m\,\cos(\alpha\,x) + R_m\,\sin(\beta\,x))
+    \end{gather*}
+    По предыдущей теореме 2, следует что существуют мн-ны степени $\leqslant m$,
+    \[
+        u(x) - \omega(x) = \underbrace{\,x^m + \dots + A_m}_{u} - i\,\underbrace{(B_0\,x^m + \dots + B_m)}_{v}
+    \]
+    такой что
+    \begin{equation*}
+        y(x) = x^k\,(u - i\,v)\,e^{(\alpha + \beta\,i)\,x}
+    \end{equation*}
+    является решением вспомогательного уравнения
+    \[
+        L(y) = (Q_m - i\,R_m)\,e^{(\alpha + \beta\,i)\,x}
+    \]
+    \textcolor{red}{Непонятно!}\\
+    \[
+        \psi(x) - \Re(y(x)) = x^ke^{\alpha x}(u(x)cos\beta x + V(x)sin \beta x)
+    \] 
+    является решением\\
+    \[
+        L(y) = Re(Q_m - iR_m)e^{(\alpha + \beta i)}x = e^{\alpha x}(Q_m cos \alpha x + Q_m sin \beta x)
+    \]   
+\end{Proof}
+
+\begin{Example}
+	Дано: 
+    \[
+        y'' - 2y' + y = 4\,x\,\cos(x)
+    \]
+    Решение:\\
+    \textcolor{red}{Разобрать!!!}\\
+	\begin{enumerate}
+        \item Ищем общее однородное
+        \begin{gather*}
+            P(\lambda) = \lambda^2 + 1\\
+            \lambda_{1,\;2} = \alpha \pm i\,\beta = \pm i \quad \Rightarrow \quad \alpha = 0,\quad \beta = 1 \quad k_{1,\;2} = 1\\
+            y_{o.o} = C_1\,\cos(x) + C_2\,\sin(x)\\    
+        \end{gather*}
+        
+        \item Ищем частное решение $y'' + y = 4\,x\,\cos(x)$
+        \begin{gather*}
+            m=1,\quad \alpha \pm \beta i = \pm i,\quad k=1\\
+            \psi(x) = x\,(A\,x + B)\,e^{i\,x} = u\,e^{i\,x}\\
+            L(ue^{i\,x}) = e^{i\,x}(u\,P(i) + u'\,p'(i) + \frac{u''}{2}\,P''(i))\\
+            \begin{align*}
+                &u = Ax^2 + Bx && p=\lambda^2 + 1 && =0\\
+                &u' = 2Ax + B && p'=2\lambda && =2\\
+                &V'' = 2A && \frac{p''}{2}=1 && = 1\\
+                &&&&& \lambda = 1
+            \end{align*}\\
+            L(u\,e^{ix}) = e^{i\,x}((u\,A\,i + 2\,B)2\,A) = 4\,x\,e^{i\,x}\\
+            4\,A_i = 4,\quad A = -i, \quad B = 1\\
+            \Rightarrow y_{ч.н} = (-i\,x^2 + x)(\cos( \alpha) + i\,\sin(x))\\
+            \psi = \Re y_{ч.н} = x\,\cos(x) + x^2\,\sin(x)
+        \end{gather*}
+        \item Таким образом общее решение
+        \[
+            y = x\,\cos(x) + x^2\,\sin(x) + C_1\,\cos(x) + C_2\,\sin(x)
+        \] 
+    \end{enumerate}
+\end{Example}

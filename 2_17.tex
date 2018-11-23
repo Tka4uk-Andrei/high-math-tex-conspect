@@ -1,0 +1,67 @@
+\section{Система лин.диф. ур-й с пост. коэф.}
+
+\begin{Def}
+    \[\begin{cases}
+    y_1'=a_{11}y_1+...+a_{1n}y_n+f_1(x)\\
+    ...\\
+    y_n'=a_{n1}y_1+...+a_{nn}y_n+f_n(x)
+    \end{cases}\]
+\\
+- система n лин. ДУ с пост.коэф.\\
+A=$\begin{pmatrix} a_{11}& ...& a_{1n}\\  ...& ...& ...\\ a_{n1}& ...& a_{nn}\end{pmatrix}$ матрица коэф.\\
+\end{Def}
+
+\begin{Note}
+    Система из опр.1 сводится для каждой ф-и $y_i(x)$ к лин. ДУ n-го порядка\\
+    $e^{\alpha x} \bar{y}=\begin{pmatrix} y_{1}\\  ...\\ y_{n}\end{pmatrix}=e^{\alpha x}\begin{pmatrix} b_{1}\\  ...\\ b_{n}\end{pmatrix} ,\bar{y}'=\alpha \bar{b}e^{\alpha x}; \alpha \bar{b} e^{\alpha x}=A\bar{b} e^{\alpha x}=>A\bar{b}=\alpha \bar{b}=>\bar{b}$ собств. вектор\\
+    $\alpha$ собств. знач. матр. А, $det(A-\alpha E)=0$\\
+    $(-1)^n det(A-\lambda E)=P_n(\lambda)=\lambda^n+p_1 \lambda^{n-1}+...+p_n$ - хар. мн-н\\
+\end{Note}
+
+\begin{Note}
+    Если $\alpha_1...\alpha_n \in \Re$ - ? различн. корни хар. мн-на(i собств. знач. матр. А) \\
+    $\bar{b_1}...\bar{b_n}$ соотв. собств. векторы. Тогда $y=c_1\bar{b_1}e^{\alpha_1 x}+...+c_n\bar{b_n}e^{\alpha_n x}$ -\\
+    общее решение лин. диф. сист. $\bar{y'}=A\bar{y}$\\
+\end{Note}
+
+\begin{Example}[алгебраическая]
+    $y_1=y_1(t)$, $y_2=y_2(t)$\\
+    \[\begin{cases}
+    y_1'=y_1-y_2+3t\\
+    y_2'=-4y_1+y_2+t e^{-t}
+    \end{cases}\]
+    $P_2(\lambda)=\begin{vmatrix} 1-\lambda & -1\\ -4 & 1-\lambda\end{vmatrix}=(\lambda-1)^2-4=(\lambda+1)(\lambda-3)$\\
+    $\alpha_1=-1, \alpha_2=3, k_{1,2}=1$\\
+    $\lambda=\alpha_1=-1$\\
+    $\begin{pmatrix} 2 & -1\\ -4 & 2\end{pmatrix}\sim \begin{pmatrix} 2 & -1\\ 0 & 0\end{pmatrix}$\\
+    $x_1=\alpha, x_2=2\alpha$ $\bar{b_1}=\begin{pmatrix} 1\\  2\end{pmatrix}$, $\bar{\Phi_1}=\begin{pmatrix} 1\\  2\end{pmatrix}e^{-t}$\\
+
+$\lambda=\alpha_2=3$\\
+    $\begin{pmatrix} -2 & -1\\ -4 & -2\end{pmatrix}\sim \begin{pmatrix} -2 & -1\\ 0 & 0\end{pmatrix}$\\
+    $x_1=\beta, x_2=-2\beta$ $\bar{b_2}=\begin{pmatrix} 1\\ - 2\end{pmatrix}$, $\bar{\Phi_2}=\begin{pmatrix} 1\\  -2\end{pmatrix}e^{3t}$\\
+$\bar{y_{00}}=c_1\begin{pmatrix} 1\\ 2\end{pmatrix}e^{-t}+c_2\begin{pmatrix} 1\\ - 2\end{pmatrix}e^{3t}$\\
+$y_1''=y_1'-y_2'+3=y_1'+4y_2-y_2-te^{-t}+3=y_1'+4y_1-y_1+y_1'-3t+3-te^{-t}$\\
+$y_2=y_1-y_1'+3t$\\
+$L(y_1)=y_1''-2y_1'-3y_1=3-3t-te^{-t}$\\
+$P_2(\lambda)=\lambda^2-2\lambda-3(\lambda+1)(\lambda-3)$\\
+$L(y)=3-3t=Q_m(t)e^{\alpha t}, m=1,\alpha=0,k=0$\\
+$\Psi_1=At+B$\\
+$\Psi_1'=A$\\
+$\Psi_1=t-\frac{5}{3}$\\
+$\begin{vmatrix} \lambda^2-\lambda-3\\ 2\lambda-2\end{vmatrix}=3$\\
+$L(\Psi_1)=-3At-3B-2A=3-3t, A=1, B=-\frac{5}{3}$\\
+$L(y)=-te^{-t},m=1,\alpha=-1,k=1$\\
+$\Psi_2=(At^2+Bt)e^{-t}=ue^{-t}$, где $u=At^2+Bt$\\
+$u'=2At+B$ $u''=2A=>\lambda^2-\lambda-3(0);2\lambda-2(-4);(1)$\\
+$L(\Psi_2)=e^{-t}(-8At-4B+2A)=te^{-t}=>$\\
+$-8A=1$=>$A=\frac{-1}{8}$\\
+$2A-4B=0$=>$B=\frac{1}{16}$\\
+$\Psi_2=frac{1}{16}(2t^2+t)e^{-t}$\\
+$y_1=c_1e^{-t}+c_2e^{3t}+t-\frac{5}{3}-\frac{1}{16}(2t^2+t)e^{-t}$\\
+$y_1'=-c_1e^{-t}+3c_2e^{3t}+1-\frac{1}{16}(-2t+t+1)e^{-t}$\\
+$y_2=y_1-y'_1+3t$\\
+\[\begin{cases}
+    y_2=2c_1e^{-t}-2ce^{3t}+4t-\frac{8}{3}-\frac{1}{16}(4t^2-2t+1)e^{-t}\\
+    y_1=c_1e^{-t}+c_2e^{3t}+t-\frac{5}{3}-\frac{1}{16}(2t^2+t)e^{-t}
+    \end{cases}\]
+\end{Example}

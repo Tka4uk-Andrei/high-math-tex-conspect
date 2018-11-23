@@ -1,0 +1,180 @@
+\author{Tkachuk Andrei}
+
+\section{Метод вариации произвольных постоянных}
+
+\begin{Th}
+    Пусть 
+    \[
+        p_1(x),\; \dots,\; p_n(x),\; f(x) \in C_{(a;\,b)}
+    \]
+    и изветна ФСР $\{\varphi_1(x),\, \dots\,\, \varphi_n(x)\}$ ЛОДУ
+    \[
+        L(y) = y^{(n)} + p_1\,y^{(n-1)} + \dots + y\,p_n(x) = 0
+    \]
+    Ищем ЛНДУ в виде $L(x) = f(x)$ в виде 
+    \[
+        y = C_1(x)\,\phi_1(x) + \dots + C_n(x)\,\phi_n(x)
+    \]
+    где функции $\{C_1(x),\, \dots,\, C_n(x)\}$ диференцируемые на $(a;\, b)$
+    и $\{C'_1(x),\, \dots,\, C'_n(x)\}$ удовлетворяет следующим свойствам алгебраических уравнений
+    \[
+        \begin{cases}
+            C'_1\,\phi'_1(x) + \dots + C'_n\,\phi'_n(x) = 0\\
+            C'_1\,\phi'_1(x) + \dots + C'_n\,\phi'_n(x) = 0\\
+            \vdots
+            C'_1\,\phi^{(n-2)}_1(x) + \dots + C_n\,\phi^{(n-2)}_n(x) = 0
+            C'_1\,\phi^{(n-1)}_1(x) + \dots + C_n\,\phi^{(n-1)}_n(x) = f(x)\\
+        \end{cases}
+    \]
+    Тогда такая система имеет решения
+    \begin{gather*}
+        C'_1 = u_1(x),\; \dots,\; C_n = u_n(x)\\
+        y = \phi_1(x)\, \int u_1(x)\,dx + \dots + \phi_n(x)\, \int u_n(x)\,dx + C_1\,\phi_1(x) + \dots + C_n\,\phi_n(x)
+    \end{gather*}
+    где $C_1,\; \dots,\; C_n$ --- константы
+\end{Th}
+
+\begin{Proof}
+    Рассмотрим уравнение 
+    \[
+        y = C_1\,\phi_1 + \dots + C_n\,\phi_n
+    \]
+    Возьмём $n$ производных, причём заметим, что $\phi$, и $C_1$ зависимы от $x$. Тогда получаем
+    \begin{align*}
+        p_n\,* \; &| &y &= C_1\,\phi_1 + \dots + C_n\,\phi_n\\
+        p_{n-1}\,*\; &| &y' &= C_1\,\phi'_1 + \dots + C_n\,\phi'_n +  \underbrace{C'_1\,\phi_1 + \dots + C'_n\,\phi_n}_{\equiv 0}\\
+        p_{n-2}\,*\; &| & y'' &= C_1\,\phi''_1 + \dots + C_n\,\phi''_n + \underbrace{C'_1\,\phi'_1 + \dots + C'_n\,\phi'_n}_{\equiv 0}\\
+        & & &\vdots\\
+        p_1\,*\; &| &y^{(n-2)} &= C_1\,\phi_1^{(n-2)} + \dots + C_n\,\phi_n^{(n-2)} + \underbrace{C'_1\,\phi^{(n-3)}_1 + \dots + C'_n\,\phi^{(n-3)}_n}_{\equiv 0}\\
+        1\,*\; &| &y^{(n-1)} &= C_1\,\phi_1^{(n-1)} + \dots + C_n\,\phi_n^{(n-1)} + \underbrace{C'_1\,\phi^{(n-2)}_1 + \dots + C'_n\,\phi^{(n-2)}_n}_{\equiv f(x)}
+    \end{align*}
+    \textcolor{red}{расписать}
+    \begin{align*}
+        p_n\,* \; &| &y &= C_1\,\phi_1 + \dots + C_n\,\phi_n\\
+        p_{n-1}\,*\; &| &y' &= C_1\,\phi'_1 + \dots + C_n\,\phi'_n\\
+        p_{n-2}\,*\; &| & y'' &= C_1\,\phi''_1 + \dots + C_n\,\phi''_n\\
+        & & &\vdots\\
+        p_1\,*\; &| &y^{(n-2)} &= C_1\,\phi_1^{(n-2)} + \dots + C_n\,\phi_n^{(n-2)}\\
+        1\,*\; &| &y^{(n-1)} &= C_1\,\phi_1^{(n-1)} + \dots + C_n\,\phi_n^{(n-1)} +  f(x)
+    \end{align*}
+    Сложим все функции, получим
+    \[
+        L(y) = C_1\,\underbrace{L(\phi_1)}_{\equiv 0 (\text{ФСР})} + \dots + C_n\,\underbrace{L(\phi_n)}_{\equiv 0 (\text{ФСР})} + f(x) 
+    \]
+    Таким образом $L(y) = f(x)$.
+    
+    Рассмотрим
+    \[
+        \begin{cases}
+            C'_1\,\phi_1 + \dots + C'_n\,\phi_n = 0\\
+            C'_1\,\phi'_1 + \dots + C'_n\,\phi'_n = 0\\
+            \vdots\\
+            C'_1\,\phi^{(n-3)}_1 + \dots + C'_n\,\phi^{(n-3)}_n = 0\\
+            C'_1\,\phi^{(n-2)}_1 + \dots + C'_n\,\phi^{(n-2)}_n = f(x)
+        \end{cases}
+    \]
+    Систему из $n$ алгебраических уравнений относительно $n$ переменных $C'_1,\, \dots,\, C'_n$. Видим, что определитель матрицы $W(x) \neq 0 \quad \forall x \in (a;\,b)$ (Т.к. $\{\phi_1,\; \dots,\; \phi_n\}$ --- ФСР). Следовательно, по теореме Крамера существует единственное решение
+    \[
+        C'_1 = u_1(x),\; \dots,\; C'_n = u_n(x)
+    \]
+    Таким образом
+    \[
+        C_1(x) = \int u_1(x)\,dx + C_1,\; \dots,\; C_n(x) = \int u_n(x)\,dx + C_n
+    \]
+    Значит решение ЛНДУ
+    \[
+        y = \left(\int u_1(x)\,dx + C_1\right)\,\phi_1(x) + \dots + \left(\int u_n(x)\,dx + C_n\right)\,\phi_n(x)
+    \]
+\end{Proof}
+
+\begin{Note}[Нахождение произвольных постоянных и описание ответа]
+    Пользуясь методом Крамера $x_k = \frac{\Delta_k}{\Delta}$ получаем
+    \begin{gather*}
+        u_k(x) = \frac{1}{W(x)} \, 
+        \begin{bmatrix}
+            \phi_1 & \dots & 0 & \dots & \phi_n\\
+            \phi'_1 & \dots & 0 & \dots & \phi'_n\\
+            \vdots & \dots & \vdots & \dots & \vdots\\
+            \phi^{(n-1)}_1 & \dots & f(x) & \dots & \phi^{(n-1)}_n
+        \end{bmatrix} = \\
+        = (-1)^{(k+n)}\, \frac{W(\phi_1,\; \dots,\; \phi_{k - 1}, \phi_{k + 1}\, \dots,\, \phi_n)}{W(x)}\,f(x) = \\
+        = \frac{(-1)^{(k+n)}\, f(x)\, W_k(x)}{W(x)}
+    \end{gather*}
+    \textcolor{red}{Вопрос. Почему функция от двух переменных?}\\
+    Для описания решения введём
+    \[
+        G(x,\, t) = \sum_{k=1}^{n} (-1)^{k + n} \phi_k(x)\, \frac{W_k(t)}{W(t)}
+    \]
+    Тогда решение имеет вид
+    \[
+        y = \underbrace{\int_{x_0}^{x}G(x,\,t)\, f(t)\, dt}_{y_\text{ч.н.}} + \underbrace{\sum_{k=1}^{n} C_k\, \phi_k(x)}_{y_\text{о.о.}}
+    \]
+\end{Note}
+
+\begin{Example}
+    Дано
+    \[
+        x\,y'' + y' = x
+    \]
+    Решение.\\
+    Приведём к каноническому виду (делим на $x$)
+    \[
+        y'' + \frac{y'}{x} = 1
+    \]
+    Получили $L(y)$. Решаем в два этапа
+    \begin{enumerate}
+        \item Рассматриваем однородное уравнение $L(y) = 0$
+        \begin{gather*}
+            y'' + \frac{y'}{x} = 0\\
+            y' = z, \qquad y'' = z'\\
+            z' + \frac{z}{x} = 0\\
+            \int \frac{dz}{z} = - \int \frac{dx}{x}\\
+            ln|z| = - ln|x| + lnC_1\\
+            z = y' = \frac{C_1}{x}\\
+            y = y_{\text{о.о.}} = C_1\, ln|x| + C_2 - y_0
+        \end{gather*}
+        
+        \item Решаем неоднородное уравнение с произьволными постоянными $C_1(x),\; C_2(x)$ и $\phi_1,\; \phi_2$
+        \begin{gather*}
+            y = C_1(x)\,ln|x| + C_2(x)\\
+            \phi_1 = ln|x|, \qquad \phi_2 = 1\\
+            \phi'_1 = \frac{1}{x}, \qquad \phi'_2 = 0
+        \end{gather*} 
+        Накладываем 1 дополнительное условие (т.к. можем \textcolor{red}{Почему?}) $C'_1\,ln|x| + C'_2 = 0$\\
+        \[
+            \begin{cases}
+                C'_1\,ln|x| + C'_2 = 0\\
+                C'_1\,\frac{1}{x} + C'_2\,0 = 0 \quad (\text{Из условия})
+            \end{cases}
+        \]
+        Решаем, получаем
+        \begin{gather*}
+            \begin{cases}  
+                C'_1\,ln|x| + C'_2 = 0\\
+                C'_1\,\frac{1}{x} = 1
+            \end{cases}\\
+            \begin{cases}  
+            C'_2 = - C'_1\,ln|x|\\
+            C'_1 = x
+            \end{cases}\\
+            \begin{cases}  
+            C'_2 = - x\,ln|x|\\
+            C_1(x) = \frac{x^2}{2} + C_1
+            \end{cases}\\
+            \begin{cases}  
+            C_2(x) = -\int x\,ln|x|\,dx\\
+            C_1(x) = \frac{x^2}{2} + C_1
+            \end{cases}\\
+            C_2(x) = -\int x\,ln|x|\,dx = \left[u = ln|x|, \quad dv = x\,dx; \qquad du = \frac{1}{x}, \quad v = \frac{x^2}{2}\right] = \\
+            = - \frac{x^2}{2}\,ln|x| + \frac{x^2}{4} + C_2
+        \end{gather*}
+        Зная значения $C_1(x)$ и $C_2(x)$ получаем
+        \[
+            y = \frac{x^2}{2}\,ln|x| - \frac{x^2}{2}\,ln|x| + \frac{x^2}{4} + C_1\,ln|x| + C_2
+        \]
+        Ответ
+        \[
+            y = \frac{x^2}{4} + C_1\,ln|x| + C_2
+        \]
+    \end{enumerate}
+\end{Example}

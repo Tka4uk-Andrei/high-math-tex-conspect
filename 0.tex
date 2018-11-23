@@ -1,0 +1,88 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{indentfirst}
+\usepackage{misccorr}
+\usepackage{graphicx}
+\usepackage{floatflt}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage[normalem]{ulem}
+\usepackage{cancel}
+
+\hypersetup{
+	colorlinks=true, % make the links colored
+	linkcolor=black, % color TOC links in blue
+	urlcolor=blue, % color URLs in red
+	linktoc=all % 'all' will create links for everything in the TOC
+}
+
+\author{Andrei Tkachuk}
+\title{Конспет по высшей математике (3 семестр)}
+
+\begin{document}
+	\newtheorem{Def}{Определение}[section]
+	\newtheorem{Th}{Теорема}[section]
+	\newtheorem{Seq}{Следствие}[section] %потом было бы неплохо сделать так, чтобынумерация следствий была не по параграфам, а по теоремам в параграфе
+	\newtheorem{Lem}{Лемма}[section]
+	\newtheorem{Axiom}{Аксиома}[section]
+	\newtheorem{Note}{Замечание}[section]
+    \newtheorem{Example}{Пример}[section]
+	 % Оформление докозательства
+	\newenvironment{Proof} % имя окружения
+	{\par\noindent{\bf Доказательство.}} % команды для \begin
+	{\hfill$\scriptstyle\blacksquare$} % команды для \end
+	
+	%градиент
+    \newcommand{\grad}[2]{\mathop{\mathrm{grad}} #1 |_{#2}}
+	%специальная буква из \mathbb для множеств чисел
+	\newcommand\bb[1]{\mathbb{#1}}
+	%обозначение вектора
+	\newcommand\Vectr[1]{\overrightarrow{#1}}
+    % 'фи' равно красивой 'фи'
+    \renewcommand{\phi}{\varphi}
+    % Определение русской действительной части вместо \Re
+    \renewcommand{\Re}{\mathop{\text{Re}}} 
+    % Определение стандартного ряда
+    \newcommand{\baserow}[1]{\sum\limits_{n = 1}^{+\infty}{#1}}
+    
+    
+	\tableofcontents
+    %File:         %No  %Status:
+    \include{1_1}  %1   %OK  R
+    \include{1_2}  %2   %OK  R
+    \include{1_3}  %3   %OK  R
+    \include{1_4}  %4   %OK  R
+    
+    \include{2_1}  %5   %OK? Q? R
+	\include{2_2}  %6   %OK? Q? R
+    \include{2_3}  %7   %OK  Q
+    \include{2_4}  %8   %OK  Q
+    \include{2_5}  %9   %ReWriting
+    \include{2_6}  %10  %OK
+    \include{2_7}  %11  %OK
+    \include{2_8}  %12  %OK
+    \include{2_9}  %13  %OK
+    \include{2_10} %14  %OK
+    \include{2_11} %15  %OK?
+    \include{2_12} %16  %OK? Q
+    \include{2_13} %16  %OK?
+    \include{2_14} %17  %OK? Q!
+    \include{2_15} %18  %OK
+    \include{2_16} %19  %ОК?
+    \include{2_17} %19  %ReWriting
+    
+    \include{3_1}  %20  %ReWriting
+    \include{3_2}  %21  %Writing
+    
+    %\begin{figure}[bh]
+    %    \noindent\centering{
+    %        \includegraphics[width=75mm]{1_1_1.png}
+    %        \caption{}
+    %    }
+    %\end{figure}
+    
+\end{document}
