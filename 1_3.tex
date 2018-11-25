@@ -72,18 +72,12 @@
 \textcolor{cyan}{Повторимся, что условный экстремум отличается от обычного тем, что поиск ограничен $S$}
 
 \begin{Def}[Формула Лагранжа задачи на усл. экстремум]
-<<<<<<< HEAD
     Пусть $f(M), \varphi_1(M), \dots, \varphi_k(M)$ --- функции $n$ переменных $x_1, \dots, x_n$, определенных в $U(M_0)$. Тогда функция 
     \[
         L(M_i, \lambda) = f(M) + \lambda_1 \varphi_1(M) + \dots + \lambda_k \varphi_k(M)
     \] называется функцией Лагранжа задачи на условный экстремум функции $f(M)$ при условии $M \in S : \varphi_1 = \dots = \varphi_k = 0$
 \end{Def}
 \textcolor{cyan}{Формула Лагранжа позволяет связать функцию и дополнительное условие воедино, что очень удобно.}
-=======
-    Пусть $f(M), \varphi_1(M), \dots, \varphi_k(M)$ --- функции $n$ переменных $x_1, \dots, x_n$, определенных в $U(M_0)$. Тогда функция $L(M_i, \lambda) = f(M) + \lambda_1 \varphi_1(M) + \dots + \lambda_k \varphi_k(M)$ называется функцией Лагранжа задачи на условный экстремум функции $f(M)$ при условии $M \in S : \varphi_1 = \dots = \varphi_k = 0$
-\end{Def}
-\textcolor{cyan}{Формула Лагранжа позволяет связать функцию и дополнительное условие воедино, что очень удобно}
->>>>>>> 987ffbd49e869d463f80b3d5740cd957bfe1b037
 
 \begin{Th}[Необходимый признак условного экстремума]
     Пусть 
@@ -92,11 +86,7 @@
     \] 
     и $M_0$ --- внутренняя точка гладкой части поверхности $S$ 
     \[
-<<<<<<< HEAD
-    S: \varphi_1(M) = 0, \dots, \varphi_k(M) = 0, \quad M_0 \in S
-=======
-    S: \varphi_1(M) = 0, \dots, \varphi_k(M) = 0, \, M_0 \in S
->>>>>>> 987ffbd49e869d463f80b3d5740cd957bfe1b037
+        S: \varphi_1(M) = 0, \dots, \varphi_k(M) = 0, \quad M_0 \in S
     \]
     Обозначим через 
     \[
@@ -108,24 +98,15 @@
     \]
 \end{Th}
 \begin{Proof}
-<<<<<<< HEAD
     Рассмотрим следующий случай: $n = 2, \, k = 1$ (размерность пространства и количество функций задающих поверхность), то есть $u = f(x, y), \; (x, y) \in U(M_0), \; M_0(x_0, y_0), \; M_0$ --- точка условного экстремума $S : \varphi(x, y) = 0$
     \begin{figure}[h!]
         \noindent\centering{
             \includegraphics[width=35mm]{1_3_3.png}
             \caption{вместо z тут u}
-=======
-    Рассмотрим следующий случай: $n = 2, \, k = 1$ (размерность пространства и количество функций задающих поверхность), то есть $u = f(x, y), \; (x, y) \in U(M_0), \; M_0(x_0, y_0), \; M_0$ --- точка условного экстремума $S : \varphi(x, y) = 0$\\
-    \begin{figure}[h!]
-        \noindent\centering{
-            \includegraphics[width=35mm]{1_3_3.png}
-            \caption{}
->>>>>>> 987ffbd49e869d463f80b3d5740cd957bfe1b037
         }
     \end{figure}\\
     Так как $\varphi(x, y)$ --- гладкая функция, то мы можем её параметризировать
     \[
-<<<<<<< HEAD
         S :\: \begin{cases} 
             x = x(t)\\
             y = y(t)
@@ -163,45 +144,10 @@
         \end{pmatrix} = 0 \Rightarrow \frac{f'_x(M_0)}{\varphi'_x(M_0)} = \frac{f'_y(M_0)}{\varphi'_y(M_0)} = -\lambda_0
     \end{gather*}
     \textcolor{cyan}{Примечание. Если знаменатель равен нулю, то и числитель будет ему равен. Поэтому всё ОК}\\
-=======
-        S \begin{cases} 
-            x = x(t)\\
-            y = y(t)
-          \end{cases}, \; t \in U(t_0)
-    \]
-    При этом: $M_0(x(t_0), y(t_0)), \; x(t), \, y(t) \in C'(U(t_0))$.\\
-    Из этого следует, что
-    \[
-        \forall t \in U(t_0) \Rightarrow \varphi(x(t), y(t)) = 0
-    \]
-    При этом $(x'(t_0), y'(t_0)) \neq (0, 0)$, то есть параметриация "хорошая" (Важность факта можно понять из примера 2).\\
-    Таким образом задача на условный экстремум переходит в задачу на обычный экстремум функции $u = f(x(t), y(t))$\\
-    \textcolor{red}{Почему мы можем устроить такой переход??? Т.е. до этого у нас была $\varphi(x, y)$ и её мы параметризировали. Или мы просто сказали, что x и y можно выразить через параметр (скорее всего да, но это странный довод)?}\\
-    По формуле частной производной
-    \[
-        u'(t) = f'_xx'_t+f'_yy'_t
-    \]
-    Так как $M_0$ - условный экстремум (по усл.), то $t_0$ - экстремум $u(t) \Rightarrow u'_t(t_0) = 0$.
-    
-    \begin{align*}
-        \begin{cases}
-            f'_xx'_t+f'_yy'_t = 0\\
-            \varphi'_xx'_t+\varphi'_yy'_t = 0 \textcolor{red}{\text{ откуда?}}
-        \end{cases}
-        \begin{pmatrix}
-            f'_x & f'_y\\
-            \varphi'_x & \varphi'_y
-        \end{pmatrix}
-          = \textcolor{red}{0} \Rightarrow \frac{f'_x(M_0)}{\varphi'_x(M_0)} = \frac{f'_y(M_0)}{\varphi'_y(M_0)} = -\lambda_0\\
-          \textcolor{red}{\text{Почему определитель матрицы равен нулю?}}\\
-        \text{Примечание. Если знаменатель равен нулю, то и числитель будет ему равен}
-    \end{align*}
->>>>>>> 987ffbd49e869d463f80b3d5740cd957bfe1b037
     Таким образом из отношения можно получить следующию систему
     \[
         \begin{cases}
             f'_x(M_0) + \lambda_0\varphi'_x(M_0) = 0\\
-<<<<<<< HEAD
             f'_y(M_0) + \lambda_0\varphi'_y(M_0) = 0
         \end{cases}
     \]
@@ -211,10 +157,6 @@
             f'_x(M_0) + \lambda_0\varphi'_x(M_0) = 0\\
             f'_y(M_0) + \lambda_0\varphi'_y(M_0) = 0\\
             \varphi(M_0) = 0
-=======
-            f'_y(M_0) + \lambda_0\varphi'_y(M_0) = 0\\
-            \varphi(M_0) = 0 \textcolor{red}{\text{ тут не упущена производная?}}
->>>>>>> 987ffbd49e869d463f80b3d5740cd957bfe1b037
         \end{cases}
     \]
     Которая на самом деле ни что иное как
@@ -222,11 +164,7 @@
         \begin{cases}
             L'_x(M_0, \lambda_0) = 0\\
             L'_y(M_0, \lambda_0) = 0\\
-<<<<<<< HEAD
             L'_\lambda(M_0) = 0
-=======
-            L_\lambda(M_0) = 0 \textcolor{red}{\text{ тут не упущена производная? Как определена эта функция?}}
->>>>>>> 987ffbd49e869d463f80b3d5740cd957bfe1b037
         \end{cases}
     \]
     Если мы сложим все три равенства то получим производную функции Лагранжа, которая равна нулю
@@ -242,7 +180,6 @@
         f(M), \varphi_1(M), \dots, \varphi_k(M) \in C^2(U(M_0))\\
         L(M, \lambda) = f(M) + \lambda_1\varphi_1(M) + \dots + \lambda_k\varphi_k(M) 
     \end{gather*}
-<<<<<<< HEAD
     и $\exists \lambda_0(\lambda^0_1, \dots, \lambda^0_k)$ для которой $ dL(M_0, \lambda_0) = 0 $ Рассмотрим
     \begin{gather*}
         S:\: d\phi_j(M_0) = 0 \quad j = 1, \dots, k\\
@@ -253,13 +190,6 @@
     \[
         d^2L = \sum_{j = 1}^{n}\sum_{i = 1}^{n} \frac{\delta^2L(M_0, \lambda_0)}{\delta x_i\, \delta x_j}\, dx_i\, dx_j = q(dx_1, \dots, dx_m)
     \]
-=======
-    и $\exists \lambda_0(\lambda^0_1, \dots, \lambda^0_k)$ для которой 
-    \[
-        dL(M_0, \lambda_0) = 0
-    \]
-    \textcolor{red}{Дописать!!! Тут упущенны странные вещи с матрицами}\\
->>>>>>> 987ffbd49e869d463f80b3d5740cd957bfe1b037
     Тогда
     \begin{enumerate}
         \item $q > 0 \Rightarrow M_0$ --- точка строгого условного минимума функции
@@ -269,10 +199,7 @@
         \item $q$ --- неопределённая форма $\Rightarrow$ в $M_0$ нет экстремума 
     \end{enumerate}
 \end{Th}
-<<<<<<< HEAD
 
-=======
->>>>>>> 987ffbd49e869d463f80b3d5740cd957bfe1b037
 \begin{Proof}
     Принимаем без доказательств
 \end{Proof}
