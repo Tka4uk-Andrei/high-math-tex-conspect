@@ -9,16 +9,20 @@
     \]
     называется ДУ в "дифференциалах" при этом
     \begin{enumerate}
-        \item Решение этого ДУ - дифференциальные  уравнения $y = y(x), x \in I, \text{где } I \text{ - отрезок}$, причём\\
-        $\forall x \in I \; M(x, y(x)) + N(x, y(x))y'(x) = 0$
+        \item Решение этого ДУ - дифференциальные  уравнения $y = y(x), x \in I$, где $I$ --- отрезок, причём\\
+        \[
+            \forall x \in I \quad M(x, y(x)) + N(x, y(x))y'(x) = 0
+        \]
         \item кривая линия $L : 
         \begin{cases}
             x = x(t)\\
             y = y(t)    
-        \end{cases} t \in I$ --- называется интегральной кривой для данного ДУ\\
-        $\Leftrightarrow$\\
-        $L$ -- гладкая кривая и $\forall t \in I, \; M(x(t), y(t))x'_t + N(x(t), y(t))y'_t = 0$\\
-        $dx = x'_tdt, \; dy(t) = y'_tdt$
+        \end{cases} t \in I$ --- называется интегральной кривой для данного ДУ. Это эквивалентно следующенму\\
+        $L$ -- гладкая кривая и 
+        \begin{multline*}
+            \forall t \in I, \quad M(x(t), y(t))\,x'_t + N(x(t), y(t))\,y'_t = 0\\
+            dx = x'_t\,dt, \; dy(t) = y'_t\,dt
+        \end{multline*}
     \end{enumerate}
 \end{Def}
 
@@ -58,10 +62,7 @@
 \end{Example}
 
 \begin{Def}
-    ДУ вида $f(x)dx = g(y)dy$ --- называется ДУ с разделёнными переменными
-    \[
-        f(x) \in C(I), g(y) \in C(J), \text{ где } I, J \text{ --- интервалы}
-    \]
+    ДУ вида $f(x)\,dx = g(y)\,dy$ --- называется ДУ с разделёнными переменными. Причём $f(x) \in C(I),\; g(y) \in C(J)$.\\ $I,\; J$ --- интервалы
 \end{Def}
 
 \begin{Th}[Общий интеграл ДУ с разделяющимися переменными]
@@ -79,13 +80,15 @@
            y = y(t) 
         \end{cases} t \in (\alpha; \beta)
     \]
-    Т.е. дана интегральная кривая ДУ $f(x)dx = g(y)dy \Leftrightarrow \exists C \in \bb{R} \; F(x(t)) = G(y(t)) + C$
-    
+    Т.е. дана интегральная кривая ДУ $f(x)dx = g(y)dy$. Это эквивалентно
+    \[
+        \exists C \in \bb{R} \quad F(x(t)) = G(y(t)) + C    
+    \]
     \begin{enumerate}
         \item [\textcolor{blue}{$\Rightarrow$}] Рассмотрим $f(x(t))\,x'_t = g(y(t))\,y'_t$. Тогда
         \begin{align*}
             f(x(t))\,x'_t &= g(y(t))\,y'_t\\
-            (F(x(t)))'_t &= (G(y(t)))'_t \qquad  [\text{Зам. }(F(x(t)))' = f(x(t))x'_t]\\
+            (F(x(t)))'_t &= (G(y(t)))'_t \qquad  \text{Зам. }(F(x(t)))' = f(x(t))\,x'_t]\\
             (F(x(t)) - G(y(t)))'_t &= 0
         \end{align*}
         Так как производная равна нулю, то при взятии первообразных справа будет константа, получаем
@@ -112,12 +115,13 @@
 \begin{Example}
     Дано $y\,dx - x\,dy = 0$. Решить ДУ.
    \begin{align*}
-        &y\,dx - x\,dy = 0 \\
-        &\frac{dx}{x} = \frac{dy}{y}\\
-        &\int\frac{dx}{x} = \int\frac{dy}{y}\\
-        &ln(|x|) = ln(|y|) - ln(C_1), \text{где } C = ln(C_1)\\
-        &\text{Ответ: } y = C_1\,x
+        y\,dx - x\,dy &= 0 \\
+        \frac{dx}{x} &= \frac{dy}{y}\\
+        \int\frac{dx}{x} &= \int\frac{dy}{y}\\
+        \ln(|x|) &= \ln(|y|) - \ln(C_1) \qquad C = ln(C_1)\\
+        y &= C\,x
    \end{align*}
+   Ответ: $y = C\,x$
 \end{Example}
 \begin{Example}
     Дано 
@@ -141,21 +145,23 @@
 \begin{Def}
     ДУ вида 
     \[
-        y' = f(x)g(x), \; f(x), g(y) \in C
+        y' = f(x)g(x) \qquad f(x),\; g(y) \in C
     \] 
     называется ДУ с разделяющимися переменными
 \end{Def}
 
-\begin{Note} 
-    Общий интеграл ДУ с разделяющимися переменными $y \mapsto \frac{dy}{dx}$, умножим на $dx$, получим
-    \begin{gather*}
-        dy = f(x)\,g(y)\,dx\\
-        \frac{dy}{g(y)} = f(x)\,dx\\
-        \int \frac{dy}{g(y)} = \int f(x)\,dx + C\\
-    \end{gather*}
+\begin{Note} [Общий интеграл ДУ с разделяющимися переменными]
+     Возьмём $y' \mapsto \frac{dy}{dx}$. Заменим $y'$ и умножим выражение из определения на $dx$, получим
+    \begin{align*}
+        y' &= f(x)\,g(y)\\
+        \frac{dy}{dx} &= f(x)\,g(y)\\
+        dy &= f(x)\,g(y)\,dx\\
+        \frac{dy}{g(y)} &= f(x)\,dx\\
+        \int \frac{dy}{g(y)} &= \int f(x)\,dx + C
+    \end{align*}
     Таким образом, получили общий интеграл.\\
     
-    Замечание. Было деление на $g(y)$.
+    \textcolor{cyan}{Замечание}. Было деление на $g(y)$. В общем случае также требуется рассматривать $g(y) = 0$
 \end{Note}
 
 \begin{Example}
@@ -169,7 +175,7 @@
         \frac{dy}{dx} = \frac{y}{x}\\
         \frac{dy}{y} = \frac{dx}{x}\\
         \int \frac{dy}{y} = \int \frac{dx}{x}\\
-        ln|y| = ln|x| + ln|C|\\
+        \ln|y| = \ln|x| + \ln|C_1|\\
         y = C\,x
     \end{gather*}
 \end{Example}
@@ -193,9 +199,8 @@
 \begin{Def}
     ДУ 1го порядка приводящееся к ДУ с разделяющимися переменными
     \[
-        y' = f(a\,x + b\,y + c)
+        y' = f(a\,x + b\,y + c) \qquad a\,b \neq 0, \quad f(z) \in C_{(I)}
     \]
-    где $a\,b \neq 0, \quad f(z) \in C_{(I)}$
 \end{Def}
 
 \begin{Note}
@@ -205,7 +210,8 @@
     \]
     Тогда
     \begin{gather*}
-        z' = a + b\,y' =  a + b\,f(x)\\
+        z' = a + b\,y' = [y' = f(z(x)) = f(x)] =  a + b\,f(x)\\
+        z' = a + b\,f(x)\\
         \frac{dz}{dx} = a + b\,f(x)\\
         dx = \frac{dz}{a + b\,f(x)}\\
         x + C = \int \frac{dz}{a + b\,f(x)}
@@ -213,7 +219,7 @@
     Получаем систему
     \[
         \begin{cases}
-            x + C = \int \frac{dz}{a + b\,f(x)}\\
+            x + C = \int \cfrac{dz}{a + b\,f(x)}\\
             z = a\,x + b\,y + C
         \end{cases}
     \]
@@ -223,20 +229,20 @@
 \begin{Example}
     Дано
     \[
-        y' = cos(x - y)
+        y' = \cos(x - y)
     \]
     Решение.
     \begin{align*}
         z &= x - y\\
-        z' &= 1 - y'\\
-        z' &= 1 - cos(z) 
+        z' &= 1 - y' \qquad y' = cos(z)\\
+        z' &= 1 - \cos(z) 
     \end{align*}
     Получили ДУ с разделяющимися переменными. Решаем
     \begin{align*}
-        \frac{dz}{1- cos(z)} &= dx\\
-        \int \frac{dz}{1- cos(z)} &= \int dx\\
-        \int \frac{dz}{2\,sin^2\left(\frac{z}{2}\right)} &= x + C\\
-        ctg\left(\frac{z}{2}\right) &= x + C\\
+        \frac{dz}{1- \cos(z)} &= dx\\
+        \int \frac{dz}{1- \cos(z)} &= \int dx\\
+        \int \frac{dz}{2\, \sin^2 \left(\frac{z}{2}\right)} &= x + C\\
+        ctg\left(\frac{z}{2}\right) &= x + C
     \end{align*} 
     \begin{align*}
         z &= 2\,arctg(-x-C) + 2\,\pi\,k \qquad k \in \bb{N}\\
@@ -255,12 +261,14 @@
         y'& = 1 \qquad (\text{производная взята из равенства выше})\\
         cos(x - y) &= cos(-2\,\pi\,k) = 1 \qquad (\text{подстановка в  условие})
     \end{align*}
-    Левая и правая части условия равны, следовательно $y = x + 2\,\pi\,k$ входит в множество решений.\\
-     
+    Левая и правая части условия равны, следовательно $y = x + 2\,\pi\,k$ входит в множество решений.
+    
+    \pagebreak
+    
     Множество решений выглядит следующим образом
-    \begin{figure}[h!]
+    \begin{figure}[h]
         \noindent\centering{
-            \includegraphics[width=45mm]{2_2_1.png}
+            \includegraphics[width=55mm]{2_2_1.png}
             \caption{}
         }
     \end{figure}
