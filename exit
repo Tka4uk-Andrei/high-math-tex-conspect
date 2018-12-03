@@ -1,0 +1,118 @@
+[33mcommit 3163d01d84e491dcc59cf93537b9f90d0445849f[m[33m ([m[1;36mHEAD -> [m[1;32mwriting[m[33m, [m[1;31mgit-remote/writing[m[33m)[m
+Author: Андрей Ткачук <tka4uk.andrei@yandex.ru>
+Date:   Fri Nov 30 23:50:50 2018 +0300
+
+    2_9.tex add question
+
+[33mcommit 6aa7f7105255e8e66f21f1917255ca0130712165[m
+Author: Андрей Ткачук <tka4uk.andrei@yandex.ru>
+Date:   Fri Nov 30 23:30:12 2018 +0300
+
+    2_6.tex style impovement plus add question
+
+[33mcommit 4d3278938c1636ea908cd621ff6538a52595ddbc[m
+Author: Андрей Ткачук <tka4uk.andrei@yandex.ru>
+Date:   Fri Nov 30 22:23:12 2018 +0300
+
+    2_4.tex style improved
+
+[33mcommit 70d8797f9f2d9751976064bad44895fc9851d6ab[m
+Author: Андрей Ткачук <tka4uk.andrei@yandex.ru>
+Date:   Fri Nov 30 21:54:59 2018 +0300
+
+    2_3.tex style improved
+
+[33mcommit 2adcb2ef89f73de1697fb9539a8425b284f80343[m
+Author: Андрей Ткачук <tka4uk.andrei@yandex.ru>
+Date:   Fri Nov 30 21:00:10 2018 +0300
+
+    File 2_2.tex improved.
+
+[33mcommit 8a00f3c8e0536cd2b21c03444efc42b8d9fba5d3[m[33m ([m[1;32mmaster[m[33m)[m
+Author: Андрей Ткачук <tka4uk.andrei@yandex.ru>
+Date:   Fri Nov 30 01:09:06 2018 +0300
+
+    checked and fixed 2.1.tex (not important fixes)
+
+[33mcommit 72e6875e1604d02583f8a36a1fe05b3cfdee4bc0[m
+Author: Андрей Ткачук <tka4uk.andrei@yandex.ru>
+Date:   Fri Nov 30 00:27:29 2018 +0300
+
+    add new lections
+
+[33mcommit d2ff920f5241e40cfb75699bbeccbf898b8ddae3[m
+Author: Андрей Ткачук <tka4uk.andrei@yandex.ru>
+Date:   Thu Nov 29 23:59:54 2018 +0300
+
+    text correction by Podsypanin. Theorem 2 (paragraph 3.1)
+
+[33mcommit d6d1d53a398a33de2eebdf3c1ac62b207285ae76[m
+Author: Андрей Ткачук <tka4uk.andrei@yandex.ru>
+Date:   Sun Nov 25 21:41:11 2018 +0300
+
+    Removed unnecessary file
+
+[33mcommit 0d7dc6bdbd47c04899a7f461a2b1a0ed9d03dcee[m
+Author: Андрей Ткачук <tka4uk.andrei@yandex.ru>
+Date:   Sun Nov 25 17:09:15 2018 +0300
+
+    Fixed file with merge conflicts
+
+[33mcommit 4bf3038c854b10d04953503f0d1359ca61b1cc74[m
+Merge: b9db739 987ffbd
+Author: Андрей Ткачук <tka4uk.andrei@yandex.ru>
+Date:   Sat Nov 24 02:42:08 2018 +0300
+
+    Merge branch 'master' of https://github.com/Tka4uk-Andrei/hight-math-tex-conspect
+    conflicts resolved
+
+[33mcommit b9db739516c4333c5275d6cd57940f50267dda91[m
+Author: Андрей Ткачук <tka4uk.andrei@yandex.ru>
+Date:   Sat Nov 24 02:09:31 2018 +0300
+
+    add line break in last example
+
+[33mcommit e0e36f8580891c8f8d8308ca64383ae0c44331e2[m
+Author: Андрей Ткачук <tka4uk.andrei@yandex.ru>
+Date:   Sat Nov 24 01:20:18 2018 +0300
+
+    pdf rebuild
+
+[33mcommit 987ffbd49e869d463f80b3d5740cd957bfe1b037[m
+Author: Tkachuk Andrey <tka4uk.andrei@yandex.ru>
+Date:   Sat Nov 24 00:49:12 2018 +0300
+
+    Delete 0.aux
+
+[33mcommit 0769a148f9e0eb7d6cfca2cdb0f52f97cb86bd91[m
+Merge: 6ac990e 78f84a0
+Author: Tkachuk Andrey <tka4uk.andrei@yandex.ru>
+Date:   Sat Nov 24 00:45:12 2018 +0300
+
+    Merge pull request #4 from kramarov-evg/master
+    
+    Test pull request with adding README
+
+[33mcommit 0a53cf0471b7babc7f78f56e0dd5dcee0409b58f[m[33m ([m[1;32mall[m[33m)[m
+Author: Андрей Ткачук <tka4uk.andrei@yandex.ru>
+Date:   Sat Nov 24 00:39:57 2018 +0300
+
+    initial commit
+
+[33mcommit 78f84a05b4c7e2f9e69157c224044b0970628474[m
+Author: kramarov-evg <38880539+kramarov-evg@users.noreply.github.com>
+Date:   Fri Nov 23 23:53:27 2018 +0300
+
+    Update README.md
+
+[33mcommit b6ba77609eb6c0c1eab0d261bdcb74a5a412bf2b[m
+Author: kramarov-evg <38880539+kramarov-evg@users.noreply.github.com>
+Date:   Fri Nov 23 23:51:30 2018 +0300
+
+    Create README.md
+
+[33mcommit 6ac990e4e02821be24c3eb653b6feefeab3e0171[m
+Author: Андрей Ткачук <tka4uk.andrei@yandex.ru>
+Date:   Fri Nov 23 15:34:51 2018 +0300
+
+    First commit
