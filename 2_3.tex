@@ -11,7 +11,8 @@
 \end{Def}
 
 \begin{Note}
-    $F(x_1, \dots, x_n)$ называются однородными функциями веса $k$, если \[
+    $F(x_1, \dots, x_n)$ называются однородными функциями веса $k$, если 
+    \[
         \forall t \in \bb{R} \; F(t\,x_1, t\,x_2, \dots, t\,x_n) = t^k\,F(x_1, x_2, \dots, x_n)
     \]
     
@@ -20,7 +21,7 @@
 \begin{Note} [Как решить однородное ДУ]
     Дано 
     \[
-        y' = f\left(\frac{x}{y}\right)
+        y' = f\left(\frac{y}{x}\right)
     \]
     Введём 
     \[
@@ -29,7 +30,7 @@
     Тогда
     \\textcolor{red}{тут опечатка?}
     \[
-        y = t\,x, \quad y' = t'\,x + x = f(t)
+        y = t\,x, \quad y' = t'\,x + t = f(t)
     \]
     Таким образом получаем ДУ с разделяюмися переменными
     \[
@@ -73,7 +74,6 @@
         \frac{x}{y} = \ln\left(\frac{C}{x}\right) \qquad C \neq 0\\
         y = \cfrac{x}{\ln\left(\cfrac{C}{x}\right)} \qquad C \neq 0
     \end{gather*}
-    \textcolor{red}{Правильно найден случай?}\\
     Также требуется рассмотреть частный случай, когда $t = 0$, тогда $y = 0$
 \end{Example}
 
