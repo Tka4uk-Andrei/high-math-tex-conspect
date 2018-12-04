@@ -31,7 +31,7 @@
 	\newtheorem{Axiom}{Аксиома}[section]
 	\newtheorem{Note}{Замечание}[section]
     \newtheorem{Example}{Пример}[section]
-	
+
 	 % Оформление докозательства
 	\newenvironment{Proof} % имя окружения
 	{\par\noindent{\bf Доказательство.}} % команды для \begin
@@ -45,26 +45,28 @@
 	\newcommand\Vectr[1]{\overrightarrow{#1}}
     % 'фи' равно красивой 'фи'
     \renewcommand{\phi}{\varphi}
-	
     % Определение русской действительной части вместо \Re
     \renewcommand{\Re}{\mathop{\text{Re}}} 
+    % Определение стандартного ряда
+    \newcommand{\baserow}[1]{\sum\limits_{n = 1}^{+\infty}{#1}}
+    
     
 	\tableofcontents
     %File:         %No  %Status:
-    \include{1_1}  %1   %OK? R
-    \include{1_2}  %2   %OK? R
-    \include{1_3}  %3   %ReWriting
-    \include{1_4}  %4   %OK? Q? R
+    \include{1_1}  %1   %OK  R
+    \include{1_2}  %2   %OK  R
+    \include{1_3}  %3   %OK  R
+    \include{1_4}  %4   %OK  R
     
-    \include{2_1}  %5   %OK? Q? R
-	\include{2_2}  %6   %OK? Q? R
-    \include{2_3}  %7   %OK  Q
+    \include{2_1}  %5   %OK  
+	\include{2_2}  %6   %OK  
+    \include{2_3}  %7   %OK  
     \include{2_4}  %8   %OK  Q
-    \include{2_5}  %9   %ReWriting
-    \include{2_6}  %10  %OK
+    \include{2_5}  %9   %OK  Q
+    \include{2_6}  %10  %OK  Q
     \include{2_7}  %11  %OK
     \include{2_8}  %12  %OK
-    \include{2_9}  %13  %OK
+    \include{2_9}  %13  %OK  Q
     \include{2_10} %14  %OK
     \include{2_11} %15  %OK?
     \include{2_12} %16  %OK? Q
@@ -76,8 +78,8 @@
     
     \include{3_1}  %20  %ReWriting
     \include{3_2}  %21  %Writing
-
-    \include{4_1}  %22
+    \include{3_3}  %20  %ReWriting
+    \include{4_1}  %21  %Writing
     
     %\begin{figure}[bh]
     %    \noindent\centering{
