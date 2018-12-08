@@ -11,7 +11,8 @@
 \end{Def}
 
 \begin{Note}
-    $F(x_1, \dots, x_n)$ называются однородными функциями веса $k$, если \[
+    $F(x_1, \dots, x_n)$ называются однородными функциями веса $k$, если 
+    \[
         \forall t \in \bb{R} \; F(t\,x_1, t\,x_2, \dots, t\,x_n) = t^k\,F(x_1, x_2, \dots, x_n)
     \]
     
@@ -20,15 +21,16 @@
 \begin{Note} [Как решить однородное ДУ]
     Дано 
     \[
-        y' = f\left(\frac{x}{y}\right)
+        y' = f\left(\frac{y}{x}\right)
     \]
     Введём 
     \[
         t(x) = t = \frac{y}{x}
     \]
     Тогда
+    \\textcolor{red}{тут опечатка?}
     \[
-        y = t\,x, \quad y' = t'\,x + x = f(t)
+        y = t\,x, \quad y' = t'\,x + t = f(t)
     \]
     Таким образом получаем ДУ с разделяюмися переменными
     \[
@@ -61,18 +63,17 @@
     \]
     Делаем замену
     \begin{gather*}
-            t = \frac{y}{x}, \quad y = t\,x\\ 
-            dy = x\,dt + t\,dx \quad \Rightarrow \quad \frac{dy}{dx} = y' = \frac{x\,dt}{dx} + t = t'\,x + t
+            t = \frac{y}{x}, \quad y = t\,x \quad dy = x\,dt + t\,dx\\
+            \frac{dy}{dx} = y' = \frac{x\,dt}{dx} + t = t'\,x + t
     \end{gather*}
     Подставляем и получаем
     \begin{gather*}    
         t'\,x + \cancel{t} = \cancel{t} + t^2\\
         \frac{dt}{t^2} = \frac{dx}{x}\\
-        -\frac{1}{t} = ln|x| - ln(C) = - \frac{x}{y}\\
-        \frac{x}{y} = ln\left(\frac{C}{x}\right) \qquad C \neq 0\\
-        y = \cfrac{x}{ln\left(\cfrac{C}{x}\right)} \qquad C \neq 0
+        -\frac{1}{t} = \ln|x| - \ln(C) = - \frac{x}{y}\\
+        \frac{x}{y} = \ln\left(\frac{C}{x}\right) \qquad C \neq 0\\
+        y = \cfrac{x}{\ln\left(\cfrac{C}{x}\right)} \qquad C \neq 0
     \end{gather*}
-    \textcolor{red}{Правильно найден случай?}\\
     Также требуется рассмотреть частный случай, когда $t = 0$, тогда $y = 0$
 \end{Example}
 
@@ -83,10 +84,11 @@
     \]
     где 
     \[
-        \begin{vmatrix} a_1 & b_1 \\ a_2 & b_2\end{vmatrix} \neq 0, \; c_1^2 + c_2^2 \neq 0
+        \begin{vmatrix} a_1 & b_1 \\ a_2 & b_2\end{vmatrix} \neq 0 \quad c_1^2 + c_2^2 \neq 0
     \]
     Вопрос. Как превести эту дробь к однородному ДУ 1-го порядка? $f\left(\frac{y}{x}\right)$\\
-    Ответ:
+    Ответ:\\
+    Рассмотрим систему
     \[
         \begin{cases}
             a_1\,x + b_1\,y + c_1 = 0\\
@@ -149,8 +151,7 @@
         
         \item Зная $\alpha$ и $\beta$ Делаем замену $x$ и $y$ на
         \[
-            x = x_1 - \frac{1}{2}\\            
-            y = y_1 - \frac{1}{2}
+            x = x_1 - \frac{1}{2} \qquad y = y_1 - \frac{1}{2}
         \]
         Получаем
         \begin{align*}
@@ -162,9 +163,9 @@
         \[
             dy_1 = x_1\,dt + t\,dx_1 \quad \Rightarrow \quad \frac{dy_1}{dx_1} = \frac{dt}{dx_1}\,x_1 + t
         \]
-        А после замены $y_1$ справа получаем
+        А после замены $y_1 = t\,x_1$ справа получаем
         \[
-            \frac{x_1 + t\,x_1}{x_1 - t\,x_1} = \frac{x_1 + t\,x_1}{x_1 - t\,x_1} = \frac{1 + t}{1 - t}
+            \frac{x_1 + t\,x_1}{x_1 - t\,x_1} = \frac{1 + t}{1 - t}
         \]
         Таким образом
         \begin{align*}
@@ -175,16 +176,16 @@
         \end{align*}
         После интегрирования получаем
         \[
-            ln|x_1| + C_1 = arctg(t) - \frac{1}{2}\,ln|1 + t^2|\\
+            \ln|x_1| + C_1 = arctg(t) - \frac{1}{2}\,\ln|1 + t^2|\\
         \]
-        Заменяем $t = \frac{y_1}{x_1}$ и получаем
+        Делаем обратную замену $t = \frac{y_1}{x_1}$, получаем
         \begin{gather*}
-            ln|x_1| + C_1 = arctg\left(\frac{y_1}{x_1}\right) - \frac{1}{2}\,ln\left|1 + \left(\frac{y_1}{x_1}\right)^2\right|\\
-            \cancel{ln|x_1|} + C_1 = arctg\left(\frac{y_1}{x_1}\right) - \frac{1}{2}\,ln|x_1^2 + y_1^2| + \cancel{ln|x_1^2|}\\
+            \ln|x_1| + C_1 = arctg\left(\frac{y_1}{x_1}\right) - \frac{1}{2}\,\ln\left|1 + \left(\frac{y_1}{x_1}\right)^2\right|\\
+            \cancel{\ln|x_1|} + C_1 = arctg\left(\frac{y_1}{x_1}\right) - \frac{1}{2}\,\ln|x_1^2 + y_1^2| + \cancel{\ln|x_1^2|}\\
         \end{gather*}
         Ответ
         \[
-            arctg\left(\frac{y_1}{x_1}\right) - \frac{1}{2}\,ln|x_1^2 + y_1^2| = C
+            arctg\left(\frac{y_1}{x_1}\right) - \frac{1}{2}\,\ln|x_1^2 + y_1^2| = C
         \]
     \end{enumerate}
 \end{Example}
