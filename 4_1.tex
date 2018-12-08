@@ -9,8 +9,16 @@
 	\text{т.е. } \forall \varepsilon > 0 \; \exists N \in \bb{N}, N=N(\varepsilon, x) \; \forall n > N \; |f_n(x) - F(x)| < \varepsilon$
 \end{Def}
 
-\begin{Example}
-	Let there be images\\
+\begin{Example}~\\
+	\begin{figure}[h]
+		\begin{minipage}[h]{0.55\linewidth}
+			\center{\includegraphics[width=0.75\linewidth]{4_1_1.png} \\ $\text{Семейство }f_n(x)$}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[h]{0.55\linewidth}
+			\center{\includegraphics[width=0.75\linewidth]{4_1_2.png} \\ $F(x)$}
+		\end{minipage}
+	\end{figure}\\
 	$f_n(x) = x^n, x \in [0;1]$\\
 	$\lim\limits_{n \to +\infty}x^n = F(x) \Rightarrow F(x) = 
 	\begin{cases}
@@ -27,11 +35,13 @@
 \end{Def}
 
 \begin{Note}[Геометрический смысл равномерной сходимости]
-	Let there be image
+	~\\
+	\includegraphics[width=0.5\linewidth]{4_1_3.png} $D = [a;b]$
 \end{Note}
 
 \begin{Note}
-	Let there be image\\
+	~\\
+	\includegraphics[width=0.5\linewidth]{4_1_4.png}\\
 	$f_n(x) = x^n; x \in [0;1] \: \: f_n(x) \underset{n \to +\infty}{\rightarrow}F(x) \\
 	f_n(x) \cancel{\rightrightarrows} F(x)$, где $F(x) = 
 	\begin{cases}
@@ -108,11 +118,18 @@
 
 \begin{Note}
 	Теорема 3 неверна в случае поточечной, а не равномерной, сходимости.\\
-	Let there be images\\
-	$f_n(x) \in C_{[0;1]}. f_n(x) \rightarrow 0 (n \to +\infty; x \in [0;1])\\
-	\int\limits_{0}^{1}f_n(x) = \text{[как площадь треугольника]} = \frac{2}{n} \frac{n}{2} = 1 \rightarrow 1 (n \to +\infty)$\\
-	Но при этом $\int\limits_{0}^{1}F(x) = 0 \rightarrow 0 (n \to +\infty) \Rightarrow\\
-	\Rightarrow \lim\limits_{n \to +\infty}\int\limits_{a}^{b}f_n(x)dx \neq \int\limits_{a}^{b}F(x)dx$
+	\begin{figure}[h]
+		\begin{minipage}[h]{0.3\linewidth}
+			\center{\includegraphics[width=0.9\linewidth]{4_1_5.png}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[h]{0.7\linewidth}
+			$f_n(x) \in C_{[0;1]}. f_n(x) \rightarrow 0 (n \to +\infty; x \in [0;1])\\
+			\int\limits_{0}^{1}f_n(x) = \text{[как площадь треугольника]} = \frac{2}{n} \frac{n}{2} = 1 \rightarrow 1 (n \to +\infty)$\\
+			Но при этом $\int\limits_{0}^{1}F(x) = 0 \rightarrow 0 (n \to +\infty) \Rightarrow\\
+			\Rightarrow \lim\limits_{n \to +\infty}\int\limits_{a}^{b}f_n(x)dx \neq \int\limits_{a}^{b}F(x)dx$
+		\end{minipage}
+	\end{figure}\\
 \end{Note}
 
 \begin{Th}[О дифференциировании равномерно сходящихся функциональных рядов]
