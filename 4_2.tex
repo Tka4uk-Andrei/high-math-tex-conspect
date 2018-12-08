@@ -1,0 +1,95 @@
+\section{Равномерно сходящиеся функциональные ряды}
+
+\begin{Def}
+  \textcolor{red}{Пропущено}\\
+\end{Def}
+
+\begin{Def}
+  \textcolor{red}{Пропущено}\\
+\end{Def}
+
+\begin{Th}[крит.Коши р. сх. функц. ряда]
+  Пусть $\sum \limits_{n=1}^{+ \infty} u_n(x), x\in D, D \subset \Re$\\
+  Тогда ряд $\sum \limits_{n=1}^{+ \infty} u_n(x)$ равномерно сходится на D <=>\\
+  $\forall \epsilon >0 \exists N \in \mathbb{N} N=N(\epsilon) \forall n\geqslant N \forall x \in D$\\
+  $|u_{n+1}(x)+...+u_{n+p}(x)|<\epsilon$\\
+\end{Th}
+
+\begin{Proof}
+  $S_n(x) = \sum \limits_{k=1}^{n} u_k(x)$\\
+  Ряд  $\sum \limits_{n=1}^{+ \infty} u_n(x)$ равномерно сходится на D <=> $S_n(x)\rightrightarrows S(x)$ ($n->+\infty, n\in D$)\\
+  <=> [кр. Коши]\\
+  $\forall \epsilon >0 \exists N=N(\epsilon) \in \mathbb{N}  \forall n\geqslant N \forall p\geqslant 1, \forall x \in D$\\
+  $|S_n(x)-S_{n+p}(x)|=|u_{n+1}(x)+...+u_{n+p}(x)|<\epsilon$\\
+\end{Proof}
+
+\begin{Th}[о непрерывности суммы равн. сход. функц. ряда]
+  Пусть $\forall n \geqslant 1 u_n(x)\in C_{[a;b]}$ и ряд  $S_n(x) = \sum \limits_{n=1}^{+ \infty} u_n(x)$ равномерно сход. к сумме\\
+  $S(x)$ на $[a;b]$\\
+  Тогда $S(x)\in C_{[a;b]}$\\
+\end{Th}
+
+\begin{Proof}
+  $\forall n \geqslant 1 S_n(x) = \sum \limits_{k=1}^{n} u_k(x)=\underbrace{u_1(x)}_{\in C_{[a;b]}}+...+\underbrace{u_n(x)}_{\in C_{[a;b]}}\in C_{[a;b]}$\\
+  $S_n(x)\rightrightarrows S(x) (n->+\infty, x \in [a;b])=>$(т.2 пар. 1)\\
+  $S(x)\in C_{[a;b]}$\\
+\end{Proof}
+
+\begin{Th}[о почленном интегрировании равн. сход. функц. ряда]
+  Пусть $\forall n \geqslant 1 u_n(x)\in C_{[a;b]}$ и ряд  $S(x) = \sum \limits_{n=1}^{+ \infty} u_n(x)$ равномерно сход. на [a;b]\\
+  Тогда $\int_{a}^{b} S(x) dx = \int_{a}^{b}\sum \limits_{n=1}^{+ \infty} u_n(x)dx=\sum \limits_{n=1}^{+ \infty}\int_{a}^{b} u_n(x)dx$\\
+\end{Th}
+
+\begin{Proof}
+  $S_n(x)\rightrightarrows S(x) (n->+\infty, x \in [a;b])$\\
+  $\forall n \geqslant 1 S_n(x)\in C_{[a;b]}$ (по т.2) $S(x)\in C_{[a;b]}$\\
+  По т.3 пар.1 $\int_{a}^{b} S_n(x) dx ->\int_{a}^{b} S(x) dx (n->+\infty)$=>\\
+  $\int_{a}^{b} S(x) dx =\int_{a}^{b}\sum \limits_{k=1}^{n} u_k(x)dx=\sum \limits_{k=1}^{n}\int_{a}^{b} u_k(x)dx$
+  $\sum \limits_{k=1}^{n}\int_{a}^{b} \Phi_k(x)dx->\sum \limits_{k=1}^{n}\int_{a}^{b} u_k(x)dx=\int_{a}^{b} S(x) dx$\\
+\end{Proof}
+
+\begin{Note}
+  $\forall x \in [a;b]$  в усл. т.3\\  
+  $\sum \limits_{k=1}^{+\infty}\int_{a}^{x} u_k(t)dt=\int_{a}^{x} S(t)dt$
+\end{Note}
+
+\begin{Th}[о почленной дифференц. равн. сход. функц. ряда]
+  Пусть $\forall n \geqslant 1$ функции $u_n(x)\in C'_{[a;b]}$ и выполн. сл. условия\\
+  1)$\sum \limits_{n=1}^{+ \infty} u'_n(x)=\phi(x)$ равномерно сход. на [a;b]\\
+  2)$\exists x_0 \in [a;b] \sum \limits_{n=1}^{+ \infty} u_n(x)=A, A\in \Re$\\
+  Тогда\\
+  1)$\sum \limits_{n=1}^{+ \infty} u_n(x)=S(x)$ равн. сх. на [a;b] к функц.$S(x)\in C'_{[a;b]}$\\
+  2)$S'(x)=\phi(x) x \in [a;b]$\\
+  в частности $S'(a+0)=\phi(a), S'(b-0)=\phi(b)$\\
+  т.е.\\
+  $(\sum \limits_{n=1}^{+ \infty} u_n(x))'=\sum \limits_{n=1}^{+ \infty} u'_n(x)$ $x\in [a;b]$\\
+\end{Th}
+
+\begin{Proof}
+  $\sum \limits_{k=1}^{n} u'_k(x)$ $x\in [a;b]\rightrightarrows \phi(x)  (n->+\infty,x\in [a;b])$\\
+  $u'_k(x)\in C[a;b] =>(\sum \limits_{k=1}^{n} u_k(x))' \rightrightarrows \phi(x)  (n->+\infty,x\in [a;b])$\\
+  $\sum \limits_{k=1}^{n} u_k(x_0)->A (n->+\infty)$\\
+  т.4 п.1 =>\\
+  1)$\sum \limits_{k=1}^{n} u_k(x)\rightrightarrows S(x)  (n->+\infty,x\in [a;b])$\\
+  2)$S'(x)=\phi(x) x \in [a;b]$\\
+  $\phi(x)\in C[a;b]=>S(x)\in C'[a;b]$
+  из 1=>$\sum \limits_{n=1}^{+ \infty} u_n(x)=S(x)$ равн. сход. на [a;b]\\
+\end{Proof}
+
+\begin{Th}[Достаточный признак Вейерштрасса равн. сход. функц. ряда]
+  Пусть $\sum \limits_{n=1}^{+ \infty} u_n(x)$ функц. ряд опр. $x\in D D\subset \mathbb{R}$\\
+  Если существует числовой ряд $\sum \limits_{n=1}^{+ \infty} a_n$, который\\
+  1)$\forall x \in D \forall n \in \mathbb{N} |u_n(x)|\geqslant a_n$\\
+  2)ряд $\sum \limits_{n=1}^{+ \infty} a_n$ сходится\\
+  => функц. ряд $\sum \limits_{n=1}^{+ \infty} u_n(x)$ равн. сход. на обл. D\\
+\end{Th}
+
+\begin{Proof}
+  $\sum \limits_{n=1}^{+ \infty} a_n$ сходится=>(по крит.Коши) \\
+  $\forall \epsilon >0 \exists N=N(\epsilon) \in \mathbb{N}  \forall n\geqslant N \forall p\geqslant 1$\\
+  $|a_{n+1}+...+a_{n+p}|<\epsilon$\\
+  $0\geqslant |u_n(x)|\geqslant a_n => \forall n \geqslant 1, a_n \geqslant 0$\\
+  $\forall x \in D |u_{n+1}(x)+...+u_{n+p}(x)|\geqslant |u_{n+1}(x)|+...+|u_{n+p}(x)|\geqslant a_{n+1}+...+a_{n+p}=|a_{n+1}+...+a_{n+p}|<\epsilon$\\
+  Тогда по т.1 п.2 ряд\\
+  $\sum \limits_{n=1}^{+ \infty} u_n(x)$ равн. сход. на D\\
+\end{Proof}
