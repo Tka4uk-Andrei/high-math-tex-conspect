@@ -11,7 +11,7 @@
     \[
         L(y) = y^{(n)} + p_1\,y^{(n-1)} + \dots + y\,p_n(x) = 0
     \]
-    Ищем ЛНДУ в виде $L(x) = f(x)$ в виде 
+    Ищем решение ЛНДУ $L(x) = f(x)$ в виде 
     \[
         y = C_1(x)\,\phi_1(x) + \dots + C_n(x)\,\phi_n(x)
     \]
@@ -22,16 +22,17 @@
             C'_1\,\phi'_1(x) + \dots + C'_n\,\phi'_n(x) = 0\\
             C'_1\,\phi'_1(x) + \dots + C'_n\,\phi'_n(x) = 0\\
             \vdots
-            C'_1\,\phi^{(n-2)}_1(x) + \dots + C_n\,\phi^{(n-2)}_n(x) = 0
+            C'_1\,\phi^{(n-2)}_1(x) + \dots + C_n\,\phi^{(n-2)}_n(x) = 0\\
             C'_1\,\phi^{(n-1)}_1(x) + \dots + C_n\,\phi^{(n-1)}_n(x) = f(x)\\
         \end{cases}
     \]
     Тогда такая система имеет решения
     \begin{gather*}
         C'_1 = u_1(x),\; \dots,\; C_n = u_n(x)\\
-        y = \phi_1(x)\, \int u_1(x)\,dx + \dots + \phi_n(x)\, \int u_n(x)\,dx + C_1\,\phi_1(x) + \dots + C_n\,\phi_n(x)
+        y = \left[\left(\phi_1(x)\, \int u_1(x)\,dx \right) + \dots + \left( \phi_n(x)\, \int u_n(x)\,dx \right) \right] + \left[C_1\,\phi_1(x) + \dots + C_n\,\phi_n(x)\right]
     \end{gather*}
-    где $C_1,\; \dots,\; C_n$ --- константы
+    где $C_1,\; \dots,\; C_n$ --- константы.\\
+    Примечание. Тут две суммы: одна с интегралом, другая без
 \end{Th}
 
 \begin{Proof}
@@ -41,14 +42,13 @@
     \]
     Возьмём $n$ производных, причём заметим, что $\phi$, и $C_1$ зависимы от $x$. Тогда получаем
     \begin{align*}
-        p_n\,* \; &| &y &= C_1\,\phi_1 + \dots + C_n\,\phi_n\\
-        p_{n-1}\,*\; &| &y' &= C_1\,\phi'_1 + \dots + C_n\,\phi'_n +  \underbrace{C'_1\,\phi_1 + \dots + C'_n\,\phi_n}_{\equiv 0}\\
-        p_{n-2}\,*\; &| & y'' &= C_1\,\phi''_1 + \dots + C_n\,\phi''_n + \underbrace{C'_1\,\phi'_1 + \dots + C'_n\,\phi'_n}_{\equiv 0}\\
-        & & &\vdots\\
-        p_1\,*\; &| &y^{(n-2)} &= C_1\,\phi_1^{(n-2)} + \dots + C_n\,\phi_n^{(n-2)} + \underbrace{C'_1\,\phi^{(n-3)}_1 + \dots + C'_n\,\phi^{(n-3)}_n}_{\equiv 0}\\
-        1\,*\; &| &y^{(n-1)} &= C_1\,\phi_1^{(n-1)} + \dots + C_n\,\phi_n^{(n-1)} + \underbrace{C'_1\,\phi^{(n-2)}_1 + \dots + C'_n\,\phi^{(n-2)}_n}_{\equiv f(x)}
+        y &= C_1\,\phi_1 + \dots + C_n\,\phi_n\\
+        y' &= C_1\,\phi'_1 + \dots + C_n\,\phi'_n +  \underbrace{C'_1\,\phi_1 + \dots + C'_n\,\phi_n}_{\equiv 0}\\
+        y'' &= C_1\,\phi''_1 + \dots + C_n\,\phi''_n + \underbrace{C'_1\,\phi'_1 + \dots + C'_n\,\phi'_n}_{\equiv 0}\\
+        &\vdots\\
+        y^{(n-2)} &= C_1\,\phi_1^{(n-2)} + \dots + C_n\,\phi_n^{(n-2)} + \underbrace{C'_1\,\phi^{(n-3)}_1 + \dots + C'_n\,\phi^{(n-3)}_n}_{\equiv 0}\\
+        y^{(n-1)} &= C_1\,\phi_1^{(n-1)} + \dots + C_n\,\phi_n^{(n-1)} + \underbrace{C'_1\,\phi^{(n-2)}_1 + \dots + C'_n\,\phi^{(n-2)}_n}_{\equiv f(x)}
     \end{align*}
-    \textcolor{red}{расписать}
     \begin{align*}
         p_n\,* \; &| &y &= C_1\,\phi_1 + \dots + C_n\,\phi_n\\
         p_{n-1}\,*\; &| &y' &= C_1\,\phi'_1 + \dots + C_n\,\phi'_n\\
@@ -61,9 +61,9 @@
     \[
         L(y) = C_1\,\underbrace{L(\phi_1)}_{\equiv 0 (\text{ФСР})} + \dots + C_n\,\underbrace{L(\phi_n)}_{\equiv 0 (\text{ФСР})} + f(x) 
     \]
-    Таким образом $L(y) = f(x)$.
+    Таким образом $L(y) = f(x)$. Значит уравнение в самом начале является решением ЛНДУ.\\
     
-    Рассмотрим
+    Теперь рассмотрим
     \[
         \begin{cases}
             C'_1\,\phi_1 + \dots + C'_n\,\phi_n = 0\\
@@ -73,7 +73,7 @@
             C'_1\,\phi^{(n-2)}_1 + \dots + C'_n\,\phi^{(n-2)}_n = f(x)
         \end{cases}
     \]
-    Систему из $n$ алгебраических уравнений относительно $n$ переменных $C'_1,\, \dots,\, C'_n$. Видим, что определитель матрицы $W(x) \neq 0 \quad \forall x \in (a;\,b)$ (Т.к. $\{\phi_1,\; \dots,\; \phi_n\}$ --- ФСР). Следовательно, по теореме Крамера существует единственное решение
+    Это система из $n$ алгебраических уравнений относительно $n$ переменных $C'_1,\, \dots,\, C'_n$. Видим, что определитель матрицы $W(x) \neq 0 \quad \forall x \in (a;\,b)$ (Т.к. $\{\phi_1,\; \dots,\; \phi_n\}$ --- ФСР). Следовательно, по теореме Крамера существует единственное решение
     \[
         C'_1 = u_1(x),\; \dots,\; C'_n = u_n(x)
     \]
@@ -84,6 +84,10 @@
     Значит решение ЛНДУ
     \[
         y = \left(\int u_1(x)\,dx + C_1\right)\,\phi_1(x) + \dots + \left(\int u_n(x)\,dx + C_n\right)\,\phi_n(x)
+    \]
+    Что аналогично
+    \[
+        y = \left[\left(\phi_1(x)\, \int u_1(x)\,dx \right) + \dots + \left( \phi_n(x)\, \int u_n(x)\,dx \right) \right] + \left[C_1\,\phi_1(x) + \dots + C_n\,\phi_n(x)\right]
     \]
 \end{Proof}
 
@@ -129,22 +133,22 @@
             y' = z, \qquad y'' = z'\\
             z' + \frac{z}{x} = 0\\
             \int \frac{dz}{z} = - \int \frac{dx}{x}\\
-            ln|z| = - ln|x| + lnC_1\\
+            \ln|z| = - \ln|x| + \ln\,C_1\\
             z = y' = \frac{C_1}{x}\\
-            y = y_{\text{о.о.}} = C_1\, ln|x| + C_2 - y_0
+            y = y_{\text{о.о.}} = C_1\, \ln|x| + C_2
         \end{gather*}
         
         \item Решаем неоднородное уравнение с произьволными постоянными $C_1(x),\; C_2(x)$ и $\phi_1,\; \phi_2$
         \begin{gather*}
-            y = C_1(x)\,ln|x| + C_2(x)\\
-            \phi_1 = ln|x|, \qquad \phi_2 = 1\\
+            y = C_1(x)\,\ln|x| + C_2(x)\\
+            \phi_1 = \ln|x|, \qquad \phi_2 = 1\\
             \phi'_1 = \frac{1}{x}, \qquad \phi'_2 = 0
         \end{gather*} 
-        Накладываем 1 дополнительное условие (т.к. можем \textcolor{red}{Почему?}) $C'_1\,ln|x| + C'_2 = 0$\\
+        Накладываем 1 дополнительное условие $C'_1\,\ln|x| + C'_2 = 0$\\
         \[
             \begin{cases}
-                C'_1\,ln|x| + C'_2 = 0\\
-                C'_1\,\frac{1}{x} + C'_2\,0 = 0 \quad (\text{Из условия})
+                C'_1\,\ln|x| + C'_2 = 0\\
+                C'_1\,\frac{1}{x} + C'_2\,0 = 1 \quad (\text{Из условия})
             \end{cases}
         \]
         Решаем, получаем

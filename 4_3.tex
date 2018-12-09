@@ -1,0 +1,51 @@
+\section{Степенные ряды}
+
+\begin{Def}
+	Функциональный ряд вида $\sum^{+\infty}_{n=0} C_n(x-\alpha)^n = C_0 + C_1(x-\alpha) + ... + C_n(x-\alpha)^n + ...$ называется степенным рядом, $\alpha$ - центр ряда, $C_0, C_1, ...$ - коэффициенты ряда.\\
+\end{Def}
+
+\begin{Note}
+	$t = x - \alpha \Rightarrow \sum^{+\infty}_{n=0} C_n(x-\alpha)^n = \sum^{+\infty}_{n=0} C_nt^n$ - переместили центр в $0$\\
+\end{Note}
+
+\begin{Th}[1-я Теорема Абеля]
+	Пусть степенной ряд $\sum^{+\infty}_{n=0} C_n(x-\alpha)^n$ сходится при $x = x_0 \neq \alpha$\\
+	Тогда $\forall n, |x-\alpha| < |x_0 - \alpha|$ данный ряд сходится, причём абсолютно, в точке $x$\\
+\end{Th}
+
+\begin{Proof}
+	$\sum^{+\infty}_{n=0} C_n(x-\alpha)^n$ сходится $\Rightarrow \exists lim C_n(x_0 - \alpha)^n = 0$ (необходимый признак сходимости)\\
+	$\Rightarrow C_n(x_0 - \alpha)^n$ ограничена $\Rightarrow \exists M > 0 : \forall n \geq 0 |C_n(x_0 - \alpha)^n| \leq M \Rightarrow |C_n||(x_0 - \alpha)| \leq M$\\
+	Возьмём $x : |x-\alpha| < |x_0 - \alpha|$ и пусть $q = \frac{|x - \alpha|}{x_0 - \alpha} \Rightarrow 0 \leq q < 1$\\
+	Тогда $\forall n \geq 0 |C_n(x-\alpha)^n| = |C_n||x-\alpha|^n = |C_n||x_0 - \alpha|^nq^n \leq Mq^n$\\
+	Ряд $\sum^{+\infty}_{n=0} Mq^n = \frac{1}{1-q}$ сходится, следовательно ряд $\sum^{+\infty}_{n=0} C_n(x-\alpha)^n$ сходится абсолютно по признаку сравнимости\\ 
+\end{Proof}
+
+\begin{Note}[Следствие]
+	Пусть ряд $\sum^{+\infty}_{n=0} C_n(x-\alpha)^n$ расходится при $x_1 \neq a$, тогда $\forall x |x - \alpha| > |x_1 - \alpha|$ ряд расходится
+\end{Note}
+
+\begin{Proof}
+	От противного:\\
+	Если в условиях следствия $\exists x_0 : |x_0 - \alpha| > |x_1 - \alpha|$ и ряд $\sum^{+\infty}_{n=0} C_n(x_0-\alpha)^n$ сходится, то по теореме ряд $\sum^{+\infty}_{n=0} C_n(x_1-\alpha)^n$ сходится абсолютно, что противоречит условию.\\
+	ч.т.д\\
+\end{Proof}
+
+\begin{Note}
+	TODO вставить рисунок
+\end{Note}
+
+\begin{Th}[О существовании радиуса сходимости степенного ряда]
+	Пусть $\sum^{+\infty}_{n=0} C_n(x-\alpha)^n$ - степенной ряд\\
+	Тогда $\exists R, o \leq R \leq +\infty$, для которого:\\
+	1) $\forall x |x-\alpha| < R$ ряд сходится в $x$\\
+	2) $\forall x |x-\alpha| > R$ ряд расходится в $x$\\ 
+\end{Th}
+
+\begin{Proof}
+	Если ряд сходится только в $\alpha$, $R = 0$\\
+	Если ряд сходится при $\forall x$, $R = +\infty$\\
+	Рассмотрим третий случай\\
+	$\exists x_0 \neq \alpha$ и ряд сходится в $x_0$\\
+	$\exists x_1 \neq \alpha$ и ряд расходится в $x_1$\\
+\end{Proof}
