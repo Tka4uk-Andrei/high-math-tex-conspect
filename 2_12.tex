@@ -1,30 +1,30 @@
 \section{Лин. диф. ур-я n-го порядка с постоянными коэфициентами}
 
-\begin{Def}
+\begin{Def}~\\
     ДУ вида
     \[
         L(y)=y^{(n)}+a_1(x)\,y^{(n-1)}+a_{n-1}(x)\,y'+\dots+a_n(x)\,y=f(x)
     \]
-    где $a_1,\, \dots,\, a_n \in \bb{R}$ (постояные), $f(x)\in C_{(a;\,b)}$ называются линейные ДУ $n$-го порядка с постояными коэфициентами (т.е. не зависящих от $x$)
+    где $a_1,\, \dots,\, a_n \in \bb{R}$ (постояные), $f(x)\in C_{(a;\,b)}$ называются линейные ДУ $n$-го порядка с постояными коэфициентами (т.е. не зависящими от $x$)
 \end{Def}
 
-\begin{Note} [Основа метода реш. ДУ $L(y)=0$]
+\begin{Note} [Основа метода реш. ДУ $L(y)=0$]~\\
     Ищем решения вида
     \begin{align*}
-        a_n\;| \quad &y=e^{\alpha x} \\
-        a_{n-1}\;| \quad &y'=\alpha e^{\alpha x} \\
+        a_n\; \cdot \; | \quad &y=e^{\alpha x} \\
+        a_{n-1}\; \cdot \; | \quad &y'=\alpha e^{\alpha x} \\
          &\vdots\\
-        a_1\;| \quad &y^{(n-1)}=\alpha^{n-1} e^{\alpha x} \\
-        1\;| \quad &y^{(n)}=\alpha^{n} e^{\alpha x} \\ 
+        a_1\; \cdot \; | \quad &y^{(n-1)}=\alpha^{n-1} e^{\alpha x} \\
+        1\; \cdot \; | \quad &y^{(n)}=\alpha^{n} e^{\alpha x}
     \end{align*}
     Складываем, получаем
     \[
         L(y)=e^{\alpha x}\,P(\alpha), \quad \text{где} \quad P(\alpha)=\alpha^n+a_1\,\alpha^{n-1}+\dots+a_n
     \]
-    По условию $e^{\alpha x}$ решение $L(y)=0$. Это равносильно следующему утверждению. $P(\alpha) = 0$, то есть $\alpha$ - корень многочлена $P(\lambda)$, где $\lambda$ - переменая
+    По условию $e^{\alpha x}$ решение $L(y)=0$. Это равносильно следующему утверждению $P(\alpha) = 0$, то есть $\alpha$ - корень многочлена $P(\lambda)$, где $\lambda$ - переменая
 \end{Note}
 
-\begin{Def}
+\begin{Def}~\\
     Пусть
     \[
         L(y)=y^{(n)}+a_1(x)\,y^{(n-1)}+a_{n-1}(x)\,y'+\dots+a_n(x)\,y=0
@@ -37,43 +37,46 @@
     называется характеристическим многочленом ЛОДУ $L(y)=0$\\
 \end{Def}
 
-\begin{Th}[ФСР, случай простых корней $P(\lambda)$]
+\begin{Th}[ФСР, случай простых корней $P(\lambda)$]~\\
     Пусть
     \[
         P(\lambda) = \lambda^n+a_1\,\lambda^{n-1}+\dots+a_n
     \]
-    --- характерестический многочлен ЛОДУ $L(y)=0$ с постоянными коэффициентами\\
-    Тогда если все корни $P(\lambda)$ вещественны и различны, то есть $\{\alpha_1,\; \dots,\; \alpha_n\}$ корни $P(\lambda)$ причём $\alpha_i \neq \alpha_j (i \neq j)$ то ФСР $L(y)=0$ выглядит так
+    --- характерестический многочлен ЛОДУ $L(y)=0$ с постоянными коэффициентами.\\
+    Тогда если все корни $P(\lambda)$ вещественны и различны, то есть $\{\alpha_1,\; \dots,\; \alpha_n\}$ корни $P(\lambda)$ причём $\alpha_i \neq \alpha_j (i \neq j)$, то ФСР $L(y)=0$ выглядит так
     \[
         \{e^{\alpha_1\,x},\; e^{\alpha_2\,x},\; \dots,\; e^{\alpha_n\,x}\}
     \]
 \end{Th}
 
-\begin{Proof}
-    Для начала напомним определение ФСР
+\begin{Proof}~\\
+    Для начала вспомним определение ФСР
     \begin{enumerate}
         \item $L(e^{\alpha_i\,x})=0 \qquad i=1,\; \dots,\; n$
         
-        \item ф-и n-штук равно порядку ДУ $L(y)=0$
+        \item функциий n-штук и это равно порядку ДУ $L(y)=0$
         
-        \item $\{e^{\alpha_1\,x},\; e^{\alpha_2\,x},\; \dots,\; e^{\alpha_n\,x}\}$ - линейно не зависима
+        \item Система функций $\{e^{\alpha_1\,x},\; e^{\alpha_2\,x},\; \dots,\; e^{\alpha_n\,x}\}$ -- линейно независима
     \end{enumerate}
+    
     Справедливость пункта 1 следует из замечания 1, соблюдение 2 -- из условия. Значит требуется доказать корректность пункта 3. \\
+    
     Последнее будем доказывать от противного. Пусть система линейно зависима и тогда один из коэфициетов $C_1 \neq 0$. Рассмотрим
-    \begin{gather*}
-        C_1\,e^{\alpha_1\,x} + \dots +c_n\,e^{\alpha_1\,x} \equiv 0 \quad | \; \div e^{\alpha_1\,x}\\
-        C_1\,e^{(\alpha_1-\alpha_n)\,x} + \dots + C_{n-1} e^{(\alpha_{n-1}-\alpha_n)\,x} \equiv 0 \quad |\; \text{Диференцируем}\\
-        C_1\,(\alpha_1-\alpha_n)\,e^{(\alpha_1-\alpha_n)\,x} + \dots + C_{n-1}\,(\alpha_{n-1}-\alpha_n)\,e^{(\alpha_{n-1}-\alpha_n)\,x} \equiv 0
-    \end{gather*}
+    \begin{align*}
+        C_1\,e^{\alpha_1\,x} + \dots +c_n\,e^{\alpha_1\,x} &\equiv 0 \quad | \; \div e^{\alpha_1\,x}\\
+        C_1\,e^{(\alpha_1-\alpha_n)\,x} + \dots + C_{n-1} e^{(\alpha_{n-1}-\alpha_n)\,x} &\equiv 0 \quad |\; \mathrm{d}f\\
+        C_1\,(\alpha_1-\alpha_n)\,e^{(\alpha_1-\alpha_n)\,x} + \dots + C_{n-1}\,(\alpha_{n-1}-\alpha_n)\,e^{(\alpha_{n-1}-\alpha_n)\,x} &\equiv 0
+    \end{align*}
     Опять делим и диференцируем, и так до тех пор пока не получим
     \[
         C_1\,\underbrace{(\alpha_1-\alpha_n)}_{\neq 0}\,\underbrace{(\alpha_1-\alpha_{n-1})}_{\neq 0}\,\dots\,\underbrace{(\alpha_1-\alpha_2)}_{\neq 0}\,e^{(\alpha_1-\alpha_n)\,x}\equiv 0
     \]
-    Разности не равны нулю, так как все корни различны. Тогда остаётся только $C_1 = 0$, но в самом начале мы сказали, что $С_1 \neq 0$, получаем противоречие.\\
-    Значит $C_1=\dots=C_n=0$, следовательно система линено не зависима, и она ФСР
+    Разности не равны нулю, так как все корни различны. Тогда остаётся только $C_1 = 0$, но в самом начале мы сказали, что $C_1 \neq 0$, получаем противоречие.\\
+    
+    Значит $C_1=\dots=C_n=0$, следовательно система линено не зависима, и она является ФСР
 \end{Proof}
 
-\begin{Example}
+\begin{Example}~\\
     Дано
     \[
         y'''-3y''+2y'=0
@@ -92,7 +95,8 @@
     \]
 \end{Example}
 
-\begin{Note}[Напоминание] Характерестический многочлен
+\begin{Note}[Напоминание]~\\
+    Характерестический многочлен
     \[
         P(\lambda)=(\lambda-\alpha_1)^{k_1}\,\dots\,(\lambda-\alpha_s)^{k_s}\,(\lambda^2+p_1 \lambda+q_1)^{m_1}\dots(\lambda^2+p_t\, \lambda+q_t)^{m_t}
     \]
@@ -124,40 +128,60 @@
         P(\lambda)= \lambda^n + a_1\,\lambda^{n-1} + \dots + a_n
     \]
     Тогда $\forall \alpha \in \bb{R}$ и $\forall u(x)$ -- n раз диференцируемой справедлива формула 
-    \begin{multline*}
-        L(u(x)\,e^{\alpha x})=e^{\alpha\,x}\, (u(x)\,P(\alpha)+\frac{1}{1!}\,u'(x)\,P'(\alpha))+\\ +\frac{1}{2!}\,u''(x)\,P''(\alpha)+ \dots +\frac{1}{n!}\,u^{(n)}(x)\,P^{(n)}(\alpha)
-    \end{multline*}
+    \begin{align*}
+        L(u(x)\,e^{\alpha x})=e^{\alpha\,x}\, [u(x)\,P(\alpha)&+\frac{1}{1!}\,u'(x)\,P'(\alpha)+\\
+        &+\frac{1}{2!}\,u''(x)\,P''(\alpha)+\\
+        &+\dots+\\
+        &+\frac{1}{n!}\,u^{(n)}(x)\,P^{(n)}(\alpha)]
+    \end{align*}
 \end{Lem}
 
-\begin{Proof}
-    Докажем случай для n=2\\
-    Тогда.
+\begin{Proof}~\\
+    Докажем случай для n=2,\\
+    тогда ЛОДУ и характеристический многочлен принимают следующий вид 
+    \[
+        L(y) = y'' + a_1\,y' + a_2\,y \qquad P(\lambda) = \lambda^2 + a_1\,\lambda + a_2
+    \]
+    решение и его производные
     \begin{align*}
         a_2\; &| \quad y=u\,e^{\alpha x}\\
-        a_1\; &| \quad y=u'\,e^{\alpha x}+u\,\alpha e^{\alpha x}\\
+        a_1\; &| \quad y'=u'\,e^{\alpha x}+u\,\alpha e^{\alpha x}\\
         1\; &| \quad y''=u''\,e^{\alpha x}+2\,u'\,\alpha\,e^{\alpha x}+u\,\alpha^2\,e^{\alpha x} 
     \end{align*}
     Складываем всё и получаем
     \begin{align*}
         a_2\,y + a_1\,y' + y'' &= e^{\alpha\,x}\,(a_2\,u + a_1\,u' + a_1\,u\,\alpha + u'' + 2\,u'\,\alpha + u\,\alpha^2)\\
         L(y) &= e^{\alpha\,x}\,(a_2\,u + u\,\alpha^2 + a_1\,u\,\alpha + a_1\,u' + 2\,u'\,\alpha + u'')\\
-        L(y) &= e^{\alpha\,x}\,(u\,(\alpha^2 + a_1\,\alpha + a_2) + u'\,(2\,\alpha + a_1) + u'')\\
+        L(y) &= e^{\alpha\,x}\,(u\,(\alpha^2 + a_1\,\alpha + a_2) + u'\,(2\,\alpha + a_1) + u'')
     \end{align*}
-    Очевидно, что производные характеристического многочлена выглядят так
+    В нашем случае характеристический многочлен и его производные имеют следующий вид
     \begin{align*}
-        P_n(\lambda) &= \lambda^n + a_1\,\lambda^{n - 1} + \dots + a_n\\
-        P_n'(\lambda) &= n\,\lambda^{n-1} + a_1\,\,(n - 1)\lambda^{n - 1} + \dots + a_{n-1}\\
-        P_n''(\lambda) &= n\,(n-1)\,\lambda^{n - 2} + a_1\,(n-1)\,(n-2)\,\lambda^{n - 1} + \dots + 2!\,a_{n-2}\\
-        &\vdots\\
-        P_n^{(n)}(\lambda) &= n!
+        P_n(\lambda) &= \lambda^2 + a_1\,\lambda + a_2\\
+        P_n'(\lambda) &= 2\,\lambda + a_1\\
+        P_n''(\lambda) &= 2
     \end{align*}
-    Значит
+    Делаем соответствующие замены в $L(y)$, получаем
     \[
-        L(y)=e^{\alpha x}\,(u\,P(\alpha)+u'\,P'(\alpha)+\frac{1}{2}\,u^n P''(\alpha))
+        L(y)=e^{\alpha x}\,\left(\,P(\alpha)+u'\,P'(\alpha)+\frac{1}{2}\,u^n P''(\alpha)\right)
     \]
 \end{Proof}
 
-\begin{Th}
+\pagebreak
+
+\begin{Note}[Как работает доказательство в общем случае]
+    Не нужно на экзамене.\\
+    Производные корня раскладываются с помощью биноминальных коэфициентов. Затем аналогичным образом получаем $L(y)$. Потом мы видим, что характеристический многочлен и его производные в общем случае имеют следующий вид
+    \begin{align*}
+    P_n(\lambda) &= \lambda^n + a_1\,\lambda^{n - 1} + \dots + a_n\\
+    P_n'(\lambda) &= n\,\lambda^{n-1} + a_1\,\,(n - 1)\lambda^{n - 1} + \dots + a_{n-1}\\
+    P_n''(\lambda) &= n\,(n-1)\,\lambda^{n - 2} + a_1\,(n-1)\,(n-2)\,\lambda^{n - 1} + \dots + 2!\,a_{n-2}\\
+    &\vdots\\
+    P_n^{(n)}(\lambda) &= n!
+    \end{align*}
+    И из замены в $L(y)$ на формулы выше мы получаем справедливость теоремы.
+\end{Note}
+% остановились тут
+\begin{Th}~\\
     Пусть $\alpha$ корень кратности $k \geqslant 1$ характеристического многочлена $P(\lambda)$ ЛОДУ
     \[
         L(y)=y^{(n)}+a_1\,y^{(n-1)}+a_{n-1}\,y'+\dots+a_n\,y=0
