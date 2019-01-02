@@ -2,10 +2,10 @@
 
 \section{Системы обыкновенных ДУ}
 
-\begin{Def}
+\begin{Def}~\\
     Система уравнений вида
     \[
-        F_i(x,\; y_1,\; y_1',\; \dots,\; y_1^{m_1},\; \dots,\; y_n,\; y_n',\; \dots,\; y_1^{m_n}) \equiv 0 \qquad (i = 1,\; 2,\; \dots,\; n)
+        F_i(x,\; y_1,\; y_1',\; \dots,\; y_1^{m_1},\; \dots,\; y_n,\; y_n',\; \dots,\; y_n^{m_n}) \equiv 0 \qquad (i = 1,\; 2,\; \dots,\; n)
     \]
     называют системой обыкновенных ДУ порядка $m = \max\{m_1,\; \dots,\; m_n\}$ относительно функций 
     $y_1 = y_1(x),\; \dots,\; y_n = y_n(x)$. Набор функций $\{y_1,\; \dots,\; y_n\}$ называется решением ДУ если при подстановке 
@@ -15,35 +15,35 @@
     то есть получается система верных функциональных тождеств 
 \end{Def}
 
-\begin{Th}
+\begin{Th}~\\
     Всякая система ДУ из определения 1 эквивалентна некоторой системе обыкновенных ДУ 1-го порядка
 \end{Th}
 
-\begin{Proof}
+\begin{Proof}~\\
     Введём
     \begin{align*}
         & z_{1,1} = y_1 && z_{1,2} = y'_1 && \dots && z_{1,m_1} = y^{(m_1-1)}_1 \\
         &\vdots && \vdots && \dots && \vdots \\
         & z_{n,1} = y_n && z_{n,2} = y'_n && \dots && z_{n,m_n} = y^{(m_n-1)}_n
     \end{align*}
-    Примечание. Всего получим $N = \sum_{i=1}^{n} m$ функций.\\
+    Примечание. Всего получим $N = \sum_{i=1}^{n} m_i$ функций.\\
     Таким образом, после замены на $z$ получаем
     \begin{multline*}
         F_i(x,\; z_{1,1},\; z_{1,2},\; \dots,\; z_{1,m_1},\; z'_{1,m_1},\; \dots,\; z_{n,1},\; z_{n,2},\; \dots,\; z_{n,m_n},\; z'_{n,m_n}) \equiv 0\\
         (i = 1,\; 2,\; \dots,\; n)
     \end{multline*}
-    Мы знаем, что $z_{1,1},\; z_{1,2}$ связаны межу собой и другими $z_{1,i}$, тогда
+    Мы знаем, что $z_{i,1},\; z_{i,2}$ связаны межу собой и другими $z_{i,j}$, тогда
     \[
         \begin{cases}
-            z'_{i,j} = z'_{i,j + 1} \qquad 1\leqslant i \leqslant n \quad 1\leqslant j \leqslant m_i - 1\\
+            z'_{i,j} = z_{i,j + 1} \qquad 1\leqslant i \leqslant n \quad 1\leqslant j \leqslant m_i - 1\\
             F_i = 0
         \end{cases}
     \]
     Таким образом мы получили систему обыкновенных ДУ первого порядка относительно $z_{i,j}$ 
 \end{Proof}
 
-\begin{Def}
-    Сустема ДУ вида
+\begin{Def}~\\
+    Система ДУ вида
     \[
         \begin{cases}
             y'_1 = f_1(x,\; y_1,\; \dots,\; y_n)\\
@@ -54,7 +54,7 @@
     Называют нормальной системой обыкновенных ДУ 1-го порядка
 \end{Def}
 
-\begin{Note}
+\begin{Note}~\\
     Введём 
     \[
         \vec{y} = \begin{pmatrix} y_1\\ \vdots\\ y_n \end{pmatrix} \quad \vec{y'} = \begin{pmatrix} y'_1\\ \vdots\\ y'_n \end{pmatrix} \quad \vec{f} = \begin{pmatrix} f_1\\ \vdots\\ f_n \end{pmatrix}
@@ -65,10 +65,10 @@
     \]
 \end{Note}
 
-\begin{Example}
+\begin{Example}~\\
     Дано
     \[
-        y^{(n)} + p_1(x)\,y^{(n-1)} + p_2(x)\,y^{(n-2)} + \dots + + p_{n-1}\,y' + p_n(x)\,y = f(x)
+        y^{(n)} + p_1(x)\,y^{(n-1)} + p_2(x)\,y^{(n-2)} + \dots + p_{n-1}\,y' + p_n(x)\,y = f(x)
     \]
     Требуется перейти к нормальной ситеме обыкновенных ДУ 1-го порядка.\\
     Решение.\\
@@ -79,15 +79,16 @@
     Тогда ответ
     \[
         \begin{cases}
+            y_1' = y_2\\
+            y_2' = \dots \; y_3\\
+            \vdots\\
+            y_{n-1}' = \dots \; \dots \; y_n\\
             y_n' = -p_n\,y_1 - p_{n-1}\,y_2 - \dots - p_1\,y_n + f(x)\\
-            y'_{n-1} = \frac{-p_n\,y_1 - p_{n-1}\,y_2 - \dots - p_2\,y_{n-1} + f(x)}{p_1(x)} - y'_n\\
-            \dots\\
-            y'_1 = \frac{- y_1\,p_n(x) + f(x)}{p_{n-1}} - y'_2
         \end{cases}
     \]
 \end{Example}
 
-\begin{Th}
+\begin{Th}~\\
     Пусть 
     \[
         \begin{cases}
@@ -100,7 +101,7 @@
     
     Тогда если функции
     \[
-        f_1,\; \dots,\; f_n,\; \frac{\delta f_i}{\delta y_j} \qquad 1 \leqslant i \leqslant n \quad 1\leqslant j \leqslant n
+        f_1,\; \dots,\; f_n,\qquad \frac{\delta f_i}{\delta y_j} \quad 1 \leqslant i \leqslant n \quad 1\leqslant j \leqslant n
     \]
     непрерывны в области $D \subset \bb{R}^{n+1}$, а $M_0(x_0,\; y^0_1,\; \dots,\; y^0_n)$ --- внутренняя точка области $D$, то $\exists \delta > 0$ и существует единственное решение 
     \[
@@ -141,13 +142,13 @@
             y'_n = f_n(x, \vec{y})\\
         \end{cases}
     \]
-    это равносильно
-    \[
-        dx = \frac{dy_1}{f_1(x, \vec{y})},\; \dots,\; \frac{dy_n}{f_n(x, \vec{y})}
-    \]
     Воспользуемся $dy_i = y'_i(x)\,dx$, получим
     \[
-        1 = \frac{y'_1}{f_1(x, \vec{y})},\; \dots,\; \frac{y'_n}{f_n(x, \vec{y})}
+        dx = \frac{dy_1}{f_1(x, \vec{y})} = \dots = \frac{dy_n}{f_n(x, \vec{y})}
+    \]
+    или
+    \[
+        1 = \frac{y'_1}{f_1(x, \vec{y})} = \dots =  \frac{y'_n}{f_n(x, \vec{y})}
     \]
     
     Если интегральная кривая $L$ проходит через точку $M_0(x_0,\; y^0_1,\; \dots,\; y^0_n)$ то касательные к ней удовлетворяют системе линеных алгебраических уравнений
@@ -156,7 +157,7 @@
     \]
 \end{Note}
 
-\begin{Note}
+\begin{Note}~\\
     Систему ДУ можно свести к уравнению высокого порядка относительно одной функции с помощью метода исключения неизвестной.
 \end{Note}
 
@@ -179,13 +180,30 @@
     Заменяем (и исключаем) $z$ получаем
     \begin{gather*}
         y'' = 1 + x + 2\,y + y' - x\\
-        y'' - y' - 2\,y = 1\\
+        y'' - y' - 2\,y = 1
+    \end{gather*}
+    Таким образом, получили ЛНДУ. Решаем сначала соотвествующее однородное
+    \begin{gather*}
         P(\lambda) = \lambda^2 - \lambda - 2 = (\lambda + 1)\,(\lambda - 2)\\
         \alpha_1 = -1 \quad \alpha_2 = 2 \quad k_{1, 2} = 1
     \end{gather*}
-    Получаем ФСР $\{e^{-x}\,\; e^{2\,x}\}$ и тогда,
-    \begin{gather*}
+    Получаем ФСР $\{e^{-x},\; e^{2\,x}\}$ и тогда,
+    \begin{equation*}
         y_{\text{о.о.}} = C_1\,e^{-x} + C_2\,e^{2x}\\
+    \end{equation*}
+    Теперь решаем неоднородное, по условию видим
+    \[
         \alpha = 0,\quad k = 0,\quad m=0
-    \end{gather*}  
+    \]
+    Пусть
+    \begin{gather*}
+         y = A, \quad \Rightarrow \quad y' = 0, \; y'' = 0 \\
+         -2\, A = 1 \quad A = -\frac{1}{2} 
+    \end{gather*}
+    Таким образом, ответ
+    \begin{align*}
+        y &= -\frac{1}{2} + C_1\,e^{-x} + C_2\,e^{2\,x}\\
+        z &= y' - x = -x - C_1\,e^{-x} + 2\,C_2\,e^{2\,x}
+    \end{align*}
+    
 \end{Example}
