@@ -1,10 +1,10 @@
 \part{Числовые ряды}
 \section{Основные определения}
 
-\begin{Note}[\textcolor{red}{Некоторые случаи рядов}]
+\begin{Note}[Некоторые случаи рядов]~\\
     Вещественное число можно представить в следующем виде
     \[
-        x \in \bb{R},\; x = A,a_1\,a_2\,\dots\,a_n\,\dots
+        x \in \bb{R},\; x = A,a_1a_2\dots a_n\dots
     \]
     где
     \[
@@ -14,7 +14,7 @@
     \[
         x = A + \frac{a_1}{10} + \frac{a_2}{10^2} + \dots + \frac{a_n}{10^n} + \dots 
     \]
-    Из этого можно выделить рациональное число  
+    Из этого можно выделить конечную десятичную дробь  
     \[
         x_n = A,a_1\,a_2\,\dots\,a_n \in \bb{Q}
     \]
@@ -39,13 +39,13 @@
     \[
         b_1\,\frac{1-q^n}{1-q} \rightarrow \frac{b_1}{1-q} \quad (n \rightarrow + \infty)
     \]
-    Значит
+    Значит, формула суммы бесконечно убывающей геометрической прогресси равна
     \[
         S_n = \sum^{\infty}_{n = 1}b_1\,q^{n-1} = \frac{b_1}{1-q}
     \]
 \end{Note}
 
-\begin{Def}[Числовой ряд]
+\begin{Def}[Числовой ряд]~\\
 	Пусть $\{a_n\}$ --- последовательность чисел, $a_n \in \bb{R}$. Тогда формальное выражение 
     \[
         \sum^{+\infty}_{n = 1}\,a_n
@@ -57,7 +57,7 @@
     --- члены ряда, а функция $n \mapsto a_n$ называется общим членом ряда.
 \end{Def}
 
-\begin{Def}
+\begin{Def}~\\
 	Пусть $a_n$ - числовой ряд. Тогда:
 	\begin{enumerate}
         \item n-ная частичная сумма ряда имеет вид
@@ -78,14 +78,14 @@
     \end{enumerate}
 \end{Def}
 
-\begin{Def}
+\begin{Def}~\\
 	Пусть $\sum^{+\infty}_{n = 1}a_n$ --- числовой ряд. Тогда $\forall n \in \bb{N}$ ряд $\sum^{+\infty}_{k = n + 1}a_k$
     нызывается $n$-ым остатком ряда $\sum^{+\infty}_{n = 1}a_n$
 \end{Def}
 
 \pagebreak
 
-\begin{Note}.\\
+\begin{Note}~
     \begin{enumerate}
         \item[\textbullet] Если ряд $\sum^{+\infty}_{n = 1}a_n$
         сходится и его сумма равна $S$, то $\forall n \in \bb{N}$ его $n$-ый остаток сходится и его сумма $S_k = S - S_n$.
@@ -95,39 +95,42 @@
     
 \end{Note}
 
-\begin{Note}
-    Свойства сходящихся рядов
+\begin{Note}[Свойства сходящихся рядов]~
     \begin{enumerate}
         \item Сумма сходящихся рядов равна сходящимуся ряду  
         \[
             \sum^{+\infty}_{n=1}a_n = S^{(A)} \quad \sum^{+\infty}_{n=1}b_n = S^{(B)}\; \Rightarrow\; \sum^{+\infty}_{n=1}(a_n + b_n) = S^{(A)} + S^{(B)}
         \]
          
-        \item При домножении сходящегося ряда на константу ряд остаётся сходящимся
+        \item При домножении сходящегося ряда на константу ряд остаётся сходящимся, а сумма увеличивается в разы домножаемой величены
         \[
-            \sum^{+\infty}_{n=1}a_n = S^{(A)} \quad \Rightarrow \quad \forall a \in \bb{R} \quad \sum^{+\infty}_{n=1}\alpha\,a_n = \alpha\,S^{(A)}
+            \sum^{+\infty}_{n=1}a_n = S \quad \Rightarrow \quad \forall a \in \bb{R} \quad \sum^{+\infty}_{n=1}\alpha\,a_n = \alpha\,S
         \]
     \end{enumerate}
 \end{Note}
 
-\begin{Proof} (Пункт 1)
-    \begin{gather*}
-        S^{(A+B)}_n = S^{(A)}_n + S^{(B)}_n \rightarrow S^{(A)} + S^{(B)}\\
-        S^{(A+B)}_n \rightarrow S^{(A+B)}
-    \end{gather*}
+\begin{Proof}
+    \begin{enumerate}
+        \item $S^{(A+B)}_n = (S^{(A)}_n + S^{(B)}_n) \rightarrow (S^{(A)} + S^{(B)})$\\
+        Таким образом, $S^{(A+B)}_n \rightarrow S^{(A+B)}$
+        
+        \item $S^{(\alpha\,A)}_n = \sum^{+\infty}_{n=1}\alpha\,a_n = \alpha\,S^{(A)}_n \rightarrow \alpha\,S^{(A)}\\$
+        Таким образом, $S^{(\alpha\,A)} \rightarrow \alpha\,S^{(A)}$
+    \end{enumerate}
 \end{Proof}
 
-\begin{Proof} (Пункт 2)
-    \begin{gather*}
-        S^{(\alpha\,A)}_n = \sum^{+\infty}_{n=1}\alpha\,a_n = \alpha\,S^{(A)}_n \rightarrow \alpha\,S^{(A)}\\ S^{(\alpha\,A)} \rightarrow \alpha\,S^{(A)}
-    \end{gather*}
-\end{Proof}
-
-\begin{Th}[Необходимое условие сходимости]
-	Если ряд\\ $\sum^{+\infty}_{n=1}a_n = S$, то $\exists\, \lim_{n \rightarrow +\infty}a_n = 0$
+\begin{Th}[Необходимое условие сходимости]~\\
+	Если ряд 
+    \[
+        \sum^{+\infty}_{n=1}a_n = S
+    \]
+    то 
+    \[
+        \exists\, \lim_{n \rightarrow +\infty}a_n = 0
+    \]
 \end{Th}
 
-\begin{Proof}
+\begin{Proof}~\\
     Из определения частичной суммы ряда следует
 	\[
         a_n = S_n - S_{n - 1} = (a_1 + a_2 + \dots + a_{n-1} + a_n) - (a_1 + a_2 + \dots + a_{n-1})
@@ -138,58 +141,81 @@
     \]
 \end{Proof}
 
-\begin{Note}
-	Если $a_n \nrightarrow 0 \quad (n \rightarrow \infty)$, то ряд расходится.
+\begin{Note}~\\
+	Если $a_n \nrightarrow 0$ при $n \rightarrow \infty$, то ряд расходится.
 \end{Note}
 
-\textcolor{red}{Не очень понятен пример}
-\begin{Example}
+Необходимый признак не доказывает, что ряд сходится, согласно ему. Он лишь показывает возможную(!) сходимость. А если признак указывает на расходимость, то он точно расходится.
+
+\begin{Example}~\\
     Дано
 	\[
         \sum^{+\infty}_{n=1}ln(1 + \frac{1}{n})
     \]
-    С одной стороны (через формулы эквивалентности у пределов (1 сем.))
-    \begin{gather*}
-        a_n = ln(1 + \frac{1}{n}) \sim \frac{1}{n}\\
+    С одной стороны (через формулы эквивалентности б.м. функций (1 сем.))
+    \begin{equation*}
+        a_n = \ln\left(1 + \frac{1}{n}\right) \sim \frac{1}{n} \qquad (n \rightarrow \infty)
+    \end{equation*}
+    Значит
+    \[
         a_n \rightarrow 0 \qquad (n \rightarrow \infty)
-    \end{gather*}
+    \]
     С другой
     \begin{align*}
-        S_n &= \sum^{n}_{k=1}\ln\left(1 + \frac{1}{k}\right) = \ln\left(\frac{2}{1}\right) + \ln\left(\frac{3}{2}\right) + \dots + \ln\left(\frac{n + 1}{\cancel{n}}\right) =\\
+        S_n &= \sum^{n}_{k=1}\ln\left(1 + \frac{1}{k}\right) = \ln\left(\frac{2}{1}\right) + \ln\left(\frac{3}{2}\right) + \dots + \ln\left(\frac{n + 1}{n}\right) =\\
         &= \ln\left(\frac{\cancel{2}}{1} \cdot \frac{\cancel{3}}{\cancel{2}} \dots \frac{n + 1}{\cancel{n}}\right) = \ln(n + 1)
     \end{align*}
     Таким образом
     \[
         S_n = \ln(n + 1) \rightarrow +\infty 
     \]
-    значит ряд расходится и тогда 
+    Ряд расходится, хоть и пределы его слагаемых стремятся к нулю
     \[
         a_n \rightarrow 0 \quad (n \rightarrow +\infty)
     \]
 \end{Example}
 
-\begin{Th}[Критерий Коши сходимости числового ряда].\\
+Для доказательства сходимости используют следующие критерии
+
+\begin{Th}[Критерий Коши сходимости числового ряда]~\\
 	Если ряд $\sum^{+\infty}_{n=1}a_n$ сходится, то
     \[
-        \forall \epsilon > 0 \exists N \in N \forall n \geq N \forall p \in N |a_{n+1} + \dots + a_{n+p} < \epsilon|
+        \forall \varepsilon > 0 \quad \exists N \in \bb{N} \quad \forall n \geqslant N \quad \forall p \in N \quad |a_{n+1} + \dots + a_{n+p}| < \varepsilon
     \]
     Обратное утверждение также верно
 \end{Th}
 
-\begin{Proof}
-	$\sum^{+\infty}_{n=1}a_n$ сходится $\Leftrightarrow \exists lim_{n \rightarrow +\infty}S_n = S \in R \Leftrightarrow \forall \epsilon > 0 \exists N \in N \forall n \geq N \forall p \in N |S_{n+p} - S_n| < \epsilon$\\
-	$|S_{n+p}-S_n| = |a_{n+1} + ... + a_{n+p}| < \epsilon$\\
+\begin{Proof}~\\
+	Если ряд $\sum^{+\infty}_{n=1}a_n$ сходится, то это эквивалентно 
+    \[
+        \exists \lim_{n \rightarrow +\infty}S_n = S \in \bb{R}
+    \]
+    По определению предела по Коши это эвивалентно
+    \[
+        \forall \varepsilon > 0 \quad \exists N \in \bb{N} \quad \forall n \geq N \quad \forall p \in N \quad |S_{n+p} - S_n| < \varepsilon
+    \]
+    Последнее неравенство можно расписать
+	\[
+        |S_{n+p} - S_n| = |a_{n+1} + \dots + a_{n+p}| < \varepsilon
+    \]
 \end{Proof}
 
-\begin{Th}[Признак абсолютной сходимости]
+\begin{Th}[Признак абсолютной сходимости]~\\
 	Если ряд $\sum^{+\infty}_{n=1}|a_n|$ сходится, то и ряд $\sum^{+\infty}_{n=1}a_n$ сходится.
 \end{Th}
 
-\begin{Proof}
-	$\sum^{+\infty}_{n=1}|a_n|$ сходится $\Rightarrow \forall \epsilon > 0 \exists N \in N \forall n \geq N \forall p \geq 1 |a_{n+1}| + ... + |a_{n+p}| < \epsilon \Rightarrow |a_{n+1} + ... + a_{n+p}| \leq |a_{n+1}| + ... + |a_{n+p}| < \epsilon$\\
-	По критерию Коши ряд сходится.\\
+\begin{Proof}~\\
+	$\sum^{+\infty}_{n=1}|a_n|$ сходится, следовательно  по критерию Коши 
+    \begin{gather*}
+        \forall \varepsilon > 0 \quad \exists N \in \bb{N} \quad \forall n \geqslant \bb{N} \quad \forall p \geqslant 1 \quad ||a_{n+1}| + \dots + |a_{n+p}|| < \varepsilon
+    \end{gather*}
+    Воспользуемся неравенством треугольника, получим
+    \begin{gather*}
+        ||a_{n+1}| + \dots + |a_{n+p}|| \leq |a_{n+1}| + \dots + |a_{n+p}| < \varepsilon
+    \end{gather*}
+	По критерию Коши ряд сходится.
 \end{Proof}
 
-\begin{Def}
-	Если ряд $\sum^{+\infty}_{n=1}|a_n|$ сходится, ряд $\sum a_n$ называется абсолютно сходящимся.
+\begin{Def}~\\
+	Если ряд $\sum^{+\infty}_{n=1}|a_n|$ сходится, ряд $\sum^{+\infty}_{n=1} a_n$ называется абсолютно сходящимся.
 \end{Def}
