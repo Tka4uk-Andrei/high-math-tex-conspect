@@ -1,43 +1,78 @@
 \section{Сходимость знакопеременных рядов}
 
-\begin{Def}
-    Ряд $\sum_{n=1}^{+\infty}a_n$ наз. знакопеременным, если существует беск. много $n \in \mathbb{N} a_n>0$ 
- и существует беск. много $n\in \mathbb{N} a_n<0$\\
+\begin{Def}~\\
+    Ряд $\sum_{n=1}^{+\infty}a_n$ называют знакопеременным, если существует бесконечно много $n \in \bb{N} a_n>0$
+    и бесконечно много $k \in \mathbb{N} a_k<0$\\
 \end{Def}
 
-\begin{Def}
-    Ряд $\sum (-1)^{n-1} a_n = a_1-a_2+a_3-a_4+...$ наз. знакочередующимся, если $\forall n \in \mathbb{N} a_n>0$\\
+\begin{Def}~\\
+    Ряд 
+    \[
+        \sum (-1)^{n-1} a_n = a_1 - a_2 + a_3 - a_4 + \dots
+    \] 
+    называют знакочередующимся, если $\forall n \in \mathbb{N} \quad a_n > 0 $
 \end{Def}
 
-\begin{Def}[признак Лейбница сходимость знакоперем. рядов]
-    Пусть ряд $\sum_{n=1}^{+\infty} (-1)^{n-1} a_n $ удовл. след. условиям:\\
-    1)$\forall n \in \mathbb{N}, a_n>0$\\
-    2)$\{a_n\} \searrow$ строго т.е. $\forall n \in \mathbb{N}, a_{n+1}<a_n$\\
-    3)$\exists lim_{n->\infty}=0$\\
-    Тогда ряд $\sum_{n=1}^{+\infty} (-1)^{n-1} a_n = S$ сходится, S - его сумма, при этом\\
-    1)$a_1-a_2<S<a_1$\\
-    2)$\forall n \geqslant 1 |S-S_n|<a_{n+1}$\\
-\end{Def}
+\begin{Th}[признак Лейбница сходимость знакоперем. рядов]~\\
+    Пусть ряд $\sum_{n=1}^{+\infty} (-1)^{n-1} a_n $ удовлетворяет следующим условиям:
+    \begin{enumerate}
+        \item $\forall n \in \mathbb{N}, \quad a_n > 0$
+         
+        \item $\{a_n\} \searrow$ строго, то есть $\forall n \in \bb{N}, \quad a_{n+1}<a_n$
+        
+        \item $\exists \lim\limits_{n \to \infty}=0$
+        
+    \end{enumerate}
+    Тогда ряд $\sum_{n=1}^{+\infty} (-1)^{n-1} a_n = S$ сходится, $S$ - его сумма, при этом
+    \begin{enumerate}
+        \item $a_1-a_2<S<a_1$
+        
+        \item $\forall n \geqslant 1 \quad |S-S_n|<a_{n+1}$
+    \end{enumerate}
+\end{Th}
 
-\begin{Proof}
-    Рассмотрим $\{S_{2n}\}$\\
-    $S_{2n}=\underbrace{(a_1-a_2)}_{>0}+\underbrace{(a_3-a_4)}_{>0}+...+\underbrace{(a{2n-1}-a_{2n})}_{>0}$\\
-    $S_{2(n+1)}-S_{2n}=a_{2n+1}-a_{2n+2}>0 \forall n \geqslant 1, S_{2n}<S_{2(n+1)}=>\{S_{2n}\} \searrow$ строго\\
-    Теперь рассмотрим другую группировку\\
-    $S_{2n}=\underbrace{a_1}_{>0}-\underbrace{(a_2-a_3)}_{>0}-...-\underbrace{(a_{2n-2}-a_{2n-1})}_{>0}-\underbrace{a_{2n}}_{>0}$\\
-    =>$S_{2n}<a_1(n\geqslant 1), S_{2n}<a_1-a_2+a_3(n\geqslant 2)$\\
-    $S_{2n}$ огр. сверху\\
-    =>$\exists lim_{n->\infty}S_{2n}=S=sup_{n\geqslant 1} S_{2n}\geqslant a_1-(a_2-a_3)<a_1$\\
-    =>$\exists lim_{n->\infty}S_{2n+1}= lim_{n->\infty}(\underbrace{S_{2n}}_{->S}+\underbrace{a_{2n+1}}_{->0})=S$\\
-    =>$\exists lim_{n->\infty}S_{n}=S<a_1$\\
-    $\sum_{n=1}^{+\infty} (-1)^{n-1} a_n=a_2-a_3+a_4-...=a_1-S<a_2$\\
-    =>$a_1-a_2<S$(пункт 1 доказан)\\
-    Второй пункт доказ. аналогично\\
-    $(-1)^n\sum_{k=n+1}^{+\infty} (-1)^{k-1} a_k=a_{n+1}-a_{n+2}+...=\underbrace{(-1)^n(S-S_n)}_{0<a_{n+1}-a_{n+2}<}$\\
-    => $|S-S_n|<a_{n+1}$\\
+\begin{Proof}~\\
+    Рассмотрим $\{S_{2n}\}$ тогда
+    \[
+        S_{2\,n}=\underbrace{(a_1-a_2)}_{>0}+\underbrace{(a_3-a_4)}_{>0}+\dots+\underbrace{(a_{2\,n-1}-a_{2\,n})}_{>0} 
+    \]
+    Также заметим
+    \[
+        S_{2\,(n+1)} - S_{2\,n}= a_{2\,n+1}-a_{2\,n+2} > 0 \quad \forall n \geqslant 1
+    \]
+    Так как по условию $\{a_n\}$ возрастает строго, тогда $S_{2n}<S_{2(n+1)}$ и $\{S_{2n}\}$ строго возрастает.\\
+    Теперь рассмотрим другую группировку.
+    \[
+        S_{2n}=\underbrace{a_1}_{>0}-\underbrace{(a_2-a_3)}_{>0}-\dots-\underbrace{(a_{2n-2}-a_{2n-1})}_{>0}-\underbrace{a_{2n}}_{>0}
+    \]
+    Из этого следует 
+    \[
+        S_{2\,n}<a_1 \quad (n \geqslant 1) \qquad S_{2\,n}<a_1-a_2+a_3(n \geqslant 2)
+    \]
+    Значит $S_{2n}$ ограниченна сверху. Тогда
+    \begin{gather*}
+        \exists \lim\limits_{n \to \infty} S_{2\,n} = S = \sup\limits_{n\geqslant 1} S_{2\,n} \leqslant a_1-(a_2-a_3) < a_1
+    \end{gather*}
+    Значит
+    \begin{gather*}
+        \exists \lim\limits_{n \to \infty}S_{2\,n+1}= 
+        \lim\limits_{n\to\infty}(\underbrace{S_{2\,n}}_{\to S}+\underbrace{a_{2n+1}}_{\to 0})=S\\
+        \exists \lim\limits_{n \to \infty}S_{n}=S<a_1
+    \end{gather*}
+    Таким образом
+    \[
+        \sum_{n=2}^{+\infty} (-1)^{n-1} a_n=a_2-a_3+a_4-\dots=a_1-S<a_2
+    \]
+    Значит $a_1-a_2<S$ (пункт 1 доказан)\\
+    Второй пункт доказывается аналогично\\
+    \[
+        (-1)^n\sum_{k=n+1}^{+\infty} (-1)^{k-1} a_k=a_{n+1}-a_{n+2} + \dots =\underbrace{(-1)^n(S-S_n)}_{0 < a_{n+1}-a_{n+2} < a_{n + 1}}
+    \]
+    Таким образом $|S-S_n| < a_{n+1}$
 \end{Proof}
 
-\begin{Example}
+\textcolor{red}{не разобрано}
+\begin{Example}~\\
     Доказ. $\sum_{n=1}^{+\infty} \frac{(-1)^{n-1}}{n}$ сходится(не абсолютно)\\
     $\frac{(-1)^{n-1}}{n}$ - ряд Лейбница\\
     Решение:\\
@@ -46,36 +81,48 @@
     $\sum_{n=1}^{+\infty}| \frac{(-1)^{n-1}}{n}|=\sum_{n=1}^{+\infty}\frac{1}{n}$расход. (гарм. ряд)\\
 \end{Example}
 
-
-\begin{Example}
+\textcolor{red}{не разобрано}
+\begin{Example}~\\
 	$\sum^{\infty}_{n=1} \frac{(-1)^{n-1}}{n^2}$ - сходится абсолютно\\
 	$\sum^{\infty}_{n=1} \frac{(-1)^{n-1}}{ln(n+1)}$ - сходится (не абсолютно)\\
 \end{Example}
 
-\begin{Th}[Признак Дирихле]
-	Пусть $\sum^{infty}_{n=1}a_nb_n$ - числовой ряд, удовлетворяющий следующим условиям:\\
-	1) $\exists M > 0 : \forall n \in N |\sum^n_{k=1}a_k| \leq M$, то есть частичная сумма ряда ограничена\\
-	2) $\{b_n\} \rightarrow 0$, то есть $\forall n \geq 1, b_k > 0;$ $\forall n \geq 1 b_{n+1} < b_n;$ $\exists lim b_n = 0$\\
-	Тогда ряд $\sum^{infty}_{n=1}a_nb_n$ сходится и его сумма $|T| \leq Mb_1$\\
+\textcolor{red}{не разобрано}
+\begin{Th}[Признак Дирихле]~\\
+	Пусть $\sum^{infty}_{n=1}a_n\,b_n$ - числовой ряд, удовлетворяющий следующим условиям:
+    \begin{enumerate}
+        \item $\exists M > 0 : \forall n \in N |\sum^n_{k=1}a_k| \leq M$, то есть частичная сумма ряда ограничена
+        
+        \item $\{b_n\} \rightarrow 0$, то есть $\forall n \geq 1, b_k > 0;$ $\forall n \geq 1 b_{n+1} < b_n;$ $\exists lim b_n = 0$\\
+        Тогда ряд $\sum^{infty}_{n=1}a_nb_n$ сходится и его сумма $|T| \leq Mb_1$
+        
+    \end{enumerate}
 \end{Th}
 
-\begin{Proof}
-	$T_n = a_1b_1 + ... + a_nb_n = (a_1b_1) + (a_1b_2 + a_2b_2 - a_1b_2) + (a_1b_3 + a_2b_3 + a_3b_3 - a_1b_3 - a_2b_3) + ... + a_1b_n + a_2b_n + ... + a_nb_n - a_1b_n - a_2 b_n - ... - a_{n_1}b_n = $\\
-	$ = S_1b_1 + S_2b_2 + ... + S_nb_n - S_1b_2 - S_2b_3 - ... - S_{n_1}b_n = S_1(b_1-b_2) + S_2(b_2 - b_3) + ... + S_{n-1}(b_{n-1} - b_n) + S_nb_n$\\
+\textcolor{red}{не разобрано}
+\begin{Proof}~\\
+	$T_n = a_1\,b_1 + \dots + a_n\,b_n = (a_1\,b_1) + (a_1\,b_2 + a_2\,b_2 - a_1\,b_2) + (a_1\,b_3 + a_2\,b_3 + a_3\,b_3 - a_1\,b_3 - a_2\,b_3) + \dots + a_1\,b_n + a_2\,b_n + \dots + a_n\,b_n - a_1\,b_n - a_2\,b_n - \dots - a_{n_1}\,b_n = $\\
+	$ = S_1b_1 + S_2b_2 + \dots + S_nb_n - S_1b_2 - S_2b_3 - \dots - S_{n_1}b_n = S_1(b_1-b_2) + S_2(b_2 - b_3) + \dots + S_{n-1}(b_{n-1} - b_n) + S_nb_n$\\
 	$\sum^{infty}_{k=1}a_kb_k = \sum^{\infty}_{k=1} S_k(b_k - b_{k+1})$\\
 	$|S_k(b_k - b_{k+1})| < M(b_k - b_{k+1})$\\
 	$\sum^{n}_{k=1}a_kb_k \leq \sum^{n}_{k=1} |S_k(b_k - b_{k+1})| < M\sum^{n}_{k=1}(b_k - b_{k+1}) = M(b_1 - b_n) \rightarrow Mb_1$\\
 	По признаку сравнения ряд $\sum^{+\infty}_{n=1}S_k(b_k - b_{k+1}) = T$ - сходится\\
-	$T_n = \sum^{n-1}_{k=1} S_k(b_k - b_{k+1}) + S_nb_n \rightarrow T \Rightarrow \exists limT_n = T$\\
-	Ч.т.д\\
+	$T_n = \sum^{n-1}_{k=1} S_k(b_k - b_{k+1}) + S_nb_n \rightarrow T \Rightarrow \exists limT_n = T$
 \end{Proof}
 
-\begin{Note}
-	$\sum (-1)^{n-1}b_n, b_n \rightarrow 0$\\
-	$a_n = (-1)^{n-1}, |S_n| \leq 1$
+\begin{Note}~\\
+	Если
+    \[
+        \sum_{n=1}^{+\infty}(-1)^{n-1}b_n, \qquad b_n \rightarrow 0
+    \]
+    То значение суммы можно свести к следующему
+	\[
+        a_n = (-1)^{n-1}, |S_n| \leqslant 1    
+    \]
 \end{Note}
 
-\begin{Example}
+\textcolor{red}{Не разобран}
+\begin{Example}~\\
 	$\sum^{+\infty}_{n=1} \frac{cos n\alpha}{n^{\beta}}$\\
 	$1) \alpha = 2\Pi k, k \in Z$ $cos(2 \Pi nk) = 1 \Rightarrow \sum^{\infty}_{n=1} \frac{1}{n^{\beta}}, \beta \leq 0 \Rightarrow \frac{1}{n^{\beta}}$ расходится, иначе сходится\\
 	$2) \alpha \neq 2 \Pi k$\\
