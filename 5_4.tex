@@ -1,0 +1,19 @@
+\section{Равенство Парсеваля}
+\begin{Def}
+	Система функций $U = \{\phi_n(x)\}$ называется полной, если $\forall f(x)$, удовлетворяющей условиям разложимости в ряд Фурье по системе $U$, справеливо равенство Парсеваля:  $\sum\limits_{k=1}^{+\infty}\lambda_k^2 a_k^2 = \int\limits_{a}^{b}f^2(x)dx$
+\end{Def}
+
+\begin{Note}
+	Пусть задана полная система ортогональных функций $\{\phi_n\}$ на $[a;b]$, тогда, если функция $f(x) \in C_{[a;b]}$, то, если $\forall k \in \bb{n} \quad f(x)$ ортогональна $\phi_k(x)$, то $\forall x \in [a;b] \quad f(x) = 0$
+\end{Note}
+
+\begin{Proof}
+	$a_k = \frac{1}{\lambda_k}(f(x);\phi_k(x)) = 0 \Rightarrow \sum\limits_{k=0}^{+\infty}a_k \phi_k(x) = 0 = f(x)$
+\end{Proof}
+
+\begin{Example}
+	$\lambda_0^2 = \int\limits_{0}^{2\pi}1^2dx = 2\pi; \lambda_{n, \cos} = \int\limits_{0}^{2\pi}\cos^2(nx)dx = \frac{1}{2}\int\limits_{0}^{2\pi}(1+\cos(2nx))dx = \pi; \lambda_{n, \sin} = \int\limits_{0}^{2\pi}\sin^2(nx)dx = \frac{1}{2}\int\limits_{0}^{2\pi}(1-\cos(2nx))dx = \pi$\\
+	$f(x) = \frac{a_0}{2} + \baserow{a_n\cos(nx) + b_n\sin(nx)}$, тогда $\frac{a_0}{2} + \baserow{a_n^2 + b_n^2} = \frac{1}{2}\int\limits_{0}^{2\pi}f^2(x)dx$ - равенство Парсеваля для тригонометрических функций.\\
+	Следовательно: $\int\limits_{0}^{2\pi}f(x)\cos(nx)dx \rightarrow 0 (n \rightarrow +\infty); \quad 
+	\int\limits_{0}^{2\pi}f(x)\sin(nx)dx \rightarrow 0 (n \rightarrow +\infty)$
+\end{Example}

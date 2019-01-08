@@ -1,0 +1,56 @@
+\section{Обобщённый ряд Фурье по ортогональной системе функций}
+
+\begin{Def}
+	Пусть функция $f(x)$ определена на $[a;b]$. Говорят, что $f(x)$ из класса функций, интегрируемых "с квадратом" $\Leftrightarrow \exists \int\limits_{a}^{b}|f(x)|dx$ и $\exists \int\limits_{a}^{b}f^2(x)dx$. Заметим что, если $f(x)$ удовлетворяет условиям Дирихле на $[a;b]$ то она интегрируема "с квадратом"
+\end{Def}
+
+\begin{Def}
+	Система функций $\{\phi_1(x); \dots ; \phi_n; \dots\}$ определённых и мнтегрируемых с квадратом на $[a;b]$, а также удовлетворяющих условиям ортогональностиназывается общей ортогональной системой функций. При этом: $\forall n \in \bb{N} \|\phi_n(x)\|^2 = \lambda_n^2 = \int\limits_{a}^{b}\phi_n^2(x)dx > 0$
+\end{Def}
+
+\begin{Def}
+	Пусть $U = \{\phi_1(x); \dots ; \phi_n; \dots\}$ - общая ортогональная система функций на $[a;b]$ и функция $f(x)$ интегрируема с квадратом на $[a;b]$. Тогда $a_n = \frac{1}{\lambda_n^2}\int\limits_{a}^{b}f(x)\phi_n(x) dx$ называют коэффициентами Фурье функции $f(x)$ по системе функций $U$.\\
+	При этом ряд $\baserow{a_n\phi_n(x)}$ - обобщённый ряд Фурье функции $f(x)$ по системе $U$
+\end{Def}
+
+\begin{Note}
+	Если $f(x) = \baserow{c_n\phi_n(x)}, x \in [a;b]$ и ряд равномерно сходится к $f(x), x \in [a;b]$, то такое разложение единственно и $\forall n \in \bb{n} c_n = a_n$
+\end{Note}
+
+\begin{Proof}(Схема)\\
+	$\forall k: \baserow{c_n\phi_n(x)\phi_k(x)} = f(x)\phi_k(x)$ - равномерно сходящийся ряд к сумме $f(x)\phi_k(x) \Rightarrow [\text{Почленно интегрируем}] \Rightarrow \baserow{c_n(\phi_n(x;\phi_k(x)))} = (f;\phi_k(x))$, т.к. равноемерно сходящиеся ряды можно почленно интегрировать.\\
+	$(\phi_i(x);\phi_j(x)) = 
+	\begin{cases}
+		0, n \neq k\\
+		\lambda_k^2, k = n
+	\end{cases} \Rightarrow c_k\lambda_k^2 = \int\limits_{a}^{b}f(x)\phi_k(x)dx \Rightarrow c_k = \frac{1}{\lambda_k^2}\int\limits_{a}^{b}f(x)\phi_k(x) dx = a_k$
+\end{Proof}
+
+\begin{Def}
+	Пусть $f(x)$ интегрируема с квадратом на $[a;b]$ и $U = \{\phi_1(x); \dots ; \phi_n; \dots\}$ - общая ортогональная система функций на $[a;b]$.  Тога для любых чисел $c_1 \dots c_n$ положим $\delta_n^2 = \int\limits_{a}^{b}(f(x) - \sum\limits_{k=1}^{n}c_k\phi_k(x))^2dx$, тогда $\delta_n^2$ - среднеквадратичное отклонение функции $f(x)$ от многочлена $\sum\limits_{k=1}^{n}c_k\phi_k(x)$
+\end{Def}
+
+\begin{Th}(об экстремальном свойстве коэффициентов Фурье)\\
+	В условиях определения 4 минимум $\underset{c_1 \dots c_n}{\min}\delta_n^2$ достигается при $c_k=a_k(k = 1\dots n)$, где $a_k$ - коэффициенты Фурье функции $f(x)$ на $[a;b]$
+\end{Th}
+
+\begin{Proof}
+	$\delta_n^2 = \int\limits_{a}^{b}(f(x) - \sum\limits_{k=1}^{n}c_k\phi_k(x))^2dx = \int\limits_{a}^{b}f^2(x)dx - 2\sum\limits_{k=1}^{n}c_k(f(x);\phi_k(x)) + \sum\limits_{k=1}^{n}\sum\limits_{l=1}^{n}c_k c_l(\phi_k(x);\phi_l(x)) = \int\limits_{a}^{b}f^2(x)dx - 2\sum\limits_{k=1}^{n}\lambda_k^2 a_k c_k + \sum\limits_{k=1}^{n}c_k^2 \lambda_k^2 = [\lambda_k^2 c_k^2 - 2(\lambda_k^2 c_k)a_k + \lambda_k^2 a_k^2 - \lambda_k^2 a_k^2 = \lambda_k^2(c_k - a_k)^2 - \lambda_k^2 a_k^2] = \int\limits_{a}^{b}f^2(x)dx + \sum\limits_{k=1}^{n}\lambda_k^2(c_k - a_k)^2 - \sum\limits_{k=1}^{n}\lambda_k^2 a_k^2 \geq \int\limits_{a}^{b}f^2(x) - \sum\limits_{k=1}^{n}\lambda_k^2 a_k^2 = \underset{c_1 \dots c_n}{\min}\delta_n^2$ и равенство достигается при $c_k = a_k (k = 1 \dots) \Rightarrow \underset{c_1 \dots c_n}{\min}\delta_n^2 = \int\limits_{a}^{b}f^2(x)dx - \sum\limits_{k=1}^{n}\lambda_k^2 a_k^2 = \delta_n^2 (a_1 \dots a_n)$
+\end{Proof}
+
+\begin{Seq}(Неравенство Бесселя)\\
+	Пусть функция $f(x)$ интегрируема с квадратом на $[a;b]$ и $U = \{\phi_n(x)\}$ ортогональная система функций на $[a;b]$ в смысле определения 2. Тогда $\sum\limits_{k=1}^{n}\lambda_k^2 a_k^2 \leq \int\limits_{a}^{b}f^2(x)dx$, где $a_k = \frac{1}{\lambda_k^2}\int\limits_{a}^{b}f(x)\phi_k(x)dx$ - коэффициенты Фурье функции $f(x)$, а число $n$ - произвольно. И, следовательно, числовой ряд $\sum\limits_{k=1}^{+\infty}\lambda_k^2 a_k^2$ сходится и его сумма $\sum\limits_{k=1}^{+\infty}\lambda_k^2 a_k^2 \leq \int\limits_{a}^{b}f^2(x)dx$
+\end{Seq}
+
+\begin{Proof}
+	$\delta_n^2 (c_1 \dots c_n) \geq 0 \Rightarrow \delta_n^2 (a_1 \dots a_n = \sum\limits_{k=1}^{n}\lambda_k^2 a_k^2 - \int\limits_{a}^{b}f^2(x)dx \geq 0 \Rightarrow \sum\limits_{k=1}^{n}\lambda_k^2 a_k^2 \leq \int\limits_{a}^{b}f^2(x)dx$\\
+	Ряд $\sum\limits_{k=1}^{+\infty}\lambda_k^2 a_k^2$ положительный ряд, частичные суммы которого ограничены сверху  $\Rightarrow$ ряд сходится $\sum\limits_{k=1}^{+\infty}\lambda_k^2 a_k^2 = \sup\sum\limits_{k=1}^{n}\lambda_k^2 a_k^2 \leq \int\limits_{a}^{b}f^2(x)dx$
+\end{Proof}
+
+\begin{Seq}
+	В условиях теоремы 1 $\frac{1}{\lambda_k^2}\int\limits_{a}^{b}f(x)\phi_k(x)dx \rightarrow 0 (k \rightarrow +\infty)$
+\end{Seq}
+
+\begin{Proof}
+	Ряд $\sum\limits_{k=1}^{+\infty}\lambda_k^2 a_k^2$ сходится $\Rightarrow \lambda_k^2 a_k^2 \rightarrow 0 \Rightarrow \lambda_k a_k \rightarrow 0 \Rightarrow \frac{1}{\lambda_k^2}\int\limits_{a}^{b}f(x)\phi_k(x)dx \rightarrow 0 (k \rightarrow +\infty)$
+\end{Proof}
