@@ -216,7 +216,7 @@
 \begin{Th}
     Пусть 
     \[
-        L(y)=y^{(n)} + \alpha_1\,y^{(n-1)} + \dots +\alpha_n\,y=Q_m(x)\,\cos(\beta\,x) + R_m(x)\,e^{\beta\,x}
+        L(y)=y^{(n)} + \alpha_1\,y^{(n-1)} + \dots +\alpha_n\,y=Q_m(x)\,e^{\alpha\,x}\,\cos(\beta\,x) + R_m(x)\,e^{\alpha\,x}\,\sin(\beta\,x)
     \] 
     где $Q_m(x),\; R_m(x)$ - многочлены степени $\leqslant m$, 
     \[
@@ -254,7 +254,7 @@
     Рассмотрим вспомогательное ДУ 
     \begin{gather*}
         L(y) = (Q_m - i\,R_m)\,e^{(\alpha + i\,\beta)\,x}\\
-        \Re (Q_m - i\,R_m)\,e^{(\alpha + \beta\,i)\,x} = e^{\alpha\,x}(Q_m\,\cos(\alpha\,x) + R_m\,\sin(\beta\,x))
+        \Re (Q_m - i\,R_m)\,e^{(\alpha + \beta\,i)\,x} = e^{\alpha\,x}(Q_m\,\cos(\beta\,x) + R_m\,\sin(\beta\,x))
     \end{gather*}
     По предыдущей теореме 2, следует что существуют мн-ны степени $\leqslant m$,
     \[
@@ -270,7 +270,7 @@
     \]
     \textcolor{red}{Непонятно!}\\
     \[
-        \psi(x) - \Re(y(x)) = x^ke^{\alpha x}(u(x)cos\beta x + V(x)sin \beta x)
+        \psi(x) = \Re(y(x)) = x^ke^{\alpha x}(u(x)cos\beta x + V(x)sin \beta x)
     \] 
     является решением\\
     \[
