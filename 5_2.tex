@@ -39,7 +39,7 @@
 \end{Def}
 
 \begin{Th}
-	Пусть $f(x)$ - функция, а $\{\phi_0, \dots \phi_n \dots\}$ - система функций, заданные на $[a;b]$. $f(x)$ можно представить в виде ряда $\sum\limits_{k=1}{n}c_k\phi_k(x)$. Тогда $c_k = \frac{(f;\phi_k)}{\|\phi_k\|^2}$
+	Пусть $f(x)$ - функция, а $\{\phi_0, \dots \phi_n \dots\}$ - система функций, заданные на $[a;b]$. $f(x)$ можно представить в виде ряда $\sum\limits_{k=1}^{n}c_k\phi_k(x)$. Тогда $c_k = \frac{(f;\phi_k)}{\|\phi_k\|^2}$
 \end{Th}
 
 \begin{Proof}
@@ -133,7 +133,7 @@
 	f(x) = \frac{a_0}{2} + \baserow{a_n\cos(\frac{nx\pi}{l}) + b_n\sin(\frac{nx\pi}{l})}
 	$$
 	$$
-	a_n = \frac{1}{l}\int_{-l}^{l}f(x)\cos(\frac{nx\pi}{l})dx; \quad a_n = \frac{1}{l}\int_{-l}^{l}f(x)\sin(\frac{nx\pi}{l})dx
+	a_n = \frac{1}{l}\int_{-l}^{l}f(x)\cos(\frac{nx\pi}{l})dx; \quad b_n = \frac{1}{l}\int_{-l}^{l}f(x)\sin(\frac{nx\pi}{l})dx
 	$$
 \end{Note}
 
