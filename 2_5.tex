@@ -202,6 +202,8 @@
 
 
 \begin{Note}(отыскание интегрирующего множителя в некоторых случаях)\\
+    \begin{enumerate}
+    	\item 
     Пусть 
     \[
         \frac{M'_y-N'_x}{N}=f(x)
@@ -210,20 +212,40 @@
     \[
         \mu=\mu(x) \qquad \mu(x)=e^{\int f(x)dx}
     \]
+    \item А если  
+    \[
+	    \frac{M'_y-N'_x}{M}=g(y)
+    \]
+    Тогда существует интегрирующий множитель
+    \[
+    \mu=\mu(y) \qquad \mu(y)=e^{-\int g(y)dy}
+    \]
+    \end{enumerate}
 \end{Note}  
 
 \begin{Proof}
-    Рассмотрим
-    \begin{gather*}
-        \mu'_y\,M+\mu\,M'_y=\mu'_x\,N+\mu\,N'_x\\
-        \mu\,(M'_y-N'_x)=\mu'_x\,N-\mu'_y\,M\\
-    \end{gather*}
-    Если $\mu = \mu(x) \quad \mu''_y \equiv 0$, тогда
-    \begin{gather*}
-        \frac{du}{\mu}=\frac{M'_y-N'_x}{N}\,dx=f(x)\,dx\\
-        \ln|\mu|=\int f(x)\,dx\\
-        \mu(x)=e^{\int f(x)\,dx}\\
-    \end{gather*}
+    \begin{enumerate}
+    	\item Рассмотрим
+    	\begin{gather*}
+    	    \mu'_y\,M+\mu\,M'_y=\mu'_x\,N+\mu\,N'_x\\
+    	    \mu\,(M'_y-N'_x)=\mu'_x\,N-\mu'_y\,M\\
+    	\end{gather*}
+    	Если $\mu = \mu(x) \quad \mu'_y \equiv 0$, тогда
+    	\begin{gather*}
+    	    \frac{d\mu}{\mu}=\frac{M'_y-N'_x}{N}\,dx=f(x)\,dx\\
+    	    \ln|\mu|=\int f(x)\,dx\\
+    	    \mu(x)=e^{\int f(x)\,dx}\\
+    	\end{gather*}
+    	\item Если
+    	\[
+    	\mu = \mu(y) \Rightarrow \mu'_x \equiv 0\]
+    	тогда 
+    	\[
+    	\frac{d\mu}{\mu} = -\frac{M'_y-N'_x}{M}\,dy=-g(y)\,dy\]
+    	\[
+    	\mu(y)=e^{-\int g(y)\,dy}\\
+    	\]
+    \end{enumerate}
 \end{Proof}
 
 \begin{Example}
